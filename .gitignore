@@ -9,7 +9,12 @@ instance/
 .coverage
 htmlcov/
 
+# editor files
 .idea/*
+
+# react dependencies
+node_modules/*
+package-lock.json
 
 dist/
 build/
