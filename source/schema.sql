@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS deck;
+
+CREATE TABLE deck (
+    deck_id TEXT PRIMARY KEY
+);
