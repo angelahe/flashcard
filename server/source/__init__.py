@@ -37,5 +37,8 @@ def create_app(test_config=None):
 
     from . import db
     db.init_app(app)
+
+    from . import deck
+    app.register_blueprint(deck.bp)
     
     return app
