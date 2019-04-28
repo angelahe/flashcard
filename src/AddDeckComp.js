@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import Client from './Client';
 
 class AddDeckComp extends React.Component {
     constructor() {
@@ -9,10 +10,7 @@ class AddDeckComp extends React.Component {
     }
 
     handleAddClick = () => {
-        console.log("in handleAddClick")
-        //call 
-        const deckId = "FakeID"
-        this.setState ({currentDeck : deckId});
+        Client.createDeck().then(id => this.setState({currentDeck : id}));
     } 
 
     render() {
