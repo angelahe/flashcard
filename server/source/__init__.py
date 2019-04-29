@@ -1,5 +1,5 @@
 """
-Application Factory to tell Python that the source directory should be 
+Application Factory to tell Python that the source directory should be
 treated as a package
 
 from http://flask.pocoo.org/docs/1.0/tutorial/factory/
@@ -8,9 +8,11 @@ import os
 
 from flask import Flask
 
-
 def create_app(test_config=None):
-    # create and configure the app
+    """
+    create and configure the app
+    import the database
+    """
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',

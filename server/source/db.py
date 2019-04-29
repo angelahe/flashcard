@@ -9,6 +9,7 @@ from flask.cli import with_appcontext
 
 
 def get_db():
+    """connect to the database"""
     if 'db' not in g:
         g.db = sqlite3.connect(
             current_app.config['DATABASE'],
@@ -20,12 +21,15 @@ def get_db():
 
 
 def close_db(e=None):
+    """close the database"""
     db = g.pop('db', None)
 
     if db is not None:
         db.close()
 
+
 def init_db():
+    """initialize the database with the given schema"""
     db = get_db()
 
     with current_app.open_resource('schema.sql') as f:
@@ -39,8 +43,8 @@ def init_db_command():
     init_db()
     click.echo('Initialized the database.')
 
-# register with the application
+
 def init_app(app):
+    """Register with the application"""
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
-

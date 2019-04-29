@@ -11,12 +11,13 @@ bp = Blueprint('deck', __name__, url_prefix='/api/deck')
 
 @bp.route('', methods=['POST'])
 def create():
+    """insert row to db"""
     db = get_db()
-    id = str(uuid.uuid4())
+    deck_id = str(uuid.uuid4())
     db.execute(
-        'INSERT INTO deck (deck_id) VALUES (?)', (id,)
+        'INSERT INTO deck (deck_id) VALUES (?)', (deck_id,)
     )
     db.commit()
-    thisdeck={"id" : id}
+    thisdeck = {"id" : deck_id}
     body = json.dumps(thisdeck)
     return make_response((body, 201))
