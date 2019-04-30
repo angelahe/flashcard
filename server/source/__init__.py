@@ -8,6 +8,7 @@ import os
 
 from flask import Flask
 
+
 def create_app(test_config=None):
     """
     create and configure the app
@@ -42,5 +43,8 @@ def create_app(test_config=None):
 
     from . import deck
     app.register_blueprint(deck.bp)
+
+    from . import card
+    app.register_blueprint(card.bp)
     
     return app

@@ -17,7 +17,7 @@ class AddDeckComp extends React.Component {
     const { currentDeck } = this.state;
     return (
       <div>
-        <p>Welcome to Flashcards</p>
+        <p>Add a Deck</p>
         <button type="button" onClick={this.handleAddClick}>Add Deck</button>
         {currentDeck ? <p>current deck: {currentDeck}</p> : null}
       </div>
