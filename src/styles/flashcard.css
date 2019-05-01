@@ -1,0 +1,124 @@
+.AppContainer {
+  background-color: #e6f5ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+}
+
+.AppPanel {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: #1aa3ff;
+  margin: 10px;
+  height: auto;
+  width: 40%;
+  justify-content: flex-start;
+
+}
+.Header {
+  background-color: #1aa3ff;
+  border-radius: 10px;
+}
+
+.AppBtn {
+  color: white;
+  height: 35px;
+  width:35px;
+  padding:0px;
+  align-content: flex-start;
+  border-radius: 5px;
+  margin-left: 10px;
+
+}
+.ActionBox {
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+
+}
+.ItemBox {
+  border-radius: 10px;
+  padding: 10px;
+}
+.AppHeader {
+  background-color: #1aa3ff;
+  display:flex;
+  justify-content:space-between;
+}
+
+.AppList {
+  width: 96%;
+  padding: 5px;
+}
+
+.AppListItem {
+  background-color: #e6f5ff;
+}
+
+.AppListItem:active {
+  background-color: #ccebff;
+  justify-content: space-around;
+}
+
+.AddItem {
+  /*width: 50%;*/
+  font-weight: bold;
+  font-size: 1.5em;
+  justify-content: flex-start;
+  color: white;
+  background-color: #1aa3ff;
+  text-align: left;
+
+}
+.btnImg {
+  height: 35px;
+  width: 35px;
+  background-color: #1aa3ff;
+  margin:0;
+}
+
+.btnText {
+  height: 35px;
+  width: 200px;
+  background-color: #1aa3ff;
+  color: white;
+  font-size: 1.5em;
+  border-radius: 10px;
+
+}
+
+.DetailText {
+  color: #1aa3ff;
+  font-size: 1.5em;
+  align-items: flex-start;
+  justify-content: left;
+  text-align: left;
+  line-height: 1.5em;
+}
+
+.InputText {
+  color: #1aa3ff;
+  font-size: 1.5em;
+}
+
+.SummaryText {
+  color: #1aa3ff;
+  font-size: 1em;
+  align-items: flex-start;
+  text-align: left;
+  margin-left: 10px;
+  line-height: 1.5em;
+}
+
+hr {
+  color: darkblue;
+  height: 2px;
+}
+
+h2 {
+  padding: 1px;
+  color: #1aa3ff;
+}
+

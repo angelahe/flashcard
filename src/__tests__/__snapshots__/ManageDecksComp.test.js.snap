@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ManageDecksComp renders correctly 1`] = `
+<div>
+  <h1>
+    Manage Decks
+  </h1>
+  <div
+    className="AppContainer"
+  >
+    <div
+      className="AppPanel"
+    >
+      <div
+        className="ItemBox AppHeader"
+      >
+        <span
+          className="AddItem"
+        >
+          Add Deck
+        </span>
+        <button
+          className="AppBtn"
+          onClick={[Function]}
+        >
+          <img
+            alt="Add"
+            className="btnImg"
+            src="add_FFFFFF.png"
+          />
+        </button>
+      </div>
+      <div
+        className="AppList"
+      >
+        <p>
+          list of decks will go here
+        </p>
+      </div>
+    </div>
+    <div
+      className="AppPanel"
+    />
+  </div>
+  <div>
+    <div>
+      <p>
+        Add a Deck
+      </p>
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        Add Deck
+      </button>
+    </div>
+  </div>
+</div>
+`;

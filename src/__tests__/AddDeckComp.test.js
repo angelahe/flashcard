@@ -18,7 +18,7 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-test('AccountUI renders correctly', () => {
+test('AddDeckComp renders correctly', () => {
   const tree = renderer.create(<AddDeckComp />).toJSON();
   expect(tree).toMatchSnapshot();
 });

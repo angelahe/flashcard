@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddDeckComp renders correctly 1`] = `
+exports[`AddCardComp renders correctly 1`] = `
 <div>
   <div>
     <p>

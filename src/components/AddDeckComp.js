@@ -1,5 +1,6 @@
 import React from 'react';
 // import propTypes from 'prop-types';
+import AddCardComp from './AddCardComp';
 import Client from './Client';
 
 class AddDeckComp extends React.Component {
@@ -7,6 +8,7 @@ class AddDeckComp extends React.Component {
     super(props);
     this.state = {
       currentDeck: '',
+      currentCard: '',
     };
   }
 
@@ -19,8 +21,12 @@ class AddDeckComp extends React.Component {
         () => addDeck(this.state.currentDeck)));
   }
 
+  onCardAdded = (cardId) => {
+    this.setState({ currentCard: cardId});
+  }
+
   render() {
-    const { currentDeck } = this.state;
+    const { currentDeck, currentCard } = this.state;
     return (
       <div>
         <div>
@@ -28,7 +34,23 @@ class AddDeckComp extends React.Component {
           <button type="button" onClick={this.handleAddDeckClick}>
             Add Deck
           </button>
-          {currentDeck !== '' ? <p>current deck in addDeckComp: {currentDeck}</p> : null}
+          {currentDeck !== ''
+            ? <p>current deck in addDeckComp: {currentDeck}</p>
+            : null
+          }
+          {currentDeck !== ''
+            ? (
+              <AddCardComp
+                deck={currentDeck}
+                addCard={this.onCardAdded}
+              />
+            )
+            : null
+          }
+          {currentCard !== ''
+            ? <p>current card in AddDeckComp is: {currentCard} </p>
+            : null
+          }
         </div>
       </div>
     );
