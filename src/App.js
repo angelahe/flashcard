@@ -6,8 +6,6 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <AddDeckCardComp />
-      <p>new stuff here</p>
       <ManageDecksComp />
     </div>
   );
