@@ -10,13 +10,12 @@ class AddDeckComp extends React.Component {
   }
 
   handleAddDeckClick = () => {
-    // const { addDeck } = this.props;
-    //const { currentDeck } = this.state;
+    const { addDeck } = this.props;
 
-    console.log('in handleAddDeckCilck props is ', this.props);
     Client.createDeck()
       .then(id => this.setState({ currentDeck: id },
-        () => this.props.addDeck(this.state.currentDeck)));
+        // eslint-disable-next-line react/destructuring-assignment
+        () => addDeck(this.state.currentDeck)));
   }
 
   render() {

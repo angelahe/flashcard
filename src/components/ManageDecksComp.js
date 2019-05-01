@@ -10,9 +10,7 @@ class ManageDecksComp extends React.Component {
   }
 
   onDeckAdded = (deckId) => {
-    console.log(`in onDeckAdded deckId is: ${deckId}.`);
     this.setState({ currentDeck: deckId });
-    console.log('deck is now', this.state.currentDeck);
   }
 
   render() {
