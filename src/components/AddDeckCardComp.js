@@ -46,25 +46,25 @@ class AddDeckandCardComp extends React.Component {
   }
 
   render() {
-    // const { items } = this.state;
+    const { currentDeck, currentCard, currentL1, currentL2 } = this.state;
     return (
       <div>
         <div>
           <p>Add a Deck</p>
           <button type="button" onClick={this.handleAddDeckClick}>Add Deck</button>
-          {(this.state.currentDeck !== '')
-            ? <p>current deck: {this.state.currentDeck}</p>
+          {(currentDeck !== '')
+            ? <p>current deck: {currentDeck}</p>
             : null
           }
         </div>
         <div>
           <h2>Add a Card to the Deck</h2>
           <span>L1 word:</span>
-          <input value={this.state.currentL1} onChange={this.handleL1Change} id="l1word" /><br />
+          <input value={currentL1} onChange={this.handleL1Change} id="l1word" /><br />
           <span>L2 word:</span>
-          <input value={this.state.currentL2} onChange={this.handleL2Change} id="l2word" /> <br /><br />
+          <input value={currentL2} onChange={this.handleL2Change} id="l2word" /> <br /><br />
           <button type="button" onClick={this.handleAddCardClick}>Add Card</button>
-          {this.state.currentCard ? <p>current card: {this.state.currentCard}</p> : null}
+          {currentCard ? <p>current card: {currentCard}</p> : null}
         </div>
       </div>
     );

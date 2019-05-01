@@ -60,11 +60,12 @@ it('shows the current card when there is one', () => {
 });
 
 it('should set the state when createCard completes', (done) => {
-  const cardId = '12345-ABCD';
+  const cardId = '67890-EFGH';
+  const deckId = '12345-ABCD';
+  //Client.createCard(deckId, 'cat', 'el gato') = jest.fn(() => Promise.resolve(cardId));
   Client.createCard = jest.fn(() => Promise.resolve(cardId));
-
   const component = shallow(<AddDeckCardComp />);
-  const button = component.find('button').first();
+  const button = component.find('button').at(1);
   button.simulate('click');
 
   setTimeout(() => {
