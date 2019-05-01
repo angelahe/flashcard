@@ -22,7 +22,7 @@ class ManageDecksComp extends React.Component {
   };
 
   render () {
-    const {currentDeck, addDeckShow} = this.state;
+    const { currentDeck, addDeckShow } = this.state;
     return (
       <div>
         <h1>Manage Decks</h1>
@@ -43,10 +43,9 @@ class ManageDecksComp extends React.Component {
               ? <AddDeckComp addDeck={this.onDeckAdded} />
               : null
             }
+            {currentDeck ? <p>current deck is{currentDeck}</p> : null}
           </div>
         </div>
-        <AddDeckComp addDeck={this.onDeckAdded} />
-        {currentDeck ? <p>current deck is{currentDeck}</p> : null}
       </div>
     );
   }

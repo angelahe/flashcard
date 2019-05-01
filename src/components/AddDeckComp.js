@@ -35,7 +35,7 @@ class AddDeckComp extends React.Component {
             Add Deck
           </button>
           {currentDeck !== ''
-            ? <p>current deck in addDeckComp: {currentDeck}</p>
+            ? <p>current deck: {currentDeck}</p>
             : null
           }
           {currentDeck !== ''
@@ -48,7 +48,7 @@ class AddDeckComp extends React.Component {
             : null
           }
           {currentCard !== ''
-            ? <p>current card in AddDeckComp is: {currentCard} </p>
+            ? <p>current card: {currentCard} </p>
             : null
           }
         </div>

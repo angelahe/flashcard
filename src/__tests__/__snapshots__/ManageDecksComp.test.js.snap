@@ -42,18 +42,5 @@ exports[`ManageDecksComp renders correctly 1`] = `
       className="AppPanel"
     />
   </div>
-  <div>
-    <div>
-      <p>
-        Add a Deck
-      </p>
-      <button
-        onClick={[Function]}
-        type="button"
-      >
-        Add Deck
-      </button>
-    </div>
-  </div>
 </div>
 `;
