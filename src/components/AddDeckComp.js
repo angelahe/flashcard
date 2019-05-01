@@ -1,4 +1,5 @@
 import React from 'react';
+// import propTypes from 'prop-types';
 import Client from './Client';
 
 class AddDeckComp extends React.Component {
@@ -33,4 +34,7 @@ class AddDeckComp extends React.Component {
     );
   }
 }
+// AddDeckComp.propTypes = {
+//  addDeck: propTypes.func
+// };
 export default AddDeckComp;
