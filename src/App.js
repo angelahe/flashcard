@@ -1,13 +1,14 @@
 import React from 'react';
 import AddDeckCardComp from './components/AddDeckCardComp';
-import AddDeckComp from './components/AddDeckComp';
+import ManageDecksComp from './components/ManageDecksComp';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <AddDeckCardComp />
-      <AddDeckComp />
+      <p>new stuff here</p>
+      <ManageDecksComp />
     </div>
   );
 }
