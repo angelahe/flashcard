@@ -1,5 +1,4 @@
 import React from 'react';
-import AddDeckCardComp from './components/AddDeckCardComp';
 import ManageDecksComp from './components/ManageDecksComp';
 import './App.css';
 
