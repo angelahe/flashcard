@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountUI renders correctly 1`] = `
+<div>
+  <div>
+    <p>
+      Add a Deck
+    </p>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Add Deck
+    </button>
+  </div>
+</div>
+`;
