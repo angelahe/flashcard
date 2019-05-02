@@ -2,16 +2,36 @@
 
 exports[`AddCardComp renders correctly 1`] = `
 <div>
-  <div>
-    <p>
-      Add a Deck
-    </p>
-    <button
-      onClick={[Function]}
-      type="button"
-    >
-      Add Deck
-    </button>
-  </div>
+  <h1>
+    Add a Card to the Deck
+  </h1>
+  <span>
+    L1 word:
+  </span>
+  <input
+    id="l1word"
+    onChange={[Function]}
+    value=""
+  />
+  <br />
+  <span>
+    L2 word:
+  </span>
+  <input
+    id="l2word"
+    onChange={[Function]}
+    value=""
+  />
+  <br />
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Add Card
+  </button>
+  <p>
+    C current deck is: 
+    ABCD-1234
+  </p>
 </div>
 `;

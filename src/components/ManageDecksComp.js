@@ -13,15 +13,15 @@ class ManageDecksComp extends React.Component {
   }
 
   onBtnAddClick = () => {
-    console.log("add button clicked");
+    console.log('add button clicked');
     this.setState({ addDeckShow: true });
   }
 
-  onDeckAdded = (deckId) => {
+  handleDeckAdded = (deckId) => {
     this.setState({ currentDeck: deckId });
   };
 
-  render () {
+  render() {
     const { currentDeck, addDeckShow } = this.state;
     return (
       <div>
@@ -30,7 +30,7 @@ class ManageDecksComp extends React.Component {
           <div className="AppPanel">
             <div className="ItemBox AppHeader">
               <span className="AddItem">Add Deck</span>
-              <button className="AppBtn" onClick={this.onBtnAddClick}>
+              <button type="button" className="AppBtn" onClick={this.onBtnAddClick}>
                 <img className="btnImg" src={addbtn} alt="Add" />
               </button>
             </div>
@@ -40,10 +40,10 @@ class ManageDecksComp extends React.Component {
           </div>
           <div className="AppPanel">
             {(addDeckShow)
-              ? <AddDeckComp addDeck={this.onDeckAdded} />
+              ? <AddDeckComp onDeckAdded={this.handleDeckAdded} />
               : null
             }
-            {currentDeck ? <p>current deck is{currentDeck}</p> : null}
+            {currentDeck ? <p>M current deck: {currentDeck}</p> : null}
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Client from './Client';
 
 class AddCardComp extends React.Component {
@@ -20,21 +21,19 @@ class AddCardComp extends React.Component {
   };
 
   handleAddCardClick = () => {
-    const { deck, addCard } = this.props;
+    const { deck, onCardAdded } = this.props;
     const { currentL1, currentL2 } = this.state;
-    console.log('deck in handleAddCardClick is: ', deck);
 
     Client.createCard(deck, currentL1, currentL2)
-      .then(id => this.setState({ currentCard: id },
-        // eslint-disable-next-line react/destructuring-assignment
-        () => {
-          addCard(this.state.currentCard)
-          console.log('the card that was assigned is ', this.state.currentCard)
-        }));
+      .then((id) => {
+        this.setState({ currentCard: id });
+        onCardAdded(id);
+      });
   };
 
   render() {
     const { currentCard, currentL1, currentL2 } = this.state;
+    const { deck } = this.props;
     return (
       <div>
         <h1>Add a Card to the Deck</h1>
@@ -47,9 +46,20 @@ class AddCardComp extends React.Component {
         <button type="button" onClick={this.handleAddCardClick}>
           Add Card
         </button>
-        {(currentCard !== '') ? <p>current card is: {currentCard}</p> : null}
+        {(currentCard) ? <p>current card: {currentCard}</p> : null}
+        {(deck) ? <p>C current deck is: {deck}</p> : null}
       </div>
     );
   }
 }
+
+AddCardComp.defaultProps = {
+  onCardAdded: () => { },
+};
+
+AddCardComp.propTypes = {
+  deck: PropTypes.string.isRequired,
+  onCardAdded: PropTypes.func,
+};
+
 export default AddCardComp;

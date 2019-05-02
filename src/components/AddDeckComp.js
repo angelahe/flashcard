@@ -1,5 +1,5 @@
 import React from 'react';
-// import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import AddCardComp from './AddCardComp';
 import Client from './Client';
 
@@ -13,16 +13,16 @@ class AddDeckComp extends React.Component {
   }
 
   handleAddDeckClick = () => {
-    const { addDeck } = this.props;
+    const { onDeckAdded } = this.props;
 
     Client.createDeck()
       .then(id => this.setState({ currentDeck: id },
         // eslint-disable-next-line react/destructuring-assignment
-        () => addDeck(this.state.currentDeck)));
+        () => onDeckAdded(this.state.currentDeck)));
   }
 
-  onCardAdded = (cardId) => {
-    this.setState({ currentCard: cardId});
+  handleCardAdded = (cardId) => {
+    this.setState({ currentCard: cardId });
   }
 
   render() {
@@ -35,14 +35,14 @@ class AddDeckComp extends React.Component {
             Add Deck
           </button>
           {currentDeck !== ''
-            ? <p>current deck: {currentDeck}</p>
+            ? <p>A current deck: {currentDeck}</p>
             : null
           }
           {currentDeck !== ''
             ? (
               <AddCardComp
                 deck={currentDeck}
-                addCard={this.onCardAdded}
+                onCardAdded={this.handleCardAdded}
               />
             )
             : null
@@ -56,7 +56,8 @@ class AddDeckComp extends React.Component {
     );
   }
 }
-// AddDeckComp.propTypes = {
-//  addDeck: propTypes.func
-// };
+
+AddDeckComp.propTypes = {
+  onDeckAdded: PropTypes.func.isRequired,
+};
 export default AddDeckComp;

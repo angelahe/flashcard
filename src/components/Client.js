@@ -9,11 +9,9 @@ function createDeck() {
 }
 
 function createCard(deckId, l1word, l2word) {
-  // let's try to send an api call with hardcoded values like in postman
-  // return fetch('api/card?EN_word=test&ES_word=prueba', {
-  // let's try to send the values passed in
+  // eg of working postman call:
   // 127.0.0.1:5000/api/deck/68dfd811-9913-422f-8c50-037055314e13/card?EN_word=test&ES_word=prueba
-  // console.log(`args are deck:${deckId}, l1word: ${l1word}, l2word: ${l2word}!`);
+  console.log(`args are deck:${deckId}, l1word: ${l1word}, l2word: ${l2word}!`);
   return fetch(`api/deck/${deckId}/card?EN_word=${l1word}&ES_word=${l2word}`,
   //  return fetch(`api/deck/card?EN_word=${l1word}&ES_word=${l2word}`,
     {
@@ -21,7 +19,7 @@ function createCard(deckId, l1word, l2word) {
       method: 'POST',
     })
     .then(response => response.json())
-    .then(json => json.id);
+    .then(json => json.card_id);
 }
 const Client = { createDeck, createCard };
 export default Client;

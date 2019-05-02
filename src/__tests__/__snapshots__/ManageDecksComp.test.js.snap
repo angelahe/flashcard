@@ -22,6 +22,7 @@ exports[`ManageDecksComp renders correctly 1`] = `
         <button
           className="AppBtn"
           onClick={[Function]}
+          type="button"
         >
           <img
             alt="Add"
