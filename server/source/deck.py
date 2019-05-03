@@ -35,18 +35,18 @@ def create_card(deck_id):
     #ES_word = "el gato"
     #EN_word = request.form['EN_word']
     #ES_word = request.form['ES_word']
-    EN_word = request.args.get('EN_word')
-    ES_word = request.args.get('ES_word')
-    print("en word is", EN_word)
+    L1_word = request.args.get('L1_word')
+    L2_word = request.args.get('L2_word')
+    print("L1 word is", L1_word)
 
     db = get_db()
     db.execute(
-        'INSERT INTO card (card_id, deck_id, EN_word, ES_word)'
+        'INSERT INTO card (card_id, deck_id, L1_word, L2_word)'
         ' VALUES (?, ?, ?, ?)',
-        (card_id, deck_id, EN_word, ES_word)
+        (card_id, deck_id, L1_word, L2_word)
     )
     db.commit()
     thiscard = {"card_id": card_id, "deck_id": deck_id,
-                "EN_word": EN_word, "ES_word": ES_word}
+                "L1_word": L1_word, "L2_word": L2_word}
     body = json.dumps(thiscard)
     return make_response((body, 201))

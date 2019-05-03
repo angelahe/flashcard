@@ -54,7 +54,7 @@ class AddCardComp extends React.Component {
     const { deck } = this.props;
     return (
       <div>
-        <h1>Add a Card to the Deck</h1>
+        <h5>Add a Card to the Deck</h5>
         <span>L1 word:</span>
         <input value={currentL1} onChange={this.handleL1Change} id="l1word" />
         <br />
@@ -62,7 +62,7 @@ class AddCardComp extends React.Component {
         <input value={currentL2} onChange={this.handleL2Change} id="l2word" />
         <br />
         <span>Image:</span>
-        <p>{currentImageUrl}  {currentImageId}</p>
+        <p>Url:{currentImageUrl}  id:{currentImageId}</p>
         <img className="btnImg" src={currentImageUrl} alt={currentImageId} />
         <AddImageComp onImageAdded={this.handleImageAdded} />
         <button type="button" onClick={this.handleAddCardClick}>
