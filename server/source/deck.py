@@ -31,10 +31,6 @@ def create_card(deck_id):
     print("request data is", request.data)
 
     card_id = str(uuid.uuid4())
-    #EN_word = "the cat"
-    #ES_word = "el gato"
-    #EN_word = request.form['EN_word']
-    #ES_word = request.form['ES_word']
     L1_word = request.args.get('L1_word')
     L2_word = request.args.get('L2_word')
     print("L1 word is", L1_word)
@@ -50,3 +46,27 @@ def create_card(deck_id):
                 "L1_word": L1_word, "L2_word": L2_word}
     body = json.dumps(thiscard)
     return make_response((body, 201))
+
+
+@bp.route('/all')
+def get_decks():
+    db = get_db()
+    decks = db.execute(
+        'SELECT deck_id'
+        ' FROM deck'
+    ).fetchall()
+    body = json.dumps( [dict(ix) for ix in decks] )
+    #body = json.dumps(decks)
+    print('json should be',body)
+    return make_response((body, 200))
+
+@bp.route('/<string:deck_id>/cards', methods=['GET'])
+def get_cards_in_deck(deck_id):
+    db = get_db()
+    cards = db.execute(
+        'SELECT * FROM card'
+        ' WHERE deck_id = ?', (deck_id,)
+    ).fetchall()
+    body = json.dumps( [dict(ix) for ix in cards] )
+    return make_response((body, 200))
+
