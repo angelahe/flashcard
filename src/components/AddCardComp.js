@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AddImageComp from './AddImageComp';
+import '../styles/flashcard.css';
 import Client from './Client';
 
 class AddCardComp extends React.Component {
@@ -9,6 +11,8 @@ class AddCardComp extends React.Component {
       currentCard: '',
       currentL1: '',
       currentL2: '',
+      currentImageUrl: '',
+      currentImageId: 0,
     };
   }
 
@@ -31,8 +35,22 @@ class AddCardComp extends React.Component {
       });
   };
 
+  handleImageAdded = (imageUrl, imageId) => {
+    console.log(`image url: ${imageUrl} image id: ${imageId}`);
+    this.setState({
+      currentImageUrl: imageUrl,
+      currentImageId: imageId,
+    });
+  }
+
   render() {
-    const { currentCard, currentL1, currentL2 } = this.state;
+    const {
+      currentCard,
+      currentL1,
+      currentL2,
+      currentImageId,
+      currentImageUrl,
+    } = this.state;
     const { deck } = this.props;
     return (
       <div>
@@ -43,6 +61,10 @@ class AddCardComp extends React.Component {
         <span>L2 word:</span>
         <input value={currentL2} onChange={this.handleL2Change} id="l2word" />
         <br />
+        <span>Image:</span>
+        <p>{currentImageUrl}  {currentImageId}</p>
+        <img className="btnImg" src={currentImageUrl} alt={currentImageId} />
+        <AddImageComp onImageAdded={this.handleImageAdded} />
         <button type="button" onClick={this.handleAddCardClick}>
           Add Card
         </button>

@@ -23,6 +23,78 @@ exports[`AddCardComp renders correctly 1`] = `
     value=""
   />
   <br />
+  <span>
+    Image:
+  </span>
+  <p>
+    
+      
+    0
+  </p>
+  <img
+    alt={0}
+    className="btnImg"
+    src=""
+  />
+  <div>
+    <h1>
+      Look up an Image on thenounproject
+    </h1>
+    <span>
+      Search term:
+    </span>
+    <input
+      onChange={[Function]}
+      value=""
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Add"
+        className="btnImg"
+        src="search_FFFFFF.png"
+      />
+    </button>
+    <br />
+    <span>
+      Key:
+    </span>
+    <input
+      onChange={[Function]}
+      value=""
+    />
+    <br />
+    <span>
+      Secret:
+    </span>
+    <input
+      onChange={[Function]}
+      value=""
+    />
+    <br />
+    <p>
+      put list of images under here
+    </p>
+    <p>
+      Image Selected Values
+    </p>
+    <input
+      onChange={[Function]}
+      value=""
+    />
+    <input
+      onChange={[Function]}
+      value={0}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      OK
+    </button>
+  </div>
   <button
     onClick={[Function]}
     type="button"

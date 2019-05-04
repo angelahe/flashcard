@@ -21,3 +21,6 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+
+# Mac
+**/.DS_Store
