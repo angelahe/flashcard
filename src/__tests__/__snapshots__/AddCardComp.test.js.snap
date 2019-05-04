@@ -2,9 +2,9 @@
 
 exports[`AddCardComp renders correctly 1`] = `
 <div>
-  <h1>
+  <h5>
     Add a Card to the Deck
-  </h1>
+  </h5>
   <span>
     L1 word:
   </span>
@@ -27,8 +27,9 @@ exports[`AddCardComp renders correctly 1`] = `
     Image:
   </span>
   <p>
+    Url:
     
-      
+      id:
     0
   </p>
   <img
@@ -37,9 +38,9 @@ exports[`AddCardComp renders correctly 1`] = `
     src=""
   />
   <div>
-    <h1>
+    <h5>
       Look up an Image on thenounproject
-    </h1>
+    </h5>
     <span>
       Search term:
     </span>
@@ -82,11 +83,13 @@ exports[`AddCardComp renders correctly 1`] = `
     </p>
     <input
       onChange={[Function]}
-      value=""
+      value="https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png"
     />
+     
+    <br />
     <input
       onChange={[Function]}
-      value={0}
+      value={75112}
     />
     <button
       onClick={[Function]}
@@ -94,6 +97,13 @@ exports[`AddCardComp renders correctly 1`] = `
     >
       OK
     </button>
+    <div>
+      <img
+        alt="nounprojectimg"
+        className="cardImg"
+        src="https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png"
+      />
+    </div>
   </div>
   <button
     onClick={[Function]}

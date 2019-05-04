@@ -38,6 +38,28 @@ exports[`ManageDecksComp renders correctly 1`] = `
           list of decks will go here
         </p>
       </div>
+      <div>
+        <h5>
+          play around with image select
+        </h5>
+        <div
+          className="AppPanel"
+        >
+          <div>
+            https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png
+          </div>
+          <div>
+            75112
+          </div>
+          <div>
+            <img
+              alt="nounprojectimg"
+              className="cardImg"
+              src="https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png"
+            />
+          </div>
+        </div>
+      </div>
     </div>
     <div
       className="AppPanel"
