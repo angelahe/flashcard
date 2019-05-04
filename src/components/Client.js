@@ -5,7 +5,7 @@ function createDeck() {
     method: 'POST',
   })
     .then(response => response.json())
-    .then(json => json.id);
+    .then(deck => deck.id);
 }
 
 function createCard(deckId, l1word, l2word) {
@@ -19,7 +19,18 @@ function createCard(deckId, l1word, l2word) {
       method: 'POST',
     })
     .then(response => response.json())
-    .then(json => json.card_id);
+    .then(card => card.card_id);
 }
-const Client = { createDeck, createCard };
+
+function getDecks() {
+  // const self = this;
+  return fetch('api/deck/all', {
+    method: 'GET',
+  })
+    .then(response => response.json());
+  //  .then(json => this.setState({ deckList: json }));
+    // .then(json => JSON.stringify(json));
+    //  .then(json => json.deckId);
+}
+const Client = { createDeck, createCard, getDecks };
 export default Client;

@@ -79,6 +79,12 @@
   margin:0;
 }
 
+.cardImg {
+  width: 350px;
+  height: 350px;
+  background-color: lightblue;
+}
+
 .btnText {
   height: 35px;
   width: 200px;

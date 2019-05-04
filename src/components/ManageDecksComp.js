@@ -1,5 +1,8 @@
 import React from 'react';
 import AddDeckComp from './AddDeckComp';
+import ImagePickComp from './ImagePickComp';
+import DeckListItem from './DeckListItem';
+import Client from './Client';
 import '../styles/flashcard.css';
 import addbtn from '../img/buttons/add_FFFFFF.png';
 
@@ -9,20 +12,52 @@ class ManageDecksComp extends React.Component {
     this.state = {
       currentDeck: '',
       addDeckShow: false,
+      deckList: [],
     };
+  }
+
+  componentDidMount = () => {
+    this.loadDecks();
   }
 
   onBtnAddClick = () => {
     console.log('add button clicked');
     this.setState({ addDeckShow: true });
-  }
+  };
 
   handleDeckAdded = (deckId) => {
     this.setState({ currentDeck: deckId });
   };
 
+  handleDeckSelect = () => {
+    console.log('in handleItemClicked');
+  };
+
+  handleDeckEdit = () => {
+    console.log('in handle deck edit');
+  };
+
+  handleDeckDelete = () => {
+    console.log('in handle deck delete');
+  };
+
+  loadDecks = () => {
+    Client.getDecks()
+      .then(decks => this.setState({ deckList: decks }));
+  }
+
   render() {
-    const { currentDeck, addDeckShow } = this.state;
+    const { currentDeck, addDeckShow, deckList } = this.state;
+    const deckListItems = deckList.map(deck => (
+      <DeckListItem
+        key={deck.deck_id}
+        deck={deck}
+        onDeckSelect={this.handleDeckSelect}
+        onDeckEdit={this.handleDeckEdit}
+        onDeckDelete={this.handleDeckDelete}
+      />
+    ));
+
     return (
       <div>
         <h1>Manage Decks</h1>
@@ -36,7 +71,9 @@ class ManageDecksComp extends React.Component {
             </div>
             <div className="AppList">
               <p>list of decks will go here</p>
+              {deckListItems}
             </div>
+            <ImagePickComp />
           </div>
           <div className="AppPanel">
             {(addDeckShow)
