@@ -1,9 +1,12 @@
 {
-    "python.pythonPath": "venv/bin/python3.6",
+    "python.pythonPath": "venv/bin/python",
     "python.testing.pyTestArgs": [
         "tests"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.pyTestEnabled": true
+    "python.testing.pyTestEnabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintPath": "pylint"
 }
