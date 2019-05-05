@@ -33,17 +33,19 @@ def create_card(deck_id):
     card_id = str(uuid.uuid4())
     L1_word = request.args.get('L1_word')
     L2_word = request.args.get('L2_word')
-    print("L1 word is", L1_word)
+    img_url = request.args.get('img_url')
+    img_id = request.args.get('img_id')
 
     db = get_db()
     db.execute(
-        'INSERT INTO card (card_id, deck_id, L1_word, L2_word)'
-        ' VALUES (?, ?, ?, ?)',
-        (card_id, deck_id, L1_word, L2_word)
+        'INSERT INTO card (card_id, deck_id, L1_word, L2_word, img_url, img_id)'
+        ' VALUES (?, ?, ?, ?, ?, ?)',
+        (card_id, deck_id, L1_word, L2_word, img_url, img_id)
     )
     db.commit()
     thiscard = {"card_id": card_id, "deck_id": deck_id,
-                "L1_word": L1_word, "L2_word": L2_word}
+                "L1_word": L1_word, "L2_word": L2_word,
+                "img_url": img_url, "img_id": img_id}
     body = json.dumps(thiscard)
     return make_response((body, 201))
 

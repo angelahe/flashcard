@@ -21,12 +21,17 @@ test('Test Client creates a card successfully', () => {
     L2_word: 'prueba',
     card_id: testCardId,
     deck_id: testDeckId,
+    img_url: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1599085-200.png',
+    img_id: '1599085',
   }));
-  Client.createCard(testDeckId, 'bird', 'el pájaro').then((cardId) => {
-    expect(cardId).toEqual(testCardId);
-  });
+  Client.createCard(testDeckId, 'bird', 'el pájaro',
+    'https://d30y9cdsu7xlg0.cloudfront.net/png/1599085-200.png', '1599085')
+    .then((cardId) => {
+      expect(cardId).toEqual(testCardId);
+    });
   expect(fetch.mock.calls.length).toEqual(2);
-  expect(fetch.mock.calls[1][0]).toEqual(`api/deck/${testDeckId}/card?L1_word=bird&L2_word=el pájaro`);
+  expect(fetch.mock.calls[1][0]).toEqual(`api/deck/${testDeckId}/card?L1_word=bird&L2_word=el pájaro
+    &img_url=https://d30y9cdsu7xlg0.cloudfront.net/png/1599085-200.png&img_id=1599085`);
 });
 
 test('Test Client gives a list of all decks', () => {

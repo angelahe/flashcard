@@ -26,9 +26,14 @@ class AddCardComp extends React.Component {
 
   handleAddCardClick = () => {
     const { deck, onCardAdded } = this.props;
-    const { currentL1, currentL2 } = this.state;
+    const {
+      currentL1,
+      currentL2,
+      currentImageUrl,
+      currentImageId,
+    } = this.state;
 
-    Client.createCard(deck, currentL1, currentL2)
+    Client.createCard(deck, currentL1, currentL2, currentImageUrl, currentImageId)
       .then((id) => {
         this.setState({ currentCard: id });
         onCardAdded(id);

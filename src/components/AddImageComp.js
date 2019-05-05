@@ -25,7 +25,6 @@ class AddImageComp extends React.Component {
     const results = searchresults.searchresults;
 
     console.log('results is', results);
-    console.log('1st result is', results[0]);
     this.setState({ imagesList: results });
 
     // call the nounproject api with the search term

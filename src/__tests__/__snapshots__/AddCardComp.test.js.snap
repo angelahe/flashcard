@@ -38,11 +38,8 @@ exports[`AddCardComp renders correctly 1`] = `
     src=""
   />
   <div>
-    <h5>
-      Look up an Image on thenounproject
-    </h5>
     <span>
-      Search term:
+      Image Search:
     </span>
     <input
       onChange={[Function]}
@@ -59,51 +56,33 @@ exports[`AddCardComp renders correctly 1`] = `
       />
     </button>
     <br />
-    <span>
-      Key:
-    </span>
-    <input
-      onChange={[Function]}
-      value=""
-    />
-    <br />
-    <span>
-      Secret:
-    </span>
-    <input
-      onChange={[Function]}
-      value=""
-    />
-    <br />
-    <p>
-      put list of images under here
-    </p>
-    <p>
-      Image Selected Values
-    </p>
-    <input
-      onChange={[Function]}
-      value="https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png"
-    />
-     
-    <br />
-    <input
-      onChange={[Function]}
-      value={75112}
-    />
-    <button
-      onClick={[Function]}
-      type="button"
+    <div
+      className="cardContainer"
     >
-      OK
-    </button>
-    <div>
       <img
         alt="nounprojectimg"
         className="cardImg"
         src="https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png"
       />
     </div>
+    <div
+      className="imagesContainer"
+    />
+    <p>
+      Image Selected Values
+    </p>
+    <span>
+      Url: 
+      https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png
+       ID: 
+      75112
+    </span>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      OK
+    </button>
   </div>
   <button
     onClick={[Function]}

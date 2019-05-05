@@ -51,7 +51,9 @@ exports[`ManageDecksComp renders correctly 1`] = `
           <div>
             75112
           </div>
-          <div>
+          <div
+            className="cardContainer"
+          >
             <img
               alt="nounprojectimg"
               className="cardImg"
