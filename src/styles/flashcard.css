@@ -79,11 +79,37 @@
   margin:0;
 }
 
+.cardContainer {
+  width: 350px;
+  height:350px;
+  background-color: #1aa3ff;
+}
+
 .cardImg {
   width: 350px;
   height: 350px;
-  background-color: lightblue;
+  filter: invert(100%);
 }
+
+.imagesContainer {
+  width: 100%; 
+  height: 350px;
+  overflow-y: scroll;
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  grid-template-rows: 1fr;
+}
+
+.thumbnailImg {
+  width: 60px;
+  height: 60px;
+  background-color: whitesmoke;
+  border-radius: 1px;
+  border: 1px solid #1aa3ff;
+}
+.invert { filter: invert(100%); }
+
 
 .btnText {
   height: 35px;

@@ -19,7 +19,7 @@ class ImagePickComp extends React.Component {
         <div className="AppPanel">
           <div>{currentImgUrl}</div>
           <div>{currentImgId}</div>
-          <div>
+          <div className="cardContainer">
             <img className="cardImg" src={currentImgUrl} alt="nounprojectimg" />
           </div>
         </div>

@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import searchbtn from '../img/buttons/search_FFFFFF.png';
+import searchresults from './testsearchresults';
+import Thumbnail from './Thumbnail';
 
 class AddImageComp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       term: '',
-      key: '',
-      secret: '',
-      currentImageUrl: '',
-      currentImageId: 0,
+      currentImageUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png',
+      currentImageId: 75112,
+      imagesList: [],
     };
   }
 
@@ -18,16 +19,14 @@ class AddImageComp extends React.Component {
     this.setState({ term: event.target.value });
   }
 
-  handleKeyChange = (event) => {
-    this.setState({ key: event.target.value });
-  }
-
-  handleSecretChange = (event) => {
-    this.setState({ secret: event.target.value });
-  }
-
   handleSearchClick = () => {
     const { term } = this.state;
+
+    const results = searchresults.searchresults;
+
+    console.log('results is', results);
+    console.log('1st result is', results[0]);
+    this.setState({ imagesList: results });
 
     // call the nounproject api with the search term
     console.log(`going to search for ${term} on nounproject`);
@@ -60,34 +59,41 @@ class AddImageComp extends React.Component {
   render() {
     const {
       term,
-      key,
-      secret,
       currentImageId,
       currentImageUrl,
+      imagesList,
     } = this.state;
 
+    const imagesListItems = imagesList.map(image => (
+      <Thumbnail
+        key={image.id}
+        imageUrl={image.href}
+        imageId={image.id}
+        onImageSelect={this.handleImageSelect}
+      />
+    ));
     return (
       <div>
-        <h1>Look up an Image on thenounproject</h1>
+        <h5>Look up an Image on thenounproject</h5>
         <span>Search term:</span>
         <input value={term} onChange={this.handleTermChange} />
         <button type="button" onClick={this.handleSearchClick}>
           <img className="btnImg" src={searchbtn} alt="Add" />
         </button>
         <br />
-        <span>Key:</span>
-        <input value={key} onChange={this.handleKeyChange} />
-        <br />
-        <span>Secret:</span>
-        <input value={secret} onChange={this.handleSecretChange} />
-        <br />
         <p>put list of images under here</p>
+        <div className="imagesContainer">
+          {imagesListItems}
+        </div>
         <p>Image Selected Values</p>
-        <input value={currentImageUrl} onChange={this.handleTermChange} />
+        <input value={currentImageUrl} onChange={this.handleTermChange} /> <br />
         <input value={currentImageId} onChange={this.handleTermChange} />
         <button type="button" onClick={this.handleImageSend}>
           OK
         </button>
+        <div className="cardContainer">
+          <img className="cardImg" src={currentImageUrl} alt="nounprojectimg" />
+        </div>
       </div>
     );
   }
