@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import searchbtn from '../img/buttons/search_FFFFFF.png';
 import searchresults from './testsearchresults';
 import Thumbnail from './Thumbnail';
+import NounProject from './NounProject';
 
 class AddImageComp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       term: '',
-      currentImageUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png',
-      currentImageId: 75112,
+      currentImageUrl: '',
+      currentImageId: '',
       imagesList: [],
     };
   }
@@ -29,6 +30,8 @@ class AddImageComp extends React.Component {
 
     // call the nounproject api with the search term
     console.log(`going to search for ${term} on nounproject`);
+    NounProject.getImages(term)
+      .then(images => this.setState({ imagesList: images }));
   }
 
   handleImageSend = () => {
