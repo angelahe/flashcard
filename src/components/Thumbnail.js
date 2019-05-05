@@ -13,7 +13,7 @@ const Thumbnail = (props) => {
     onImageSelect(imageUrl, imageId);
   }
   return (
-    <div onClick={() => {}} onKeyPress={handleThumbnailClick} role="button" tabIndex="0">
+    <div onClick={handleThumbnailClick} onKeyPress={handleThumbnailClick} role="button" tabIndex="0">
       <img className="thumbnailImg" src={imageUrl} alt={imageId} />
     </div>
   );

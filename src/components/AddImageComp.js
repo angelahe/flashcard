@@ -48,12 +48,9 @@ class AddImageComp extends React.Component {
     this.setState({ currentImageId: event.target.value });
   }
 
-  handleImageSelect = () => {
-    // use a hardcoded image to test
-    const { currentImageUrl, currentImageId } = this.state;
-    const imageUrl = currentImageUrl;
-    const imageId = currentImageId;
-    console.log(`image selected ${imageUrl} and id is ${imageId}`);
+  handleImageSelect = (imageUrl, imageId) => {
+    console.log(`passed in image ${imageUrl} and ${imageId}`);
+    this.setState({ currentImageUrl: imageUrl, currentImageId: imageId });
   }
 
   render() {
@@ -74,26 +71,23 @@ class AddImageComp extends React.Component {
     ));
     return (
       <div>
-        <h5>Look up an Image on thenounproject</h5>
-        <span>Search term:</span>
+        <span>Image Search:</span>
         <input value={term} onChange={this.handleTermChange} />
         <button type="button" onClick={this.handleSearchClick}>
           <img className="btnImg" src={searchbtn} alt="Add" />
         </button>
         <br />
-        <p>put list of images under here</p>
+        <div className="cardContainer">
+          <img className="cardImg" src={currentImageUrl} alt="nounprojectimg" />
+        </div>
         <div className="imagesContainer">
           {imagesListItems}
         </div>
         <p>Image Selected Values</p>
-        <input value={currentImageUrl} onChange={this.handleTermChange} /> <br />
-        <input value={currentImageId} onChange={this.handleTermChange} />
+        <span>Url: {currentImageUrl} ID: {currentImageId}</span>
         <button type="button" onClick={this.handleImageSend}>
           OK
         </button>
-        <div className="cardContainer">
-          <img className="cardImg" src={currentImageUrl} alt="nounprojectimg" />
-        </div>
       </div>
     );
   }

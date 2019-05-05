@@ -40,7 +40,7 @@ const DeckListItem = (props) => {
         className="DetailText"
         role="button"
         tabIndex="0"
-        onClick={() => {}}
+        onClick={handleItemClick}
         onKeyPress={handleItemClick}
       >{deck.deck_id}
       </span>
