@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlashcardComp renders correctly 1`] = `
+<div>
+  <div>
+    statusbar here
+  </div>
+  <div>
+    workspace here
+  </div>
+  <div>
+    <div
+      className="NavBar"
+    >
+      <button
+        className="NavBtn"
+        type="button"
+      >
+        <img
+          alt="Add"
+          className="NavImg"
+          src="decks_FFFFFF.png"
+        />
+      </button>
+      <button
+        className="NavBtn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Add"
+          className="NavImg"
+          src="listOff_FFFFFF.png"
+        />
+      </button>
+      <button
+        className="NavBtn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Add"
+          className="NavImg"
+          src="chartOff_FFFFFF.png"
+        />
+      </button>
+      <button
+        className="NavBtn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Add"
+          className="NavImg"
+          src="settingsOff_FFFFFF.png"
+        />
+      </button>
+      <button
+        className="NavBtn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Add"
+          className="NavImg"
+          src="infoOff_FFFFFF.png"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

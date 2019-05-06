@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImagePickComp renders correctly 1`] = `
+<div>
+  <h5>
+    play around with image select
+  </h5>
+  <div
+    className="AppPanel"
+  >
+    <div>
+      https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png
+    </div>
+    <div>
+      75112
+    </div>
+    <div
+      className="cardContainer"
+    >
+      <img
+        alt="nounprojectimg"
+        className="cardImg"
+        src="https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png"
+      />
+    </div>
+  </div>
+</div>
+`;

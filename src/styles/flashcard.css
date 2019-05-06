@@ -18,10 +18,13 @@
 
 }
 
-.statusBar {
-  width: 422px;
+.ActionBar {
+  width: 50%;
   height: 67px;
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin: 10px;
+  background-color: #375E97;
 }
 
 .NavBar {

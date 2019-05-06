@@ -1,7 +1,7 @@
 import React from 'react';
 import AddDeckComp from './AddDeckComp';
 import ImagePickComp from './ImagePickComp';
-import DeckListItem from './DeckListItem';
+import DeckListItemComp from './DeckListItemComp';
 import Client from './Client';
 import '../styles/flashcard.css';
 import addbtn from '../img/buttons/add_FFFFFF.png';
@@ -49,7 +49,7 @@ class ManageDecksComp extends React.Component {
   render() {
     const { currentDeck, addDeckShow, deckList } = this.state;
     const deckListItems = deckList.map(deck => (
-      <DeckListItem
+      <DeckListItemComp
         key={deck.deck_id}
         deck={deck}
         onDeckSelect={this.handleDeckSelect}

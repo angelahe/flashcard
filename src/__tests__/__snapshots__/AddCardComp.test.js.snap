@@ -62,7 +62,7 @@ exports[`AddCardComp renders correctly 1`] = `
       <img
         alt="nounprojectimg"
         className="cardImg"
-        src="https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png"
+        src=""
       />
     </div>
     <div
@@ -73,9 +73,9 @@ exports[`AddCardComp renders correctly 1`] = `
     </p>
     <span>
       Url: 
-      https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png
+      
        ID: 
-      75112
+      
     </span>
     <button
       onClick={[Function]}
