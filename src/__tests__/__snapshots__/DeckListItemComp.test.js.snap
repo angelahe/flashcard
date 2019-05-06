@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeckListItemComp renders correctly 1`] = `
+<div
+  className="ItemBox AppListItem"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  <span
+    className="DetailText"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex="0"
+  >
+    ABCD-1234
+  </span>
+  <button
+    className="AppBtn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="Add"
+      className="btnImg"
+      src="edit_FFFFFF.png"
+    />
+  </button>
+  <button
+    className="AppBtn Delete"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="Delete"
+      className="btnImg"
+      src="delete_FFFFFF.png"
+    />
+  </button>
+  <hr />
+</div>
+`;
