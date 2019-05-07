@@ -15,24 +15,27 @@
   height: auto;
   width: 40%;
   justify-content: flex-start;
+}
 
+.WorkArea {
+  width: 40%;
+  height: 500px;
+  background-color: whitesmoke;
 }
 
 .ActionBar {
-  width: 50%;
+  width: 40%;
   height: 67px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  margin: 10px;
   background-color: #375E97;
 }
 
 .NavBar {
-  width: 50%;
+  width: 40%;
   height: 67px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  margin: 10px;
   background-color: #375E97
 }
 .Header {
