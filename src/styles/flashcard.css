@@ -21,6 +21,7 @@
   width: 40%;
   height: 500px;
   background-color: whitesmoke;
+  overflow-y: scroll;
 }
 
 .ActionBar {
@@ -158,7 +159,7 @@
 
 .DetailText {
   color: #375E97;
-  font-size: 1.5em;
+  font-size: 1em;
   align-items: flex-start;
   justify-content: left;
   text-align: left;
@@ -184,7 +185,7 @@ hr {
   height: 2px;
 }
 
-h2 {
+h2, h5 {
   padding: 1px;
   color: #375E97;
 }

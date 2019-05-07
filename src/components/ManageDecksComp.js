@@ -11,7 +11,8 @@ class ManageDecksComp extends React.Component {
     super();
     this.state = {
       currentDeck: '',
-      addDeckShow: false,
+      deckListShow: true,
+      addDeckShow: true,
       deckList: [],
     };
   }
@@ -22,7 +23,7 @@ class ManageDecksComp extends React.Component {
 
   onBtnAddClick = () => {
     console.log('add button clicked');
-    this.setState({ addDeckShow: true });
+    this.setState({ addDeckShow: true, deckListShow: false });
   };
 
   handleDeckAdded = (deckId) => {
@@ -47,7 +48,10 @@ class ManageDecksComp extends React.Component {
   }
 
   render() {
-    const { currentDeck, addDeckShow, deckList } = this.state;
+    const {
+      addDeckShow, deckList, deckListShow,
+    } = this.state;
+
     const deckListItems = deckList.map(deck => (
       <DeckListItemComp
         key={deck.deck_id}
@@ -60,29 +64,29 @@ class ManageDecksComp extends React.Component {
 
     return (
       <div>
-        <h1>Manage Decks</h1>
-        <div className="AppContainer">
-          <div className="AppPanel">
-            <div className="ItemBox AppHeader">
-              <span className="AddItem">Add Deck</span>
-              <button type="button" className="AppBtn" onClick={this.onBtnAddClick}>
-                <img className="btnImg" src={addbtn} alt="Add" />
-              </button>
+        <h2>Manage Decks</h2>
+        { (deckListShow)
+          ? (
+            <div>
+              <div className="ItemBox AppHeader">
+                <span className="AddItem">Add Deck</span>
+                <button type="button" className="AppBtn" onClick={this.onBtnAddClick}>
+                  <img className="btnImg" src={addbtn} alt="Add" />
+                </button>
+              </div>
+              <div className="AppList">
+                {deckListItems}
+              </div>
             </div>
-            <div className="AppList">
-              <p>list of decks will go here</p>
-              {deckListItems}
-            </div>
-            <ImagePickComp />
-          </div>
-          <div className="AppPanel">
-            {(addDeckShow)
-              ? <AddDeckComp onDeckAdded={this.handleDeckAdded} />
-              : null
-            }
-            {currentDeck ? <p>M current deck: {currentDeck}</p> : null}
-          </div>
-        </div>
+          )
+          : null
+        }
+        { (addDeckShow)
+          ? (
+            <AddDeckComp onDeckAdded={this.handleDeckAdded} />
+          )
+          : null
+        }
       </div>
     );
   }

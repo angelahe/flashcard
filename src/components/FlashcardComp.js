@@ -1,13 +1,14 @@
 import React from 'react';
 import NavBarComp from './NavBarComp';
 import ActionBarComp from './ActionBarComp';
+import ManageDecksComp from './ManageDecksComp';
 
 class FlashcardComp extends React.Component {
   constructor() {
     super();
     this.state = {
       deckList: [],
-      
+
     };
   }
 
@@ -16,7 +17,7 @@ class FlashcardComp extends React.Component {
       <div>
         <ActionBarComp />
         <div className="WorkArea">
-          <h2>workspace here</h2>
+          <ManageDecksComp />
         </div>
         <NavBarComp />
       </div>
