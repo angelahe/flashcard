@@ -9,6 +9,7 @@ class AddDeckComp extends React.Component {
     this.state = {
       currentDeck: '',
       currentCard: '',
+      showAddDeck: true,
     };
   }
 
@@ -16,7 +17,7 @@ class AddDeckComp extends React.Component {
     const { onDeckAdded } = this.props;
 
     Client.createDeck()
-      .then(id => this.setState({ currentDeck: id },
+      .then(id => this.setState({ currentDeck: id, showAddDeck: false },
         // eslint-disable-next-line react/destructuring-assignment
         () => onDeckAdded(this.state.currentDeck)));
   }
@@ -26,16 +27,20 @@ class AddDeckComp extends React.Component {
   }
 
   render() {
-    const { currentDeck, currentCard } = this.state;
+    const { currentDeck, currentCard, showAddDeck } = this.state;
     return (
       <div>
         <div>
-          <p>Add a Deck</p>
-          <button type="button" onClick={this.handleAddDeckClick}>
-            Add Deck
-          </button>
+          {(showAddDeck)
+            ? (
+              <button type="button" onClick={this.handleAddDeckClick}>
+                Add Deck
+              </button>
+            )
+            : null
+          }
           {currentDeck !== ''
-            ? <p>A current deck: {currentDeck}</p>
+            ? <p>current deck: {currentDeck}</p>
             : null
           }
           {currentDeck !== ''

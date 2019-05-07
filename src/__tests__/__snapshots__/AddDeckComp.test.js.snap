@@ -3,9 +3,6 @@
 exports[`AddDeckComp renders correctly 1`] = `
 <div>
   <div>
-    <p>
-      Add a Deck
-    </p>
     <button
       onClick={[Function]}
       type="button"

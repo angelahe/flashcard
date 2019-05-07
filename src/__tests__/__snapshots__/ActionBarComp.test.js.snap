@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCardComp renders correctly 1`] = `
+<div>
+  <span>
+    Image Search:
+  </span>
+  <input
+    onChange={[Function]}
+    value=""
+  />
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="Add"
+      className="btnImg"
+      src="search_FFFFFF.png"
+    />
+  </button>
+  <br />
+  <div
+    className="cardContainer"
+  >
+    <img
+      alt="nounprojectimg"
+      className="cardImg"
+      src=""
+    />
+  </div>
+  <div
+    className="imagesContainer"
+  />
+  <p>
+    Image Selected Values
+  </p>
+  <span>
+    Url: 
+    
+     ID: 
+    
+  </span>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    OK
+  </button>
+</div>
+`;

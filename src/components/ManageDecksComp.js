@@ -1,6 +1,5 @@
 import React from 'react';
 import AddDeckComp from './AddDeckComp';
-import ImagePickComp from './ImagePickComp';
 import DeckListItemComp from './DeckListItemComp';
 import Client from './Client';
 import '../styles/flashcard.css';
@@ -27,7 +26,7 @@ class ManageDecksComp extends React.Component {
   };
 
   handleDeckAdded = (deckId) => {
-    this.setState({ currentDeck: deckId });
+    this.setState({ currentDeck: deckId, deckListShow: false });
   };
 
   handleDeckSelect = () => {
@@ -49,7 +48,7 @@ class ManageDecksComp extends React.Component {
 
   render() {
     const {
-      addDeckShow, deckList, deckListShow,
+      currentDeck, addDeckShow, deckList, deckListShow,
     } = this.state;
 
     const deckListItems = deckList.map(deck => (
@@ -64,7 +63,6 @@ class ManageDecksComp extends React.Component {
 
     return (
       <div>
-        <h2>Manage Decks</h2>
         { (deckListShow)
           ? (
             <div>
@@ -83,8 +81,14 @@ class ManageDecksComp extends React.Component {
         }
         { (addDeckShow)
           ? (
-            <AddDeckComp onDeckAdded={this.handleDeckAdded} />
+            <div>
+              <AddDeckComp onDeckAdded={this.handleDeckAdded} />
+            </div>
           )
+          : null
+        }
+        {currentDeck
+          ? <p>current deck: {currentDeck}</p>
           : null
         }
       </div>

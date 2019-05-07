@@ -2,70 +2,42 @@
 
 exports[`ManageDecksComp renders correctly 1`] = `
 <div>
-  <h1>
-    Manage Decks
-  </h1>
-  <div
-    className="AppContainer"
-  >
+  <div>
     <div
-      className="AppPanel"
+      className="ItemBox AppHeader"
     >
-      <div
-        className="ItemBox AppHeader"
+      <span
+        className="AddItem"
       >
-        <span
-          className="AddItem"
-        >
-          Add Deck
-        </span>
+        Add Deck
+      </span>
+      <button
+        className="AppBtn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Add"
+          className="btnImg"
+          src="add_FFFFFF.png"
+        />
+      </button>
+    </div>
+    <div
+      className="AppList"
+    />
+  </div>
+  <div>
+    <div>
+      <div>
         <button
-          className="AppBtn"
           onClick={[Function]}
           type="button"
         >
-          <img
-            alt="Add"
-            className="btnImg"
-            src="add_FFFFFF.png"
-          />
+          Add Deck
         </button>
       </div>
-      <div
-        className="AppList"
-      >
-        <p>
-          list of decks will go here
-        </p>
-      </div>
-      <div>
-        <h5>
-          play around with image select
-        </h5>
-        <div
-          className="AppPanel"
-        >
-          <div>
-            https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png
-          </div>
-          <div>
-            75112
-          </div>
-          <div
-            className="cardContainer"
-          >
-            <img
-              alt="nounprojectimg"
-              className="cardImg"
-              src="https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png"
-            />
-          </div>
-        </div>
-      </div>
     </div>
-    <div
-      className="AppPanel"
-    />
   </div>
 </div>
 `;
