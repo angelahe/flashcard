@@ -4,7 +4,7 @@ import '../styles/flashcard.css';
 import editbtn from '../img/buttons/edit_FFFFFF.png';
 import deletebtn from '../img/buttons/delete_FFFFFF.png';
 
-const DeckListItem = (props) => {
+const DeckListItemComp = (props) => {
   const {
     deck,
     onDeckDelete,
@@ -55,13 +55,13 @@ const DeckListItem = (props) => {
   );
 };
 
-DeckListItem.defaultProps = {
+DeckListItemComp.defaultProps = {
   onDeckSelect: () => { },
   onDeckEdit: () => { },
   onDeckDelete: () => { },
 };
 
-DeckListItem.propTypes = {
+DeckListItemComp.propTypes = {
   deck: PropTypes.shape({
     deck_id: PropTypes.string.isRequired,
   }).isRequired,
@@ -69,4 +69,4 @@ DeckListItem.propTypes = {
   onDeckEdit: PropTypes.func,
   onDeckDelete: PropTypes.func,
 };
-export default DeckListItem;
+export default DeckListItemComp;

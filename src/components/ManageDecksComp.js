@@ -1,85 +1,107 @@
 import React from 'react';
-import AddDeckComp from './AddDeckComp';
-import DeckListItemComp from './DeckListItemComp';
-import Client from './Client';
+import ActionBarComp from './ActionBarComp';
 import '../styles/flashcard.css';
-import addbtn from '../img/buttons/add_FFFFFF.png';
+import DeckListComp from './DeckListComp';
+import AddDeckComp from './AddDeckComp';
+import AddCardComp from './AddCardComp';
+import DeleteDeckComp from './DeleteDeckComp';
+import EditDeckComp from './EditDeckComp';
+import CardListComp from './CardListComp';
 
 class ManageDecksComp extends React.Component {
   constructor() {
     super();
     this.state = {
       currentDeck: '',
-      deckListShow: true,
-      addDeckShow: true,
-      deckList: [],
+      headerText: 'Decks',
+      currentView: 'DeckList',
     };
   }
 
-  componentDidMount = () => {
-    this.loadDecks();
+  handleAddClick = () => {
+    const { currentView } = this.state;
+    console.log('add button clicked');
+    // add logic - if currentView = DeckList...
+    switch (currentView) {
+      case 'DeckList': {
+        this.setState({ currentView: 'AddDeck', showAdd: false });
+        break;
+      }
+      case 'CardList': {
+        this.setState({ currentView: 'AddCard', showAdd: false });
+        break;
+      }
+      default:
+        this.setState({ currentView: 'DeckList', showAdd: true });
+    }
+  };
+
+  handleBackClick = () => {
+    const { currentView } = this.state;
+    console.log('in handleBackClick');
+    switch (currentView) {
+      case 'DeckList': {
+        this.setState({ currentView: 'DeckList', showAdd: true });
+        break;
+      }
+      case 'AddDeck': {
+        this.setState({ currentView: 'DeckList', showAdd: true });
+        break;
+      }
+      case 'AddCard': {
+        this.setState({ currentView: 'CardList' });
+        break;
+      }
+      case 'DeleteDeck': {
+        this.setState({ currentView: 'DeckList', showAdd: true });
+        break;
+      }
+      case 'EditDeck': {
+        this.setState({ currentView: 'DeckList', showAdd: true });
+        break;
+      }
+      case 'CardList': {
+        this.setState({ currentView: 'DeckList', showAdd: true });
+        break;
+      }
+      default:
+        this.setState({ currentView: 'DeckList', showAdd: true });
+    }
   }
 
-  onBtnAddClick = () => {
-    console.log('add button clicked');
-    this.setState({ addDeckShow: true, deckListShow: false });
-  };
-
   handleDeckAdded = (deckId) => {
-    this.setState({ currentDeck: deckId, deckListShow: false });
+    this.setState({ currentView: 'AddCard', currentDeck: deckId });
   };
 
-  handleDeckSelect = () => {
-    console.log('in handleItemClicked');
-  };
-
-  handleDeckEdit = () => {
-    console.log('in handle deck edit');
-  };
+  handleDeckEdit = (deckId) => {
+    console.log('in deck edit');
+    this.setState({ currentView: 'EditDeck', currentDeck: deckId });
+  }
 
   handleDeckDelete = () => {
-    console.log('in handle deck delete');
-  };
-
-  loadDecks = () => {
-    Client.getDecks()
-      .then(decks => this.setState({ deckList: decks }));
+    this.setState({ currentView: 'DeckList', showAdd: true });
   }
 
   render() {
     const {
-      currentDeck, addDeckShow, deckList, deckListShow,
+      currentView, currentDeck, showAdd, headerText,
     } = this.state;
-
-    const deckListItems = deckList.map(deck => (
-      <DeckListItemComp
-        key={deck.deck_id}
-        deck={deck}
-        onDeckSelect={this.handleDeckSelect}
-        onDeckEdit={this.handleDeckEdit}
-        onDeckDelete={this.handleDeckDelete}
-      />
-    ));
 
     return (
       <div>
-        { (deckListShow)
+        <ActionBarComp
+          showAdd={showAdd}
+          headerText={headerText}
+          onAdd={this.handleAddClick}
+          onBack={this.handleBackClick}
+        />
+        { (currentView === 'DeckList')
           ? (
-            <div>
-              <div className="ItemBox AppHeader">
-                <span className="AddItem">Add Deck</span>
-                <button type="button" className="AppBtn" onClick={this.onBtnAddClick}>
-                  <img className="btnImg" src={addbtn} alt="Add" />
-                </button>
-              </div>
-              <div className="AppList">
-                {deckListItems}
-              </div>
-            </div>
+            <DeckListComp />
           )
           : null
         }
-        { (addDeckShow)
+        { (currentView === 'AddDeck')
           ? (
             <div>
               <AddDeckComp onDeckAdded={this.handleDeckAdded} />
@@ -87,7 +109,39 @@ class ManageDecksComp extends React.Component {
           )
           : null
         }
-        {currentDeck
+        { (currentView === 'AddCard')
+          ? (
+            <div>
+              <AddCardComp />
+            </div>
+          )
+          : null
+        }
+        { (currentView === 'DeleteDeck')
+          ? (
+            <div>
+              <DeleteDeckComp />
+            </div>
+          )
+          : null
+        }
+        { (currentView === 'EditDeck')
+          ? (
+            <div>
+              <EditDeckComp />
+            </div>
+          )
+          : null
+        }
+        { (currentView === 'CardList')
+          ? (
+            <div>
+              <CardListComp />
+            </div>
+          )
+          : null
+        }
+        { currentDeck
           ? <p>current deck: {currentDeck}</p>
           : null
         }

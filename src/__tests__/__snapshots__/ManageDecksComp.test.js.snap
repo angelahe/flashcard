@@ -2,42 +2,46 @@
 
 exports[`ManageDecksComp renders correctly 1`] = `
 <div>
-  <div>
-    <div
-      className="ItemBox AppHeader"
+  <div
+    className="ActionBar"
+  >
+    <img
+      alt="logo"
+      className="NavImg"
+      src="logo_FFFFFF.png"
+    />
+    <button
+      className="NavBtn"
+      onClick={[Function]}
+      type="button"
     >
-      <span
-        className="AddItem"
-      >
-        Add Deck
-      </span>
-      <button
-        className="AppBtn"
-        onClick={[Function]}
-        type="button"
-      >
-        <img
-          alt="Add"
-          className="btnImg"
-          src="add_FFFFFF.png"
-        />
-      </button>
-    </div>
+      <img
+        alt="Add"
+        className="NavImg"
+        src="add_FFFFFF.png"
+      />
+    </button>
+    <span
+      className="HeaderText"
+    >
+      Decks
+    </span>
+    <button
+      className="NavBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Back"
+        className="NavImg"
+        src="back_FFFFFF.png"
+      />
+    </button>
+  </div>
+  <div>
     <div
       className="AppList"
     />
-  </div>
-  <div>
-    <div>
-      <div>
-        <button
-          onClick={[Function]}
-          type="button"
-        >
-          Add Deck
-        </button>
-      </div>
-    </div>
   </div>
 </div>
 `;

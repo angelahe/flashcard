@@ -1,6 +1,5 @@
 import React from 'react';
 import NavBarComp from './NavBarComp';
-import ActionBarComp from './ActionBarComp';
 import ManageDecksComp from './ManageDecksComp';
 
 class FlashcardComp extends React.Component {
@@ -15,7 +14,6 @@ class FlashcardComp extends React.Component {
   render() {
     return (
       <div>
-        <ActionBarComp />
         <div className="WorkArea">
           <ManageDecksComp />
         </div>
