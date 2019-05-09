@@ -82,7 +82,7 @@ class AddImageComp extends React.Component {
           </button>
         </div>
         <br />
-        <div className="AppContainer">
+        <div className="LineContainer">
           <div className="ImagePreview">
             <img className="cardImg" src={currentImageUrl} alt="nounprojectimg" />
           </div>
