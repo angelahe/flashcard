@@ -13,26 +13,64 @@ class ManageDecksComp extends React.Component {
     super();
     this.state = {
       currentDeck: '',
+      currentCard: '',
       headerText: 'Decks',
       currentView: 'DeckList',
     };
   }
 
+  setView = (newView = 'DeckList') => {
+    let showAdd = false;
+    let headerText = '';
+    let viewName = newView;
+
+    switch (newView) {
+      case 'DeckList':
+        headerText = 'Decks';
+        showAdd = true;
+        break;
+      case 'AddDeck':
+        headerText = 'Add Deck';
+        break;
+      case 'AddCard':
+        headerText = 'Add Card';
+        break;
+      case 'DeleteDeck':
+        headerText = 'Delete Deck';
+        break;
+      case 'EditDeck':
+        headerText = 'Edit Deck';
+        break;
+      case 'CardList':
+        headerText = 'Deck Name';
+        break;
+      default:
+        viewName = 'DeckList';
+        headerText = 'Decks';
+        showAdd = true;
+    }
+
+    this.setState({
+      currentView: viewName,
+      showAdd,
+      headerText,
+    });
+  }
+
   handleAddClick = () => {
     const { currentView } = this.state;
     console.log('add button clicked');
-    // add logic - if currentView = DeckList...
     switch (currentView) {
       case 'DeckList': {
-        this.setState({ currentView: 'AddDeck', showAdd: false });
+        this.setView('AddDeck');
         break;
       }
       case 'CardList': {
-        this.setState({ currentView: 'AddCard', showAdd: false });
+        this.setView('AddCard');
         break;
       }
       default:
-        this.setState({ currentView: 'DeckList', showAdd: true });
+        this.setView('DeckList');
     }
   };
 
@@ -40,51 +78,42 @@ class ManageDecksComp extends React.Component {
     const { currentView } = this.state;
     console.log('in handleBackClick');
     switch (currentView) {
-      case 'DeckList': {
-        this.setState({ currentView: 'DeckList', showAdd: true });
-        break;
-      }
-      case 'AddDeck': {
-        this.setState({ currentView: 'DeckList', showAdd: true });
+      case ('DeckList', 'AddDeck', 'DeleteDeck', 'EditDeck', 'CardList'): {
+        this.setView('DeckList');
         break;
       }
       case 'AddCard': {
-        this.setState({ currentView: 'CardList' });
-        break;
-      }
-      case 'DeleteDeck': {
-        this.setState({ currentView: 'DeckList', showAdd: true });
-        break;
-      }
-      case 'EditDeck': {
-        this.setState({ currentView: 'DeckList', showAdd: true });
-        break;
-      }
-      case 'CardList': {
-        this.setState({ currentView: 'DeckList', showAdd: true });
+        this.setView('CardList');
         break;
       }
       default:
-        this.setState({ currentView: 'DeckList', showAdd: true });
+        this.setView('DeckList');
     }
   }
 
   handleDeckAdded = (deckId) => {
-    this.setState({ currentView: 'AddCard', currentDeck: deckId });
+    this.setView('AddCard');
+    this.setState({ currentDeck: deckId });
   };
 
   handleDeckEdit = (deckId) => {
     console.log('in deck edit');
-    this.setState({ currentView: 'EditDeck', currentDeck: deckId });
+    this.setView('EditDeck');
+    this.setState({ currentDeck: deckId });
   }
 
   handleDeckDelete = () => {
-    this.setState({ currentView: 'DeckList', showAdd: true });
+    console.log('handle deck delete');
+    this.setView('DeckList');
+  }
+
+  handleCardAdded = (cardId) => {
+    this.setState({ currentCard: cardId });
   }
 
   render() {
     const {
-      currentView, currentDeck, showAdd, headerText,
+      currentView, currentDeck, currentCard, showAdd, headerText,
     } = this.state;
 
     return (
@@ -112,7 +141,10 @@ class ManageDecksComp extends React.Component {
         { (currentView === 'AddCard')
           ? (
             <div>
-              <AddCardComp />
+              <AddCardComp
+                deck={currentDeck}
+                onCardAdded={this.handleCardAdded}
+              />
             </div>
           )
           : null
@@ -145,6 +177,10 @@ class ManageDecksComp extends React.Component {
           ? <p>current deck: {currentDeck}</p>
           : null
         }
+        { currentCard
+          ? <p>current card: {currentCard}</p>
+          : null
+          }
       </div>
     );
   }
