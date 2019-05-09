@@ -75,10 +75,12 @@ class AddImageComp extends React.Component {
     ));
     return (
       <div>
-        <input className="DetailText" value={term} onChange={this.handleTermChange} placeholder="Find an image" />
-        <button type="button" onClick={this.handleSearchClick}>
-          <img className="btnImg" src={searchbtn} alt="Add" />
-        </button>
+        <div className="LineContainer">
+          <input className="DetailText" value={term} onChange={this.handleTermChange} placeholder="Find an image" />
+          <button type="button" onClick={this.handleSearchClick}>
+            <img className="btnImg" src={searchbtn} alt="Add" />
+          </button>
+        </div>
         <br />
         <div className="AppContainer">
           <div className="ImagePreview">

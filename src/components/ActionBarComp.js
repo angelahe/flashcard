@@ -25,7 +25,7 @@ const ActionBarComp = (props) => {
 
   return (
     <div className="ActionBar">
-      <img className="NavImg" src={logo} alt="logo" />
+      <img className="NavImg NavBtn" src={logo} alt="logo" />
       { showAdd
         ? (
           <button type="button" className="NavBtn" onClick={handleAddClicked}>

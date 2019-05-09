@@ -4,6 +4,8 @@ import AddImageComp from './AddImageComp';
 import '../styles/flashcard.css';
 import Client from './Client';
 import done from '../img/buttons/done_FFFFFF.png';
+import english from '../img/buttons/english_FFFFFF.png';
+import spanish from '../img/buttons/spanish_FFFFFF.png';
 
 class AddCardComp extends React.Component {
   constructor(props) {
@@ -87,15 +89,17 @@ class AddCardComp extends React.Component {
               </button>
               <br />
               <div>
-                <div>
-                  <span className="DetailText">L1 word:</span>
+                <div className="LineContainer">
+                  <img className="btnImg" src={english} alt="English" />
                   <input className="DetailText" value={currentL1} onChange={this.handleL1Change} />
                   <br />
-                  <span className="DetailText">L2 word:</span>
+                </div>
+                <div className="LineContainer">
+                  <img className="btnImg" src={spanish} alt="Spanish" />
                   <input className="DetailText" value={currentL2} onChange={this.handleL2Change} />
                 </div>
                 <button className="AppBtn" type="button" onClick={this.handleAddCardClick}>
-                  <img className="btnImg" src={done} alt="Add" />
+                  <img className="btnImg" src={done} alt="Done" />
                 </button>
               </div>
               <br />
