@@ -13,7 +13,7 @@ class CardListComp extends React.Component {
   render() {
     return (
       <div>
-        <p>DeckListComp</p>
+        <p>CardListComp</p>
       </div>
     );
   }

@@ -43,7 +43,7 @@ it('should set the state when createCard completes', (done) => {
 
   const handleCardAdded = jest.fn(() => {});
   const component = shallow(<AddCardComp deck="ABCD-1234" onCardAdded={handleCardAdded} />);
-  const button = component.find('button').at(0);
+  const button = component.find('button').at(1);
   button.simulate('click');
 
   setTimeout(() => {

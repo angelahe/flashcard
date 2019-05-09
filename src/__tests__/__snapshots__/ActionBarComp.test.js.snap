@@ -2,11 +2,10 @@
 
 exports[`AddCardComp renders correctly 1`] = `
 <div>
-  <span>
-    Image Search:
-  </span>
   <input
+    className="DetailText"
     onChange={[Function]}
+    placeholder="Find an image"
     value=""
   />
   <button
@@ -21,13 +20,28 @@ exports[`AddCardComp renders correctly 1`] = `
   </button>
   <br />
   <div
-    className="cardContainer"
+    className="AppContainer"
   >
-    <img
-      alt="nounprojectimg"
-      className="cardImg"
-      src=""
-    />
+    <div
+      className="ImagePreview"
+    >
+      <img
+        alt="nounprojectimg"
+        className="cardImg"
+        src="https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png"
+      />
+    </div>
+    <button
+      className="AppBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Done"
+        className="btnImg"
+        src="done_FFFFFF.png"
+      />
+    </button>
   </div>
   <div
     className="imagesContainer"
@@ -37,15 +51,9 @@ exports[`AddCardComp renders correctly 1`] = `
   </p>
   <span>
     Url: 
-    
+    https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png
      ID: 
-    
+    77680
   </span>
-  <button
-    onClick={[Function]}
-    type="button"
-  >
-    OK
-  </button>
 </div>
 `;

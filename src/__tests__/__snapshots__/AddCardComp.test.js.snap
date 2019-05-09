@@ -2,94 +2,73 @@
 
 exports[`AddCardComp renders correctly 1`] = `
 <div>
-  <h5>
-    Add a Card to the Deck
-  </h5>
-  <span>
-    L1 word:
-  </span>
-  <input
-    id="l1word"
-    onChange={[Function]}
-    value=""
-  />
-  <br />
-  <span>
-    L2 word:
-  </span>
-  <input
-    id="l2word"
-    onChange={[Function]}
-    value=""
-  />
-  <br />
-  <span>
-    Image:
-  </span>
-  <p>
-    Url:
-    
-      id:
-    0
-  </p>
-  <img
-    alt={0}
-    className="btnImg"
-    src=""
-  />
   <div>
-    <span>
-      Image Search:
-    </span>
-    <input
-      onChange={[Function]}
-      value=""
-    />
     <button
+      className="cardDefault"
       onClick={[Function]}
       type="button"
     >
       <img
-        alt="Add"
-        className="btnImg"
-        src="search_FFFFFF.png"
+        alt={77680}
+        className="cardImg"
+        src="https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png"
       />
     </button>
     <br />
-    <div
-      className="cardContainer"
-    >
-      <img
-        alt="nounprojectimg"
-        className="cardImg"
-        src=""
-      />
+    <div>
+      <div>
+        <span
+          className="DetailText"
+        >
+          L1 word:
+        </span>
+        <input
+          className="DetailText"
+          onChange={[Function]}
+          value=""
+        />
+        <br />
+        <span
+          className="DetailText"
+        >
+          L2 word:
+        </span>
+        <input
+          className="DetailText"
+          onChange={[Function]}
+          value=""
+        />
+      </div>
+      <button
+        className="AppBtn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Add"
+          className="btnImg"
+          src="done_FFFFFF.png"
+        />
+      </button>
     </div>
-    <div
-      className="imagesContainer"
-    />
-    <p>
-      Image Selected Values
-    </p>
-    <span>
-      Url: 
-      
-       ID: 
-      
-    </span>
-    <button
-      onClick={[Function]}
-      type="button"
+    <br />
+    <span
+      className="DetailText"
     >
-      OK
-    </button>
+      Image:
+    </span>
+    <p>
+      Url:
+      https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png
+        id:
+      77680
+    </p>
+    <img
+      alt={77680}
+      className="btnImg"
+      src="https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png"
+    />
   </div>
-  <button
-    onClick={[Function]}
-    type="button"
-  >
-    Add Card
-  </button>
   <p>
     C current deck is: 
     ABCD-1234

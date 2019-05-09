@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import AddImageComp from './AddImageComp';
 import '../styles/flashcard.css';
 import Client from './Client';
+import done from '../img/buttons/done_FFFFFF.png';
 
 class AddCardComp extends React.Component {
   constructor(props) {
@@ -11,8 +12,10 @@ class AddCardComp extends React.Component {
       currentCard: '',
       currentL1: '',
       currentL2: '',
-      currentImageUrl: '',
-      currentImageId: 0,
+      currentImageUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png',
+      currentImageId: 77680,
+      addImage: false,
+      styleImage: 'cardDefault',
     };
   }
 
@@ -45,7 +48,13 @@ class AddCardComp extends React.Component {
     this.setState({
       currentImageUrl: imageUrl,
       currentImageId: imageId,
+      addImage: false,
+      styleImage: 'cardContainer',
     });
+  }
+
+  handleImageClick = () => {
+    this.setState({ addImage: true });
   }
 
   render() {
@@ -55,24 +64,49 @@ class AddCardComp extends React.Component {
       currentL2,
       currentImageId,
       currentImageUrl,
+      addImage,
+      styleImage,
     } = this.state;
     const { deck } = this.props;
     return (
       <div>
-        <h5>Add a Card to the Deck</h5>
-        <span>L1 word:</span>
-        <input value={currentL1} onChange={this.handleL1Change} id="l1word" />
-        <br />
-        <span>L2 word:</span>
-        <input value={currentL2} onChange={this.handleL2Change} id="l2word" />
-        <br />
-        <span>Image:</span>
-        <p>Url:{currentImageUrl}  id:{currentImageId}</p>
-        <img className="btnImg" src={currentImageUrl} alt={currentImageId} />
-        <AddImageComp onImageAdded={this.handleImageAdded} />
-        <button type="button" onClick={this.handleAddCardClick}>
-          Add Card
-        </button>
+        { (addImage !== true)
+          ? (
+            <div>
+              <button
+                className={styleImage}
+                type="button"
+                onClick={this.handleImageClick}
+                onKeyPress={this.handleItemClick}
+              >
+                <img
+                  className="cardImg"
+                  src={currentImageUrl}
+                  alt={currentImageId}
+                />
+              </button>
+              <br />
+              <div>
+                <div>
+                  <span className="DetailText">L1 word:</span>
+                  <input className="DetailText" value={currentL1} onChange={this.handleL1Change} />
+                  <br />
+                  <span className="DetailText">L2 word:</span>
+                  <input className="DetailText" value={currentL2} onChange={this.handleL2Change} />
+                </div>
+                <button className="AppBtn" type="button" onClick={this.handleAddCardClick}>
+                  <img className="btnImg" src={done} alt="Add" />
+                </button>
+              </div>
+              <br />
+              <span className="DetailText">Image:</span>
+              <p>Url:{currentImageUrl}  id:{currentImageId}</p>
+              <img className="btnImg" src={currentImageUrl} alt={currentImageId} />
+            </div>
+          )
+          : <AddImageComp onImageAdded={this.handleImageAdded} />
+        }
+
         {(currentCard) ? <p>current card: {currentCard}</p> : null}
         {(deck) ? <p>C current deck is: {deck}</p> : null}
       </div>

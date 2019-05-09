@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import searchbtn from '../img/buttons/search_FFFFFF.png';
-import searchresults from './testsearchresults';
+// import searchresults from './testsearchresults';
 import Thumbnail from './Thumbnail';
 import NounProject from './NounProject';
+import done from '../img/buttons/done_FFFFFF.png'
 
 class AddImageComp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       term: '',
-      currentImageUrl: '',
-      currentImageId: '',
+      currentImageUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png',
+      currentImageId: '77680',
       imagesList: [],
     };
   }
@@ -22,11 +23,10 @@ class AddImageComp extends React.Component {
 
   handleSearchClick = () => {
     const { term } = this.state;
-
-    const results = searchresults.searchresults;
-
-    console.log('results is', results);
-    this.setState({ imagesList: results });
+    // placeholder for loading data from a test file
+    // const results = searchresults.searchresults;
+    // console.log('results is', results);
+    // this.setState({ imagesList: results });
 
     // call the nounproject api with the search term
     console.log(`going to search for ${term} on nounproject`);
@@ -43,7 +43,9 @@ class AddImageComp extends React.Component {
 
   // temp able to enter the id and url by user
   handleImageUrlChange = (event) => {
-    this.setState({ currentImageUrl: event.target.value });
+    this.setState({
+      currentImageUrl: event.target.value,
+    });
   }
 
   handleImageIdChange = (event) => {
@@ -73,23 +75,24 @@ class AddImageComp extends React.Component {
     ));
     return (
       <div>
-        <span>Image Search:</span>
-        <input value={term} onChange={this.handleTermChange} />
+        <input className="DetailText" value={term} onChange={this.handleTermChange} placeholder="Find an image" />
         <button type="button" onClick={this.handleSearchClick}>
           <img className="btnImg" src={searchbtn} alt="Add" />
         </button>
         <br />
-        <div className="cardContainer">
-          <img className="cardImg" src={currentImageUrl} alt="nounprojectimg" />
+        <div className="AppContainer">
+          <div className="ImagePreview">
+            <img className="cardImg" src={currentImageUrl} alt="nounprojectimg" />
+          </div>
+          <button className="AppBtn" type="button" onClick={this.handleImageSend}>
+            <img className="btnImg" src={done} alt="Done" />
+          </button>
         </div>
         <div className="imagesContainer">
           {imagesListItems}
         </div>
         <p>Image Selected Values</p>
         <span>Url: {currentImageUrl} ID: {currentImageId}</span>
-        <button type="button" onClick={this.handleImageSend}>
-          OK
-        </button>
       </div>
     );
   }
