@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import searchbtn from '../img/buttons/search_FFFFFF.png';
 // import searchresults from './testsearchresults';
-import Thumbnail from './Thumbnail';
+import ThumbnailComp from './ThumbnailComp';
 import NounProject from './NounProject';
-import done from '../img/buttons/done_FFFFFF.png'
+import done from '../img/buttons/done_FFFFFF.png';
 
 class AddImageComp extends React.Component {
   constructor(props) {
@@ -66,7 +66,7 @@ class AddImageComp extends React.Component {
     } = this.state;
 
     const imagesListItems = imagesList.map(image => (
-      <Thumbnail
+      <ThumbnailComp
         key={image.id}
         imageUrl={image.href}
         imageId={image.id}

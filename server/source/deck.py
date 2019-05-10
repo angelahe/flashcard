@@ -72,3 +72,11 @@ def get_cards_in_deck(deck_id):
     body = json.dumps( [dict(ix) for ix in cards] )
     return make_response((body, 200))
 
+@bp.route('/cards', methods=['GET'])
+def get_cards():
+    db = get_db()
+    cards = db.execute(
+        'SELECT * FROM card'
+    ).fetchall()
+    body = json.dumps( [dict(ix) for ix in cards] )
+    return make_response((body, 200))

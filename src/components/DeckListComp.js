@@ -21,17 +21,17 @@ class DeckListComp extends React.Component {
       .then(decks => this.setState({ deckList: decks }));
   }
 
-  handleDeckSelect = () => {
-    console.log('in handleItemClicked');
-  };
+  handleDeckSelect = (deck) => {
+    console.log('in handleItemClicked', deck);
+  }
 
-  handleDeckEdit = () => {
-    console.log('in handle deck edit');
-  };
+  handleDeckEdit = (deck) => {
+    console.log('in handle deck edit', deck);
+  }
 
-  handleDeckDelete = () => {
-    console.log('in handle deck delete');
-  };
+  handleDeckDelete = (deck) => {
+    console.log('in handle deck delete', deck);
+  }
 
   render() {
     const {

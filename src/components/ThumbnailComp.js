@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/flashcard.css';
 import PropTypes from 'prop-types';
 
-const Thumbnail = (props) => {
+const ThumbnailComp = (props) => {
   const {
     imageUrl,
     imageId,
@@ -19,12 +19,12 @@ const Thumbnail = (props) => {
   );
 };
 
-Thumbnail.defaultProps = {
+ThumbnailComp.defaultProps = {
   onImageSelect: () => { },
 };
-Thumbnail.propTypes = {
+ThumbnailComp.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   imageId: PropTypes.string.isRequired,
   onImageSelect: PropTypes.func,
 };
-export default Thumbnail;
+export default ThumbnailComp;

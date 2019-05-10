@@ -2,12 +2,68 @@
 
 exports[`AddDeckComp renders correctly 1`] = `
 <div>
+  <div />
   <div>
+    <br />
+     
+    <br />
+    <div
+      className="LineContainer"
+    >
+      <span
+        className="DetailText"
+      >
+        Name:
+      </span>
+      <input
+        className="DetailText"
+        onChange={[Function]}
+        value=""
+      />
+      <br />
+    </div>
+    <br />
+    <div
+      className="LineContainer"
+    >
+      <span
+        className="DetailText"
+      >
+        Key:
+      </span>
+      <input
+        className="DetailText"
+        onChange={[Function]}
+        value=""
+      />
+    </div>
+    <br />
+    <div
+      className="LineContainer"
+    >
+      <span
+        className="DetailText"
+      >
+        Order:
+      </span>
+      <input
+        className="DetailText"
+        onChange={[Function]}
+        type="Number"
+        value={0}
+      />
+    </div>
+    <br />
     <button
+      className="AppBtn"
       onClick={[Function]}
       type="button"
     >
-      Add Deck
+      <img
+        alt="Done"
+        className="btnImg"
+        src="done_FFFFFF.png"
+      />
     </button>
   </div>
 </div>

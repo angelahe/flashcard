@@ -16,23 +16,29 @@ exports[`AddCardComp renders correctly 1`] = `
     </button>
     <br />
     <div>
-      <div>
-        <span
-          className="DetailText"
-        >
-          L1 word:
-        </span>
+      <div
+        className="LineContainer"
+      >
+        <img
+          alt="English"
+          className="btnImg"
+          src="english_FFFFFF.png"
+        />
         <input
           className="DetailText"
           onChange={[Function]}
           value=""
         />
         <br />
-        <span
-          className="DetailText"
-        >
-          L2 word:
-        </span>
+      </div>
+      <div
+        className="LineContainer"
+      >
+        <img
+          alt="Spanish"
+          className="btnImg"
+          src="spanish_FFFFFF.png"
+        />
         <input
           className="DetailText"
           onChange={[Function]}
@@ -45,7 +51,7 @@ exports[`AddCardComp renders correctly 1`] = `
         type="button"
       >
         <img
-          alt="Add"
+          alt="Done"
           className="btnImg"
           src="done_FFFFFF.png"
         />

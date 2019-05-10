@@ -2,25 +2,29 @@
 
 exports[`AddCardComp renders correctly 1`] = `
 <div>
-  <input
-    className="DetailText"
-    onChange={[Function]}
-    placeholder="Find an image"
-    value=""
-  />
-  <button
-    onClick={[Function]}
-    type="button"
+  <div
+    className="LineContainer"
   >
-    <img
-      alt="Add"
-      className="btnImg"
-      src="search_FFFFFF.png"
+    <input
+      className="DetailText"
+      onChange={[Function]}
+      placeholder="Find an image"
+      value=""
     />
-  </button>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Add"
+        className="btnImg"
+        src="search_FFFFFF.png"
+      />
+    </button>
+  </div>
   <br />
   <div
-    className="AppContainer"
+    className="LineContainer"
   >
     <div
       className="ImagePreview"

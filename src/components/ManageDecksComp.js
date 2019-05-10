@@ -168,7 +168,7 @@ class ManageDecksComp extends React.Component {
         { (currentView === 'CardList')
           ? (
             <div>
-              <CardListComp />
+              <CardListComp deck={currentDeck} />
             </div>
           )
           : null

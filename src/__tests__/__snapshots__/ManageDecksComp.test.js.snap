@@ -7,7 +7,7 @@ exports[`ManageDecksComp renders correctly 1`] = `
   >
     <img
       alt="logo"
-      className="NavImg"
+      className="NavImg NavBtn"
       src="logo_FFFFFF.png"
     />
     <button

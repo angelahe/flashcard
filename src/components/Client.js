@@ -24,5 +24,15 @@ function getDecks() {
   })
     .then(response => response.json());
 }
-const Client = { createDeck, createCard, getDecks };
+
+function getCards(deckId) {
+  return fetch(`api/deck/${deckId}/cards`, {
+    method: 'GET',
+  })
+    .then(response => response.json());
+}
+
+const Client = {
+  createDeck, createCard, getDecks, getCards,
+};
 export default Client;
