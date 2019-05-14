@@ -5,8 +5,8 @@ function createDeck() {
     method: 'POST',
   })
     .then(response => response.json())
-    .then(deck => deck.id);
-//    .catch(err => console.error(err));
+    .then(deck => deck.id)
+    .catch(err => console.error(err.message));
 }
 
 function createCard(deckId, l1word, l2word, imageUrl, imageId) {
@@ -16,8 +16,8 @@ function createCard(deckId, l1word, l2word, imageUrl, imageId) {
     method: 'POST',
   })
     .then(response => response.json())
-    .then(card => card.card_id);
-//    .catch(err => console.error(err));
+    .then(card => card.card_id)
+    .catch(err => console.error(err.message));
 }
 
 function getDecks() {
@@ -25,15 +25,17 @@ function getDecks() {
     method: 'GET',
   })
     .then(response => response.json());
-//    .catch(err => console.error(err));
+//    .catch(err => console.error(err.message));
 }
 
 function getCardsInDeck(deckId) {
   return fetch(`api/deck/${deckId}/cards`, {
     method: 'GET',
   })
-    .then(response => response.json());
-  //  .catch(err => console.error(err));
+    .then(response => response.json())
+    .catch(err => console.error(err));
+// oops, needed to be a deck in the db, how to troubleshoot? create a deck, 
+// then create a card, then get that card?
 
 //  return fetch('api/deck/9470f75e-ee46-43a3-911a-06ae23ebdfce/cards', {
 //    method: 'GET',

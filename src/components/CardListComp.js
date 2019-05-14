@@ -5,6 +5,8 @@ import '../styles/flashcard.css';
 import CardListItemComp from './CardListItemComp';
 
 class CardListComp extends React.Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,13 +17,22 @@ class CardListComp extends React.Component {
 
   componentDidMount = () => {
     this.loadCards();
+    this._isMounted = true;
+  }
+
+  componentWillUnmount = () => {
+    this._isMounted = false;
   }
 
   loadCards = () => {
     const { deck } = this.props;
-    console.log('need to load cards');
     Client.getCardsInDeck(deck)
-      .then(cards => this.setState({ cardList: cards }));
+      .then((cards) => {
+        if (this._isMounted) {
+          this.setState({ cardList: cards });
+        }
+      })
+      .catch(err => console.error(err.message));
   }
 
   handleCardSelect = (card) => {

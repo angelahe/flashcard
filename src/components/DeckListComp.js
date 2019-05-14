@@ -4,6 +4,8 @@ import '../styles/flashcard.css';
 import DeckListItemComp from './DeckListItemComp';
 
 class DeckListComp extends React.Component {
+  _isMounted = false;
+
   constructor() {
     super();
     this.state = {
@@ -14,11 +16,21 @@ class DeckListComp extends React.Component {
 
   componentDidMount = () => {
     this.loadDecks();
+    this._isMounted = true;
+  }
+
+  componentWillUnmount = () => {
+    this._isMounted = false;
   }
 
   loadDecks = () => {
     Client.getDecks()
-      .then(decks => this.setState({ deckList: decks }));
+      .then((decks) => {
+        if (this._isMounted) {
+          this.setState({ deckList: decks });
+        }
+      })
+      .catch(err => console.error('There was a problem with getting decks', err.message));
   }
 
   handleDeckSelect = (deck) => {
