@@ -3,19 +3,21 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
-import ActionBarComp from '../components/ActionBarComp';
+import CardListItemComp from '../components/CardListItemComp';
+
+const card = { card_id: 'ABCD-1234' };
 
 it('renders without crashing', () => {
-  shallow(<ActionBarComp />);
+  shallow(<CardListItemComp card={card} />);
 });
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<ActionBarComp />, div);
+  ReactDOM.render(<CardListItemComp card={card} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
 test('snapshot of UI renders consistently', () => {
-  const tree = renderer.create(<ActionBarComp />).toJSON();
+  const tree = renderer.create(<CardListItemComp card={card} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

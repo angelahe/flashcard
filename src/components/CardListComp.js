@@ -20,7 +20,7 @@ class CardListComp extends React.Component {
   loadCards = () => {
     const { deck } = this.props;
     console.log('need to load cards');
-    Client.getCards(deck)
+    Client.getCardsInDeck(deck)
       .then(cards => this.setState({ cardList: cards }));
   }
 
@@ -60,6 +60,8 @@ class CardListComp extends React.Component {
 }
 
 CardListComp.propTypes = {
-  deck: PropTypes.string.isRequired,
+  deck: PropTypes.shape({
+    deck_id: PropTypes.string.isRequired,
+  }).isRequired,
 };
 export default CardListComp;

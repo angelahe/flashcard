@@ -3,19 +3,21 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
-import ImagePickComp from '../components/ImagePickComp';
+import CardListComp from '../components/CardListComp';
+
+const deck = { deck_id: 'ABCD-1234' };
 
 it('renders without crashing', () => {
-  shallow(<ImagePickComp />);
+  shallow(<CardListComp deck={deck} />);
 });
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<ImagePickComp />, div);
+  ReactDOM.render(<CardListComp deck={deck} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
-test('ImagePickComp renders correctly', () => {
-  const tree = renderer.create(<ImagePickComp />).toJSON();
+test('snapshot of UI renders consistently', () => {
+  const tree = renderer.create(<CardListComp deck={deck} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

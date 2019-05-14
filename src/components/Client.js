@@ -6,6 +6,7 @@ function createDeck() {
   })
     .then(response => response.json())
     .then(deck => deck.id);
+//    .catch(err => console.error(err));
 }
 
 function createCard(deckId, l1word, l2word, imageUrl, imageId) {
@@ -16,6 +17,7 @@ function createCard(deckId, l1word, l2word, imageUrl, imageId) {
   })
     .then(response => response.json())
     .then(card => card.card_id);
+//    .catch(err => console.error(err));
 }
 
 function getDecks() {
@@ -23,16 +25,24 @@ function getDecks() {
     method: 'GET',
   })
     .then(response => response.json());
+//    .catch(err => console.error(err));
 }
 
-function getCards(deckId) {
+function getCardsInDeck(deckId) {
   return fetch(`api/deck/${deckId}/cards`, {
     method: 'GET',
   })
     .then(response => response.json());
+  //  .catch(err => console.error(err));
+
+//  return fetch('api/deck/9470f75e-ee46-43a3-911a-06ae23ebdfce/cards', {
+//    method: 'GET',
+//  })
+//    .then(response => response.json())
+//    .catch(err => console.error(err));
 }
 
 const Client = {
-  createDeck, createCard, getDecks, getCards,
+  createDeck, createCard, getDecks, getCardsInDeck,
 };
 export default Client;

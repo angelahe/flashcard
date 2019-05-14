@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot of UI renders consistently 1`] = `
+<div
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  <img
+    alt="75112"
+    className="thumbnailImg"
+    src="https://d30y9cdsu7xlg0.cloudfront.net/png/75112-200.png"
+  />
+</div>
+`;

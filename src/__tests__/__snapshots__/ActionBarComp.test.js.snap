@@ -1,63 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddCardComp renders correctly 1`] = `
-<div>
-  <div
-    className="LineContainer"
-  >
-    <input
-      className="DetailText"
-      onChange={[Function]}
-      placeholder="Find an image"
-      value=""
-    />
-    <button
-      onClick={[Function]}
-      type="button"
-    >
-      <img
-        alt="Add"
-        className="btnImg"
-        src="search_FFFFFF.png"
-      />
-    </button>
-  </div>
-  <br />
-  <div
-    className="LineContainer"
-  >
-    <div
-      className="ImagePreview"
-    >
-      <img
-        alt="nounprojectimg"
-        className="cardImg"
-        src="https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png"
-      />
-    </div>
-    <button
-      className="AppBtn"
-      onClick={[Function]}
-      type="button"
-    >
-      <img
-        alt="Done"
-        className="btnImg"
-        src="done_FFFFFF.png"
-      />
-    </button>
-  </div>
-  <div
-    className="imagesContainer"
+exports[`snapshot of UI renders consistently 1`] = `
+<div
+  className="ActionBar"
+>
+  <img
+    alt="logo"
+    className="NavImg NavBtn"
+    src="logo_FFFFFF.png"
   />
-  <p>
-    Image Selected Values
-  </p>
-  <span>
-    Url: 
-    https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png
-     ID: 
-    77680
+  <button
+    className="NavBtn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="Add"
+      className="NavImg"
+      src="add_FFFFFF.png"
+    />
+  </button>
+  <span
+    className="HeaderText"
+  >
+    default
   </span>
+  <button
+    className="NavBtn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="Back"
+      className="NavImg"
+      src="back_FFFFFF.png"
+    />
+  </button>
 </div>
 `;
