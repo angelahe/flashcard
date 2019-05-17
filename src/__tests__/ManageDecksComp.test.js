@@ -29,7 +29,7 @@ it('does not show the current deck when there is no deck', () => {
   expect(component.html()).not.toContain('current deck');
 });
 
-it('shows the current deck when there is one', () => {
+it('shows the current deck in the DeckList UI when there is one', () => {
   const deckId = '12345-ABCD';
   fetch.once(JSON.stringify([{ deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939' }, { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc' }]));
   const component = shallow(<ManageDecksComp />);
@@ -37,4 +37,43 @@ it('shows the current deck when there is one', () => {
   component.update();
 
   expect(component.html()).toContain(`current deck: ${deckId}`);
+  expect(component.html()).toContain('Decks');
 });
+
+/*
+it('shows the AddDeck UI when currentView is AddDeck', (done) => {
+  fetch.once(JSON.stringify([{ deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939' }, { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc' }]));
+  const component = shallow(<ManageDecksComp />);
+  component.findWhere(n => n.type() === 'button' && n.contains('Add'));
+  const button = component.find('button').first();
+  console.log('1st button is', component);
+  button.simulate('click');
+  // component.setState({ currentView: 'AddDeck' });
+  // component.update();
+
+  setTimeout(() => {
+    expect(component.instance().state.currentView).toBe('AddDeck');
+    done();
+  });
+
+  //  component.setState({ currentView: 'AddDeck' });
+  component.update();
+  expect(component.html()).toContain('Add Deck');
+  const container = component.find('button');
+  expect(container.length).toBe(1);
+  console.log('component is', component);
+  expect(component.html()).toContain('Add Deck');
+  expect(component.find('.HeaderText').text()).toBe('Add Deck');
+});
+*/
+// const deckId = '12345-ABCD';
+//  Client.createDeck = jest.fn(() => Promise.resolve(deckId));
+
+//  const component = shallow(<AddDeckComp onDeckAdded={dummyDeckAdded} />);
+//  const button = component.find('button').first();
+//  button.simulate('click');
+
+//  setTimeout(() => {
+//    expect(component.instance().state.currentDeck).toBe(deckId);
+//    done();
+//  });

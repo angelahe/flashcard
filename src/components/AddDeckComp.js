@@ -43,7 +43,7 @@ class AddDeckComp extends React.Component {
       orderValue,
     } = this.state;
     return (
-      <div>
+      <div className="AddDeckComp">
         <div>
           {currentDeck !== ''
             ? <p>current deck: {currentDeck}</p>
@@ -69,7 +69,7 @@ class AddDeckComp extends React.Component {
             <input className="DetailText" type="Number" value={orderValue} onChange={this.handleOrderChange} />
           </div>
           <br />
-          <button className="AppBtn" type="button" onClick={this.handleAddDeckClick}>
+          <button className="AppBtn AddDeckButton" type="button" onClick={this.handleAddDeckClick}>
             <img className="btnImg" src={done} alt="Done" />
           </button>
         </div>

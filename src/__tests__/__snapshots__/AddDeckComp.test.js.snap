@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddDeckComp renders correctly 1`] = `
-<div>
+<div
+  className="AddDeckComp"
+>
   <div />
   <div>
     <br />
@@ -55,7 +57,7 @@ exports[`AddDeckComp renders correctly 1`] = `
     </div>
     <br />
     <button
-      className="AppBtn"
+      className="AppBtn AddDeckButton"
       onClick={[Function]}
       type="button"
     >

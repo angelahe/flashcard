@@ -51,3 +51,25 @@ it('should set the state when createDeck completes', (done) => {
     done();
   });
 });
+
+it('contains the container div AddDeckComp on shallow render', () => {
+  const component = shallow(<AddDeckComp onDeckAdded={dummyDeckAdded} />);
+  expect(component.html()).toContain('AddDeckComp');
+});
+
+it('should call the Add button click handler when clicked', (done) => {
+  const deckId = '12345-ABCD';
+  Client.createDeck = jest.fn(() => Promise.resolve(deckId));
+
+  const handleDeckAdded = jest.fn(() => {});
+  const component = shallow(<AddDeckComp onDeckAdded={handleDeckAdded} />);
+  const button = component.find('.AddDeckButton').first();
+  button.simulate('click');
+
+  setTimeout(() => {
+    expect(component.instance().state.currentDeck).toBe(deckId);
+    expect(handleDeckAdded.mock.calls.length).toBe(1);
+    expect(handleDeckAdded.mock.calls[0][0]).toBe(deckId);
+    done();
+  });
+});
