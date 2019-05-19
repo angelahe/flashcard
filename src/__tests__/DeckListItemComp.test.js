@@ -22,10 +22,49 @@ test('DeckListItemComp renders correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
-it('contains the container div CardListItemComp on shallow render', () => {
+it('contains the container div DeckListItemComp on shallow render', () => {
   const component = shallow(<DeckListItemComp deck={deck} />);
   expect(component.html()).toContain('DeckListItemComp');
   expect(component.html()).toContain('DeckListItemText');
   expect(component.html()).toContain('DeckListItemEdit');
   expect(component.html()).toContain('DeckListItemDelete');
+});
+
+it('click editDeck calls handler', (done) => {
+  const handleDeckEdit = jest.fn(() => {});
+  const component = shallow(<DeckListItemComp deck={deck} onDeckEdit={handleDeckEdit} />);
+  const button = component.find('.DeckListItemEdit').first();
+  button.simulate('click');
+
+  setTimeout(() => {
+    expect(handleDeckEdit.mock.calls.length).toBe(1);
+    expect(handleDeckEdit.mock.calls[0][0]).toBe(deck);
+    done();
+  });
+});
+
+it('click deleteDeck calls handler', (done) => {
+  const handleDeckDelete = jest.fn(() => {});
+  const component = shallow(<DeckListItemComp deck={deck} onDeckDelete={handleDeckDelete} />);
+  const button = component.find('.DeckListItemDelete').first();
+  button.simulate('click');
+
+  setTimeout(() => {
+    expect(handleDeckDelete.mock.calls.length).toBe(1);
+    expect(handleDeckDelete.mock.calls[0][0]).toBe(deck);
+    done();
+  });
+});
+
+it('click selectDeck calls handler', (done) => {
+  const handleDeckSelect = jest.fn(() => {});
+  const component = shallow(<DeckListItemComp deck={deck} onDeckSelect={handleDeckSelect} />);
+  const button = component.find('.DeckListItemText').first();
+  button.simulate('click');
+
+  setTimeout(() => {
+    expect(handleDeckSelect.mock.calls.length).toBe(1);
+    expect(handleDeckSelect.mock.calls[0][0]).toBe(deck);
+    done();
+  });
 });
