@@ -12,7 +12,7 @@ class DeleteDeckComp extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="DeleteDeckComp">
         <p>DeleteDeckComp</p>
       </div>
     );

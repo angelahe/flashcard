@@ -21,3 +21,11 @@ test('DeckListItemComp renders correctly', () => {
   const tree = renderer.create(<DeckListItemComp deck={deck} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('contains the container div CardListItemComp on shallow render', () => {
+  const component = shallow(<DeckListItemComp deck={deck} />);
+  expect(component.html()).toContain('DeckListItemComp');
+  expect(component.html()).toContain('DeckListItemText');
+  expect(component.html()).toContain('DeckListItemEdit');
+  expect(component.html()).toContain('DeckListItemDelete');
+});

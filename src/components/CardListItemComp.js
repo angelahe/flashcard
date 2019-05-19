@@ -26,24 +26,24 @@ const CardListItemComp = (props) => {
 
   return (
     <div
-      className="ItemBox AppListItem"
+      className="ItemBox AppListItem CardListItemComp"
       role="button"
       tabIndex="0"
       onClick={handleItemClick}
       onKeyPress={handleItemClick}
     >
       <span
-        className="DetailText"
+        className="CardListItemText DetailText"
         role="button"
         tabIndex="0"
         onClick={handleItemClick}
         onKeyPress={handleItemClick}
       >{card.card_id}
       </span>
-      <button className="AppBtn" type="button" onClick={handleEditClick}>
+      <button className="CardListItemEdit AppBtn" type="button" onClick={handleEditClick}>
         <img className="btnImg" src={editbtn} alt="Add" />
       </button>
-      <button className="AppBtn Delete" type="button" onClick={handleDeleteClick}>
+      <button className="CardListItemDelete AppBtn Delete" type="button" onClick={handleDeleteClick}>
         <img className="btnImg" src={deletebtn} alt="Delete" />
       </button>
       <hr />

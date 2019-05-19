@@ -2,7 +2,7 @@
 
 exports[`snapshot of UI renders consistently 1`] = `
 <div
-  className="ActionBar"
+  className="ActionBar ActionBarComp"
 >
   <img
     alt="logo"

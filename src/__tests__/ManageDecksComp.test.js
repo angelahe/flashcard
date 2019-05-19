@@ -40,6 +40,11 @@ it('shows the current deck in the DeckList UI when there is one', () => {
   expect(component.html()).toContain('Decks');
 });
 
+it('contains the container div ManageDecksComp on shallow render', () => {
+  const component = shallow(<ManageDecksComp />);
+  expect(component.html()).toContain('ManageDecksComp');
+});
+
 /*
 it('shows the AddDeck UI when currentView is AddDeck', (done) => {
   fetch.once(JSON.stringify([{ deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939' }, { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc' }]));

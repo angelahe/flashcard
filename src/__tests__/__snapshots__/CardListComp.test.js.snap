@@ -2,6 +2,6 @@
 
 exports[`snapshot of UI renders consistently 1`] = `
 <div
-  className="AppList"
+  className="AppList CardListComp"
 />
 `;

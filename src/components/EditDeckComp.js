@@ -12,7 +12,7 @@ class EditDeckComp extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="EditDeckComp">
         <p>EditDeckComp</p>
       </div>
     );

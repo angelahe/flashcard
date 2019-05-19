@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot of UI renders consistently 1`] = `
-<div>
-  <div
-    className="DeckListComp AppList"
-  />
+<div
+  className="FlashcardChartComp"
+>
+  <p>
+    FlashcardChartComp coming soon
+  </p>
 </div>
 `;

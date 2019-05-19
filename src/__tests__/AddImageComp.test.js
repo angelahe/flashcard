@@ -19,3 +19,8 @@ test('AddCardComp renders correctly', () => {
   const tree = renderer.create(<AddImageComp card="ABCD-1234" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('contains the container div AddImageComp on shallow render', () => {
+  const component = shallow(<AddImageComp card="ABCD-1234" />);
+  expect(component.html()).toContain('AddImageComp');
+});

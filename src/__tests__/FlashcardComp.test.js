@@ -22,3 +22,8 @@ test('FlashcardComp renders correctly', () => {
   const tree = renderer.create(<FlashcardComp />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('contains the container div FlashcardComp on shallow render', () => {
+  const component = shallow(<FlashcardComp />);
+  expect(component.html()).toContain('FlashcardComp');
+});

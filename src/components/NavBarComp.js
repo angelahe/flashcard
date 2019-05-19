@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import decksBtn from '../img/buttons/decks_FFFFFF.png';
 import decksOffBtn from '../img/buttons/decksOff_FFFFFF.png';
 import listBtn from '../img/buttons/list_FFFFFF.png';
@@ -12,31 +13,42 @@ import infoOffBtn from '../img/buttons/infoOff_FFFFFF.png';
 import '../styles/flashcard.css';
 
 class NavBarComp extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      currentFocus: 'decks',
+      currentFocus: 'list',
     };
   }
 
   handleDecksClicked = () => {
+    const { onNavClick } = this.props;
     this.setState({ currentFocus: 'decks' });
+    onNavClick('FlashcardDecks');
   };
 
   handleListClicked = () => {
+    const { onNavClick } = this.props;
+    console.log('list click');
     this.setState({ currentFocus: 'list' });
+    onNavClick('ManageDecks');
   };
 
   handleChartClicked = () => {
+    const { onNavClick } = this.props;
     this.setState({ currentFocus: 'chart' });
+    onNavClick('FlashcardChart');
   };
 
   handleSettingsClicked = () => {
+    const { onNavClick } = this.props;
     this.setState({ currentFocus: 'settings' });
+    onNavClick('FlashcardSettings');
   };
 
   handleInfoClicked = () => {
+    const { onNavClick } = this.props;
     this.setState({ currentFocus: 'info' });
+    onNavClick('FlashcardInfo');
   };
 
   render() {
@@ -45,64 +57,64 @@ class NavBarComp extends React.Component {
     } = this.state;
 
     return (
-      <div className="NavBar">
+      <div className="NavBarComp NavBar">
         { currentFocus === 'decks'
           ? (
-            <button type="button" className="NavBtn">
-              <img className="NavImg" src={decksBtn} alt="Add" />
+            <button type="button" className="NavBarDecksOn NavBtn">
+              <img className="NavImg" src={decksBtn} alt="Decks" />
             </button>
           )
           : (
-            <button type="button" className="NavBtn" onClick={this.handleDecksClicked}>
-              <img className="NavImg" src={decksOffBtn} alt="Add" />
+            <button type="button" className="NavBarDecksOff NavBarNavBtn" onClick={this.handleDecksClicked}>
+              <img className="NavImg" src={decksOffBtn} alt="Decks" />
             </button>
           )
         }
         { currentFocus === 'list'
           ? (
-            <button type="button" className="NavBtn">
-              <img className="NavImg" src={listBtn} alt="Add" />
+            <button type="button" className="NavBarListOn NavBtn">
+              <img className="NavImg" src={listBtn} alt="List" />
             </button>
           )
           : (
-            <button type="button" className="NavBtn" onClick={this.handleListClicked}>
-              <img className="NavImg" src={listOffBtn} alt="Add" />
+            <button type="button" className="NavBarListOff NavBtn" onClick={this.handleListClicked}>
+              <img className="NavImg" src={listOffBtn} alt="List" />
             </button>
           )
         }
         { currentFocus === 'chart'
           ? (
-            <button type="button" className="NavBtn">
-              <img className="NavImg" src={chartBtn} alt="Add" />
+            <button type="button" className="NavBarChartOn NavBtn">
+              <img className="NavImg" src={chartBtn} alt="Chart" />
             </button>
           )
           : (
-            <button type="button" className="NavBtn" onClick={this.handleChartClicked}>
-              <img className="NavImg" src={chartOffBtn} alt="Add" />
+            <button type="button" className="NavBarChartOff NavBtn" onClick={this.handleChartClicked}>
+              <img className="NavImg" src={chartOffBtn} alt="Chart" />
             </button>
           )
         }
         { currentFocus === 'settings'
           ? (
-            <button type="button" className="NavBtn">
-              <img className="NavImg" src={settingsBtn} alt="Add" />
+            <button type="button" className="NavBarSettingsOn NavBtn">
+              <img className="NavImg" src={settingsBtn} alt="Settings" />
             </button>
           )
           : (
-            <button type="button" className="NavBtn" onClick={this.handleSettingsClicked}>
-              <img className="NavImg" src={settingsOffBtn} alt="Add" />
+            <button type="button" className="NavBarSettingsOff NavBtn" onClick={this.handleSettingsClicked}>
+              <img className="NavImg" src={settingsOffBtn} alt="Settings" />
             </button>
           )
         }
         { currentFocus === 'info'
           ? (
-            <button type="button" className="NavBtn">
-              <img className="NavImg" src={infoBtn} alt="Add" />
+            <button type="button" className="NavBarInfoOn NavBtn">
+              <img className="NavImg" src={infoBtn} alt="Info" />
             </button>
           )
           : (
-            <button type="button" className="NavBtn" onClick={this.handleInfoClicked}>
-              <img className="NavImg" src={infoOffBtn} alt="Add" />
+            <button type="button" className="NavBarInfoOff NavBtn" onClick={this.handleInfoClicked}>
+              <img className="NavImg" src={infoOffBtn} alt="Info" />
             </button>
           )
         }
@@ -110,4 +122,13 @@ class NavBarComp extends React.Component {
     );
   }
 }
+
+NavBarComp.defaultProps = {
+  onNavClick: () => { },
+};
+
+NavBarComp.propTypes = {
+  onNavClick: PropTypes.func,
+};
+
 export default NavBarComp;

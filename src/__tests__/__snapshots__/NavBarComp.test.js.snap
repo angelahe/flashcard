@@ -1,63 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddCardComp renders correctly 1`] = `
-<div>
-  <div
-    className="LineContainer"
+exports[`NavBarComp renders correctly 1`] = `
+<div
+  className="NavBarComp NavBar"
+>
+  <button
+    className="NavBarDecksOff NavBarNavBtn"
+    onClick={[Function]}
+    type="button"
   >
-    <input
-      className="DetailText"
-      onChange={[Function]}
-      placeholder="Find an image"
-      value=""
+    <img
+      alt="Decks"
+      className="NavImg"
+      src="decksOff_FFFFFF.png"
     />
-    <button
-      onClick={[Function]}
-      type="button"
-    >
-      <img
-        alt="Add"
-        className="btnImg"
-        src="search_FFFFFF.png"
-      />
-    </button>
-  </div>
-  <br />
-  <div
-    className="LineContainer"
+  </button>
+  <button
+    className="NavBarListOn NavBtn"
+    type="button"
   >
-    <div
-      className="ImagePreview"
-    >
-      <img
-        alt="nounprojectimg"
-        className="cardImg"
-        src="https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png"
-      />
-    </div>
-    <button
-      className="AppBtn"
-      onClick={[Function]}
-      type="button"
-    >
-      <img
-        alt="Done"
-        className="btnImg"
-        src="done_FFFFFF.png"
-      />
-    </button>
-  </div>
-  <div
-    className="imagesContainer"
-  />
-  <p>
-    Image Selected Values
-  </p>
-  <span>
-    Url: 
-    https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png
-     ID: 
-    77680
-  </span>
+    <img
+      alt="List"
+      className="NavImg"
+      src="list_FFFFFF.png"
+    />
+  </button>
+  <button
+    className="NavBarChartOff NavBtn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="Chart"
+      className="NavImg"
+      src="chartOff_FFFFFF.png"
+    />
+  </button>
+  <button
+    className="NavBarSettingsOff NavBtn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="Settings"
+      className="NavImg"
+      src="settingsOff_FFFFFF.png"
+    />
+  </button>
+  <button
+    className="NavBarInfoOff NavBtn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="Info"
+      className="NavImg"
+      src="infoOff_FFFFFF.png"
+    />
+  </button>
 </div>
 `;

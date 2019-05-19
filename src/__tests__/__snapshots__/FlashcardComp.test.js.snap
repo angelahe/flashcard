@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FlashcardComp renders correctly 1`] = `
-<div>
+<div
+  className="FlashcardComp"
+>
   <div
     className="WorkArea"
   >
-    <div>
+    <div
+      className="ManageDecksComp"
+    >
       <div
-        className="ActionBar"
+        className="ActionBar ActionBarComp"
       >
         <img
           alt="logo"
@@ -44,64 +48,64 @@ exports[`FlashcardComp renders correctly 1`] = `
       </div>
       <div>
         <div
-          className="AppList"
+          className="DeckListComp AppList"
         />
       </div>
     </div>
   </div>
   <div
-    className="NavBar"
+    className="NavBarComp NavBar"
   >
     <button
-      className="NavBtn"
-      type="button"
-    >
-      <img
-        alt="Add"
-        className="NavImg"
-        src="decks_FFFFFF.png"
-      />
-    </button>
-    <button
-      className="NavBtn"
+      className="NavBarDecksOff NavBarNavBtn"
       onClick={[Function]}
       type="button"
     >
       <img
-        alt="Add"
+        alt="Decks"
         className="NavImg"
-        src="listOff_FFFFFF.png"
+        src="decksOff_FFFFFF.png"
       />
     </button>
     <button
-      className="NavBtn"
+      className="NavBarListOn NavBtn"
+      type="button"
+    >
+      <img
+        alt="List"
+        className="NavImg"
+        src="list_FFFFFF.png"
+      />
+    </button>
+    <button
+      className="NavBarChartOff NavBtn"
       onClick={[Function]}
       type="button"
     >
       <img
-        alt="Add"
+        alt="Chart"
         className="NavImg"
         src="chartOff_FFFFFF.png"
       />
     </button>
     <button
-      className="NavBtn"
+      className="NavBarSettingsOff NavBtn"
       onClick={[Function]}
       type="button"
     >
       <img
-        alt="Add"
+        alt="Settings"
         className="NavImg"
         src="settingsOff_FFFFFF.png"
       />
     </button>
     <button
-      className="NavBtn"
+      className="NavBarInfoOff NavBtn"
       onClick={[Function]}
       type="button"
     >
       <img
-        alt="Add"
+        alt="Info"
         className="NavImg"
         src="infoOff_FFFFFF.png"
       />

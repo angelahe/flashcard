@@ -24,7 +24,7 @@ const ActionBarComp = (props) => {
   }
 
   return (
-    <div className="ActionBar">
+    <div className="ActionBar ActionBarComp">
       <img className="NavImg NavBtn" src={logo} alt="logo" />
       { showAdd
         ? (

@@ -2,14 +2,14 @@
 
 exports[`snapshot of UI renders consistently 1`] = `
 <div
-  className="ItemBox AppListItem"
+  className="ItemBox AppListItem CardListItemComp"
   onClick={[Function]}
   onKeyPress={[Function]}
   role="button"
   tabIndex="0"
 >
   <span
-    className="DetailText"
+    className="CardListItemText DetailText"
     onClick={[Function]}
     onKeyPress={[Function]}
     role="button"
@@ -18,7 +18,7 @@ exports[`snapshot of UI renders consistently 1`] = `
     ABCD-1234
   </span>
   <button
-    className="AppBtn"
+    className="CardListItemEdit AppBtn"
     onClick={[Function]}
     type="button"
   >
@@ -29,7 +29,7 @@ exports[`snapshot of UI renders consistently 1`] = `
     />
   </button>
   <button
-    className="AppBtn Delete"
+    className="CardListItemDelete AppBtn Delete"
     onClick={[Function]}
     type="button"
   >

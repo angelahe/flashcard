@@ -117,7 +117,7 @@ class ManageDecksComp extends React.Component {
     } = this.state;
 
     return (
-      <div>
+      <div className="ManageDecksComp">
         <ActionBarComp
           showAdd={showAdd}
           headerText={headerText}

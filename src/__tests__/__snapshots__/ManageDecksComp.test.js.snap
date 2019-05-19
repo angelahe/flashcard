@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ManageDecksComp renders correctly 1`] = `
-<div>
+<div
+  className="ManageDecksComp"
+>
   <div
-    className="ActionBar"
+    className="ActionBar ActionBarComp"
   >
     <img
       alt="logo"
@@ -40,7 +42,7 @@ exports[`ManageDecksComp renders correctly 1`] = `
   </div>
   <div>
     <div
-      className="AppList"
+      className="DeckListComp AppList"
     />
   </div>
 </div>

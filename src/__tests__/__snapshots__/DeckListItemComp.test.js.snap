@@ -2,14 +2,14 @@
 
 exports[`DeckListItemComp renders correctly 1`] = `
 <div
-  className="ItemBox AppListItem"
+  className="DeckListItemComp ItemBox AppListItem"
   onClick={[Function]}
   onKeyPress={[Function]}
   role="button"
   tabIndex="0"
 >
   <span
-    className="DetailText"
+    className="DeckListItemText DetailText"
     onClick={[Function]}
     onKeyPress={[Function]}
     role="button"
@@ -18,18 +18,18 @@ exports[`DeckListItemComp renders correctly 1`] = `
     ABCD-1234
   </span>
   <button
-    className="AppBtn"
+    className="DeckListItemEdit AppBtn"
     onClick={[Function]}
     type="button"
   >
     <img
-      alt="Add"
+      alt="Edit"
       className="btnImg"
       src="edit_FFFFFF.png"
     />
   </button>
   <button
-    className="AppBtn Delete"
+    className="DeckListItemDelete AppBtn Delete"
     onClick={[Function]}
     type="button"
   >

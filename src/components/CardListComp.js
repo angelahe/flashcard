@@ -63,7 +63,7 @@ class CardListComp extends React.Component {
     ));
 
     return (
-      <div className="AppList">
+      <div className="AppList CardListComp">
         {cardListItems}
       </div>
     );

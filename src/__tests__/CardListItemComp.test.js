@@ -21,3 +21,11 @@ test('snapshot of UI renders consistently', () => {
   const tree = renderer.create(<CardListItemComp card={card} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('contains the container div CardListItemComp on shallow render', () => {
+  const component = shallow(<CardListItemComp card={card} />);
+  expect(component.html()).toContain('CardListItemComp');
+  expect(component.html()).toContain('CardListItemText');
+  expect(component.html()).toContain('CardListItemEdit');
+  expect(component.html()).toContain('CardListItemDelete');
+});

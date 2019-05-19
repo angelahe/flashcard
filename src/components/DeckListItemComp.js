@@ -30,24 +30,24 @@ const DeckListItemComp = (props) => {
 
   return (
     <div
-      className="ItemBox AppListItem"
+      className="DeckListItemComp ItemBox AppListItem"
       role="button"
       tabIndex="0"
       onClick={handleItemClick}
       onKeyPress={handleItemClick}
     >
       <span
-        className="DetailText"
+        className="DeckListItemText DetailText"
         role="button"
         tabIndex="0"
         onClick={handleItemClick}
         onKeyPress={handleItemClick}
       >{deck.deck_id}
       </span>
-      <button className="AppBtn" type="button" onClick={handleEditClick}>
-        <img className="btnImg" src={editbtn} alt="Add" />
+      <button className="DeckListItemEdit AppBtn" type="button" onClick={handleEditClick}>
+        <img className="btnImg" src={editbtn} alt="Edit" />
       </button>
-      <button className="AppBtn Delete" type="button" onClick={handleDeleteClick}>
+      <button className="DeckListItemDelete AppBtn Delete" type="button" onClick={handleDeleteClick}>
         <img className="btnImg" src={deletebtn} alt="Delete" />
       </button>
       <hr />

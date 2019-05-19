@@ -62,7 +62,7 @@ class DeckListComp extends React.Component {
 
     return (
       <div>
-        <div className="AppList">
+        <div className="DeckListComp AppList">
           {deckListItems}
         </div>
       </div>

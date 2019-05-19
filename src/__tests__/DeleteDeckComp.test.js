@@ -19,3 +19,8 @@ test('snapshot of UI renders consistently', () => {
   const tree = renderer.create(<DeleteDeckComp />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('contains the container div DeleteDeckComp on shallow render', () => {
+  const component = shallow(<DeleteDeckComp />);
+  expect(component.html()).toContain('DeleteDeckComp');
+});
