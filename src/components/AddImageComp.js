@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import searchbtn from '../img/buttons/search_FFFFFF.png';
-// import searchresults from './testsearchresults';
+// import searchresults from '../testdata/testsearchresults';
 import ThumbnailComp from './ThumbnailComp';
 import NounProject from './NounProject';
 import done from '../img/buttons/done_FFFFFF.png';
@@ -41,17 +41,6 @@ class AddImageComp extends React.Component {
     onImageAdded(currentImageUrl, currentImageId);
   }
 
-  // temp able to enter the id and url by user
-  handleImageUrlChange = (event) => {
-    this.setState({
-      currentImageUrl: event.target.value,
-    });
-  }
-
-  handleImageIdChange = (event) => {
-    this.setState({ currentImageId: event.target.value });
-  }
-
   handleImageSelect = (imageUrl, imageId) => {
     console.log(`passed in image ${imageUrl} and ${imageId}`);
     this.setState({ currentImageUrl: imageUrl, currentImageId: imageId });
@@ -76,8 +65,8 @@ class AddImageComp extends React.Component {
     return (
       <div className="AddImageComp">
         <div className="LineContainer">
-          <input className="DetailText" value={term} onChange={this.handleTermChange} placeholder="Find an image" />
-          <button type="button" onClick={this.handleSearchClick}>
+          <input className="SearchTerm DetailText" value={term} onChange={this.handleTermChange} placeholder="Find an image" />
+          <button type="button" className="SearchBtn" onClick={this.handleSearchClick}>
             <img className="btnImg" src={searchbtn} alt="Add" />
           </button>
         </div>
@@ -86,11 +75,11 @@ class AddImageComp extends React.Component {
           <div className="ImagePreview">
             <img className="cardImg" src={currentImageUrl} alt="nounprojectimg" />
           </div>
-          <button className="AppBtn" type="button" onClick={this.handleImageSend}>
+          <button className="DoneBtn AppBtn" type="button" onClick={this.handleImageSend}>
             <img className="btnImg" src={done} alt="Done" />
           </button>
         </div>
-        <div className="imagesContainer">
+        <div className="Thumbnails imagesContainer">
           {imagesListItems}
         </div>
         <p>Image Selected Values</p>

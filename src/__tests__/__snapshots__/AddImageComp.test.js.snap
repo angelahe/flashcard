@@ -8,12 +8,13 @@ exports[`AddCardComp renders correctly 1`] = `
     className="LineContainer"
   >
     <input
-      className="DetailText"
+      className="SearchTerm DetailText"
       onChange={[Function]}
       placeholder="Find an image"
       value=""
     />
     <button
+      className="SearchBtn"
       onClick={[Function]}
       type="button"
     >
@@ -38,7 +39,7 @@ exports[`AddCardComp renders correctly 1`] = `
       />
     </div>
     <button
-      className="AppBtn"
+      className="DoneBtn AppBtn"
       onClick={[Function]}
       type="button"
     >
@@ -50,7 +51,7 @@ exports[`AddCardComp renders correctly 1`] = `
     </button>
   </div>
   <div
-    className="imagesContainer"
+    className="Thumbnails imagesContainer"
   />
   <p>
     Image Selected Values

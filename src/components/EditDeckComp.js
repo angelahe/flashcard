@@ -6,7 +6,6 @@ class EditDeckComp extends React.Component {
     super();
     this.state = {
       currentDeck: '',
-      deckList: [],
     };
   }
 

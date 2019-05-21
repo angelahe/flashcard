@@ -55,18 +55,18 @@ class AddDeckComp extends React.Component {
           <br /> <br />
           <div className="LineContainer">
             <span className="DetailText">Name:</span>
-            <input className="DetailText" value={nameValue} onChange={this.handleNameChange} />
+            <input className="DeckName DetailText" value={nameValue} onChange={this.handleNameChange} />
             <br />
           </div>
           <br />
           <div className="LineContainer">
             <span className="DetailText">Key:</span>
-            <input className="DetailText" value={keyValue} onChange={this.handleKeyChange} />
+            <input className="KeyValue DetailText" value={keyValue} onChange={this.handleKeyChange} />
           </div>
           <br />
           <div className="LineContainer">
             <span className="DetailText">Order:</span>
-            <input className="DetailText" type="Number" value={orderValue} onChange={this.handleOrderChange} />
+            <input className="DeckOrder DetailText" type="Number" value={orderValue} onChange={this.handleOrderChange} />
           </div>
           <br />
           <button className="AppBtn AddDeckButton" type="button" onClick={this.handleAddDeckClick}>

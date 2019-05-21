@@ -71,10 +71,10 @@ class AddCardComp extends React.Component {
     } = this.state;
     const { deck } = this.props;
     return (
-      <div>
+      <div className="AddCardComp">
         { (addImage !== true)
           ? (
-            <div>
+            <div className="AddImage">
               <button
                 className={styleImage}
                 type="button"
@@ -91,14 +91,14 @@ class AddCardComp extends React.Component {
               <div>
                 <div className="LineContainer">
                   <img className="btnImg" src={english} alt="English" />
-                  <input className="DetailText" value={currentL1} onChange={this.handleL1Change} />
+                  <input className="L1Input DetailText" value={currentL1} onChange={this.handleL1Change} />
                   <br />
                 </div>
                 <div className="LineContainer">
                   <img className="btnImg" src={spanish} alt="Spanish" />
-                  <input className="DetailText" value={currentL2} onChange={this.handleL2Change} />
+                  <input className="L2Input DetailText" value={currentL2} onChange={this.handleL2Change} />
                 </div>
-                <button className="AppBtn" type="button" onClick={this.handleAddCardClick}>
+                <button className="DoneBtn AppBtn" type="button" onClick={this.handleAddCardClick}>
                   <img className="btnImg" src={done} alt="Done" />
                 </button>
               </div>

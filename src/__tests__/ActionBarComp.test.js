@@ -5,11 +5,6 @@ import renderer from 'react-test-renderer';
 
 import ActionBarComp from '../components/ActionBarComp';
 
-const props = {
-  showAdd: true,
-  headerText: 'Header',
-};
-
 it('renders without crashing', () => {
   shallow(<ActionBarComp />);
 });

@@ -73,3 +73,36 @@ it('should call the Add button click handler when clicked', (done) => {
     done();
   });
 });
+
+it('should simulate a change to DeckName input field', (done) => {
+  const handleDeckAdded = jest.fn(() => {});
+  const component = shallow(<AddDeckComp onDeckAdded={handleDeckAdded} />);
+  const deckName = component.find('.DeckName').first();
+  deckName.simulate('change', { target: { value: 'dog' } });
+  setTimeout(() => {
+    expect(component.instance().state.nameValue).toBe('dog');
+    done();
+  });
+});
+
+it('should simulate a change to KeyValue input field', (done) => {
+  const handleDeckAdded = jest.fn(() => {});
+  const component = shallow(<AddDeckComp onDeckAdded={handleDeckAdded} />);
+  const keyValue = component.find('.KeyValue').first();
+  keyValue.simulate('change', { target: { value: '1.1.1' } });
+  setTimeout(() => {
+    expect(component.instance().state.keyValue).toBe('1.1.1');
+    done();
+  });
+});
+
+it('should simulate a change to DeckOrder input field', (done) => {
+  const handleDeckAdded = jest.fn(() => {});
+  const component = shallow(<AddDeckComp onDeckAdded={handleDeckAdded} />);
+  const deckOrder = component.find('.DeckOrder').first();
+  deckOrder.simulate('change', { target: { value: 1 } });
+  setTimeout(() => {
+    expect(component.instance().state.orderValue).toBe(1);
+    done();
+  });
+});

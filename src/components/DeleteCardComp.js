@@ -1,20 +1,20 @@
 import React from 'react';
 import '../styles/flashcard.css';
 
-class DeleteDeckComp extends React.Component {
+class DeleteCardComp extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentDeck: '',
+      currentCard: '',
     };
   }
 
   render() {
     return (
-      <div className="DeleteDeckComp">
+      <div className="DeleteCardComp">
         <p>DeleteDeckComp</p>
       </div>
     );
   }
 }
-export default DeleteDeckComp;
+export default DeleteCardComp;

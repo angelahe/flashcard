@@ -72,7 +72,7 @@ class EditCardComp extends React.Component {
     } = this.state;
     const { deck } = this.props;
     return (
-      <div>
+      <div className="EditCardComp">
         { (addImage !== true)
           ? (
             <div>
@@ -126,7 +126,6 @@ EditCardComp.defaultProps = {
 EditCardComp.propTypes = {
   card: PropTypes.shape({
     card_id: PropTypes.string.isRequired,
-    deck_id: PropTypes.string.isRequired,
   }).isRequired,
   onCardEdit: PropTypes.func,
 };

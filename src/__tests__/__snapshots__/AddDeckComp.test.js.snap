@@ -18,7 +18,7 @@ exports[`AddDeckComp renders correctly 1`] = `
         Name:
       </span>
       <input
-        className="DetailText"
+        className="DeckName DetailText"
         onChange={[Function]}
         value=""
       />
@@ -34,7 +34,7 @@ exports[`AddDeckComp renders correctly 1`] = `
         Key:
       </span>
       <input
-        className="DetailText"
+        className="KeyValue DetailText"
         onChange={[Function]}
         value=""
       />
@@ -49,7 +49,7 @@ exports[`AddDeckComp renders correctly 1`] = `
         Order:
       </span>
       <input
-        className="DetailText"
+        className="DeckOrder DetailText"
         onChange={[Function]}
         type="Number"
         value={0}

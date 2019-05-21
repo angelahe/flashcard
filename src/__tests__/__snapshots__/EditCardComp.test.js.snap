@@ -1,12 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddCardComp renders correctly 1`] = `
+exports[`snapshot of UI renders consistently 1`] = `
 <div
-  className="AddCardComp"
+  className="EditCardComp"
 >
-  <div
-    className="AddImage"
-  >
+  <div>
     <button
       className="cardDefault"
       onClick={[Function]}
@@ -29,7 +27,7 @@ exports[`AddCardComp renders correctly 1`] = `
           src="english_FFFFFF.png"
         />
         <input
-          className="L1Input DetailText"
+          className="DetailText"
           onChange={[Function]}
           value=""
         />
@@ -44,13 +42,13 @@ exports[`AddCardComp renders correctly 1`] = `
           src="spanish_FFFFFF.png"
         />
         <input
-          className="L2Input DetailText"
+          className="DetailText"
           onChange={[Function]}
           value=""
         />
       </div>
       <button
-        className="DoneBtn AppBtn"
+        className="AppBtn"
         onClick={[Function]}
         type="button"
       >
@@ -79,9 +77,5 @@ exports[`AddCardComp renders correctly 1`] = `
       src="https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png"
     />
   </div>
-  <p>
-    C current deck is: 
-    ABCD-1234
-  </p>
 </div>
 `;
