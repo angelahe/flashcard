@@ -45,6 +45,11 @@ it('contains the container div ManageDecksComp on shallow render', () => {
   expect(component.html()).toContain('ManageDecksComp');
 });
 
+it('shows AddDeck dialog when add button clicked from Decklist', () => {
+  const component = shallow(<ManageDecksComp />);
+  const handleAddClick = jest.fn(() => {});
+  const button = component.find('.Add');
+});
 /*
 it('shows the AddDeck UI when currentView is AddDeck', (done) => {
   fetch.once(JSON.stringify([{ deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939' }, { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc' }]));

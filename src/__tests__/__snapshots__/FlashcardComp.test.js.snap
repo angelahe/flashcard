@@ -15,11 +15,11 @@ exports[`FlashcardComp renders correctly 1`] = `
       >
         <img
           alt="logo"
-          className="NavImg NavBtn"
+          className="AppLogo NavImg NavBtn"
           src="logo_FFFFFF.png"
         />
         <button
-          className="NavBtn"
+          className="AddBtn NavBtn"
           onClick={[Function]}
           type="button"
         >
@@ -35,7 +35,7 @@ exports[`FlashcardComp renders correctly 1`] = `
           Decks
         </span>
         <button
-          className="NavBtn"
+          className="BackBtn NavBtn"
           onClick={[Function]}
           type="button"
         >

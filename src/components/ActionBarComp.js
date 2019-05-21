@@ -25,17 +25,17 @@ const ActionBarComp = (props) => {
 
   return (
     <div className="ActionBar ActionBarComp">
-      <img className="NavImg NavBtn" src={logo} alt="logo" />
+      <img className="AppLogo NavImg NavBtn" src={logo} alt="logo" />
       { showAdd
         ? (
-          <button type="button" className="NavBtn" onClick={handleAddClicked}>
+          <button type="button" className="AddBtn NavBtn" onClick={handleAddClicked}>
             <img className="NavImg" src={addBtn} alt="Add" />
           </button>
         )
         : null
       }
       <span className="HeaderText">{headerText}</span>
-      <button type="button" className="NavBtn" onClick={handleBackClicked}>
+      <button type="button" className="BackBtn NavBtn" onClick={handleBackClicked}>
         <img className="NavImg" src={backBtn} alt="Back" />
       </button>
     </div>
