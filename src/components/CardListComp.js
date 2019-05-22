@@ -10,7 +10,6 @@ class CardListComp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentCard: '',
       cardList: [],
     };
   }
@@ -36,15 +35,21 @@ class CardListComp extends React.Component {
   }
 
   handleCardSelect = (card) => {
+    const { onCardSelect } = this.props;
     console.log('in handle card select', card);
+    onCardSelect(card);
   }
 
   handleCardEdit = (card) => {
+    const { onCardEdit } = this.props;
     console.log('in handle card edit', card);
+    onCardEdit(card);
   }
 
   handleCardDelete = (card) => {
+    const { onCardDelete } = this.props;
     console.log('in handle card delete', card);
+    onCardDelete(card);
   }
 
   render() {
@@ -69,10 +74,18 @@ class CardListComp extends React.Component {
     );
   }
 }
+CardListComp.defaultProps = {
+  onCardSelect: () => { },
+  onCardEdit: () => { },
+  onCardDelete: () => { },
+};
 
 CardListComp.propTypes = {
   deck: PropTypes.shape({
     deck_id: PropTypes.string.isRequired,
   }).isRequired,
+  onCardSelect: PropTypes.func,
+  onCardEdit: PropTypes.func,
+  onCardDelete: PropTypes.func,
 };
 export default CardListComp;

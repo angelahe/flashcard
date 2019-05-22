@@ -96,6 +96,11 @@ class ManageDecksComp extends React.Component {
     this.setState({ currentDeck: deckId });
   };
 
+  handleDeckSelect = (deckId) => {
+    this.setView('Cardlist');
+    this.setState({ currentDeck: deckId });
+  }
+
   handleDeckEdit = (deckId) => {
     console.log('in deck edit');
     this.setView('EditDeck');
@@ -126,7 +131,11 @@ class ManageDecksComp extends React.Component {
         />
         { (currentView === 'DeckList')
           ? (
-            <DeckListComp />
+            <DeckListComp
+              onDeckSelect={this.handleDeckSelect}
+              onDeckEdit={this.handleDeckEdit}
+              onDeckDelete={this.handleDeckDelete}
+            />
           )
           : null
         }
@@ -168,7 +177,12 @@ class ManageDecksComp extends React.Component {
         { (currentView === 'CardList')
           ? (
             <div>
-              <CardListComp deck={currentDeck} />
+              <CardListComp
+                deck={currentDeck}
+                onCardSelect={this.handleCardSelect}
+                onCardEdit={this.handleCardEdit}
+                onCardDelete={this.handleCardDelete}
+              />
             </div>
           )
           : null

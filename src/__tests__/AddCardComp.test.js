@@ -5,7 +5,6 @@ import renderer from 'react-test-renderer';
 
 import AddCardComp from '../components/AddCardComp';
 import Client from '../components/Client';
-import { connect } from 'net';
 
 jest.mock('../components/Client');
 

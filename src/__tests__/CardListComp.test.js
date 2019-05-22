@@ -4,6 +4,8 @@ import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
 import CardListComp from '../components/CardListComp';
+import cardList from '../testdata/testcardlist';
+import Client from '../components/Client';
 
 const deck = { deck_id: 'ABCD-1234' };
 
@@ -69,4 +71,54 @@ it('contains the container div CardListComp on shallow render', () => {
   ]));
   const component = shallow(<CardListComp deck={deck} />);
   expect(component.html()).toContain('CardListComp');
+});
+
+it('shows cards loaded', (done) => {
+  Client.getCardsInDeck = jest.fn(() => Promise.resolve(cardList.cardList));
+  const component = shallow(<CardListComp deck={deck} />);
+
+  setTimeout(() => {
+    expect(Client.getCardsInDeck.mock.calls.length).toBe(1);
+    expect(component.instance().state.cardList).toBe(cardList.cardList);
+    done();
+  });
+});
+
+it('handles a child select event', () => {
+  Client.getCardsInDeck = jest.fn(() => Promise.resolve(cardList.cardList));
+
+  const handleCardSelect = jest.fn(() => {});
+  const component = shallow(<CardListComp
+    deck={deck}
+    onCardSelect={handleCardSelect}
+  />);
+  component.instance().handleCardSelect(deck);
+  expect(handleCardSelect.mock.calls.length).toBe(1);
+  expect(handleCardSelect.mock.calls[0][0]).toBe(deck);
+});
+
+it('handles a child edit event', () => {
+  Client.getCardsInDeck = jest.fn(() => Promise.resolve(cardList.cardList));
+
+  const handleCardEdit = jest.fn(() => {});
+  const component = shallow(<CardListComp
+    deck={deck}
+    onCardEdit={handleCardEdit}
+  />);
+  component.instance().handleCardEdit(deck);
+  expect(handleCardEdit.mock.calls.length).toBe(1);
+  expect(handleCardEdit.mock.calls[0][0]).toBe(deck);
+});
+
+it('handles a child delete event', () => {
+  Client.getCardsInDeck = jest.fn(() => Promise.resolve(cardList.cardList));
+
+  const handleCardDelete = jest.fn(() => {});
+  const component = shallow(<CardListComp
+    deck={deck}
+    onCardDelete={handleCardDelete}
+  />);
+  component.instance().handleCardDelete(deck);
+  expect(handleCardDelete.mock.calls.length).toBe(1);
+  expect(handleCardDelete.mock.calls[0][0]).toBe(deck);
 });
