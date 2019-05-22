@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Client from './Client';
 import '../styles/flashcard.css';
 import DeckListItemComp from './DeckListItemComp';
@@ -9,7 +10,6 @@ class DeckListComp extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentDeck: '',
       deckList: [],
     };
   }
@@ -34,15 +34,21 @@ class DeckListComp extends React.Component {
   }
 
   handleDeckSelect = (deck) => {
+    const { onDeckSelect } = this.props;
     console.log('in handleItemClicked', deck);
+    onDeckSelect(deck);
   }
 
   handleDeckEdit = (deck) => {
+    const { onDeckEdit } = this.props;
     console.log('in handle deck edit', deck);
+    onDeckEdit(deck);
   }
 
   handleDeckDelete = (deck) => {
+    const { onDeckDelete } = this.props;
     console.log('in handle deck delete', deck);
+    onDeckDelete(deck);
   }
 
   render() {
@@ -69,4 +75,15 @@ class DeckListComp extends React.Component {
     );
   }
 }
+DeckListComp.defaultProps = {
+  onDeckSelect: () => { },
+  onDeckEdit: () => { },
+  onDeckDelete: () => { },
+};
+
+DeckListComp.propTypes = {
+  onDeckSelect: PropTypes.func,
+  onDeckEdit: PropTypes.func,
+  onDeckDelete: PropTypes.func,
+};
 export default DeckListComp;
