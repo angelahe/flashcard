@@ -5,7 +5,7 @@ exports[`snapshot of UI renders consistently 1`] = `
   className="EditDeckComp"
 >
   <p>
-    EditDeckComp
+    EditDeckComp is coming soon
   </p>
 </div>
 `;

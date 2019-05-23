@@ -15,17 +15,17 @@ const DeckListItemComp = (props) => {
   function handleItemClick() {
     console.log('in handleItemClick');
     // do something, then
-    onDeckSelect(deck);
+    onDeckSelect(deck.deck_id);
   }
 
   function handleEditClick() {
     console.log('in handle edit click');
-    onDeckEdit(deck);
+    onDeckEdit(deck.deck_id);
   }
 
   function handleDeleteClick() {
     console.log('in handle delete click');
-    onDeckDelete(deck);
+    onDeckDelete(deck.deck_id);
   }
 
   return (
@@ -33,8 +33,6 @@ const DeckListItemComp = (props) => {
       className="DeckListItemComp ItemBox AppListItem"
       role="button"
       tabIndex="0"
-      onClick={handleItemClick}
-      onKeyPress={handleItemClick}
     >
       <span
         className="DeckListItemText DetailText"

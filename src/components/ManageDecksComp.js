@@ -21,7 +21,7 @@ class ManageDecksComp extends React.Component {
     };
   }
 
-  setView = (newView = 'DeckList') => {
+  setView = (newView = 'CardList') => {
     let showAdd = false;
     let headerText = '';
     let viewName = newView;
@@ -41,7 +41,8 @@ class ManageDecksComp extends React.Component {
         headerText = 'Edit Deck';
         break;
       case 'CardList':
-        headerText = 'Deck Name';
+        headerText = 'Cards';
+        showAdd = true;
         break;
       case 'CardAdd':
         headerText = 'Add Card';
@@ -67,7 +68,6 @@ class ManageDecksComp extends React.Component {
 
   handleAddClick = () => {
     const { currentView } = this.state;
-    console.log('add button clicked');
     switch (currentView) {
       case 'DeckList': {
         this.setView('DeckAdd');
@@ -84,13 +84,12 @@ class ManageDecksComp extends React.Component {
 
   handleBackClick = () => {
     const { currentView } = this.state;
-    console.log('in handleBackClick');
     switch (currentView) {
-      case ('DeckList', 'DeckAdd', 'DeckDelete', 'DeckEdit', 'CardList'): {
+      case 'DeckList': case 'DeckAdd': case 'DeckDelete': case 'DeckEdit': case 'CardList': {
         this.setView('DeckList');
         break;
       }
-      case ('CardAdd', 'CardEdit', 'CardDelete'): {
+      case 'CardAdd': case 'CardEdit': case 'CardDelete': {
         this.setView('CardList');
         break;
       }
@@ -126,12 +125,12 @@ class ManageDecksComp extends React.Component {
   }
 
   handleCardSelect = (cardId) => {
-    this.setState({ currentCard: card.card_id });
+    this.setState({ currentCard: cardId });
     this.setView('CardEdit');
   }
 
   handleCardEdit = (cardId) => {
-    this.setState({ currentCard: card.card_id });
+    this.setState({ currentCard: cardId });
     this.setView('CardEdit');
   }
 

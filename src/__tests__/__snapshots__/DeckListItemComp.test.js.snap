@@ -3,8 +3,6 @@
 exports[`DeckListItemComp renders correctly 1`] = `
 <div
   className="DeckListItemComp ItemBox AppListItem"
-  onClick={[Function]}
-  onKeyPress={[Function]}
   role="button"
   tabIndex="0"
 >

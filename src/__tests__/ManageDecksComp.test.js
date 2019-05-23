@@ -103,9 +103,9 @@ it('shows CardEdit when view set', () => {
 });
 
 it('shows CardDelete when view set', () => {
-  const deck = 'ABCD-1234';
+  const card = 'ABCD-1234';
   const component = shallow(<ManageDecksComp />);
-  component.instance().handleDeckAdded(deck);
+  component.instance().handleCardAdded(card);
   component.instance().setView('CardDelete');
   expect(component.instance().state.currentView).toBe('CardDelete');
   expect(component.html()).toContain('DeleteCardComp');
@@ -169,27 +169,61 @@ it('tests handleBackClick from CardList', () => {
   expect(component.html()).toContain('DeckListComp');
 });
 
-it('tests handleBackClick from CardAdd', () => {
+it('tests handleBackClick from CardAdd', (done) => {
+  const deck = 'DECK-1234';
   const component = shallow(<ManageDecksComp />);
-  component.instance().setView('CardAdd');
+  component.instance().handleDeckAdded(deck);
+  //  component.instance().setView('CardAdd');
+  //  expect(component.instance().state.currentView).toBe('CardAdd');
+  //  component.instance().handleBackClick();
+  setTimeout(() => {
+    done();
+  });
+
   component.instance().handleBackClick();
-  expect(component.instance().state.currentView).toBe('CardList');
-  expect(component.html()).toContain('CardListComp');
+
+//  component.instance().handleBackClick(() => {
+//    component.instance().setView('CardAdd');
+//  });
+
+  setTimeout(() => {
+    expect(component.instance().state.currentView).toBe('CardList');
+    expect(component.html()).toContain('CardListComp');
+    done();
+  });
 });
 
-it('tests handleBackClick from CardEdit', () => {
+it('tests handleBackClick from CardEdit', (done) => {
+  const card = 'ABCD-1234';
+  const deck = 'DECK-1234';
   const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckAdded(deck);
+  component.instance().handleCardAdded(card);
   component.instance().setView('CardEdit');
+  setTimeout(() => {
+    done();
+  });
   component.instance().handleBackClick();
   setTimeout(() => {
     expect(component.instance().state.currentView).toBe('CardList');
     expect(component.html()).toContain('CardListComp');
+    done();
   });
 });
 
 it('tests handleBackClick from CardDelete', (done) => {
+  const card = 'ABCD-1234';
+  const deck = 'DECK-1234';
   const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckAdded(deck);
+  component.instance().handleCardAdded(card);
+  setTimeout(() => {
+    done();
+  });
   component.instance().setView('CardDelete');
+  setTimeout(() => {
+    done();
+  });
   component.instance().handleBackClick();
   setTimeout(() => {
     expect(component.instance().state.currentView).toBe('CardList');

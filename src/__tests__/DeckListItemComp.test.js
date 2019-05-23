@@ -38,7 +38,7 @@ it('click editDeck calls handler', (done) => {
 
   setTimeout(() => {
     expect(handleDeckEdit.mock.calls.length).toBe(1);
-    expect(handleDeckEdit.mock.calls[0][0]).toBe(deck);
+    expect(handleDeckEdit.mock.calls[0][0]).toBe(deck.deck_id);
     done();
   });
 });
@@ -51,7 +51,7 @@ it('click deleteDeck calls handler', (done) => {
 
   setTimeout(() => {
     expect(handleDeckDelete.mock.calls.length).toBe(1);
-    expect(handleDeckDelete.mock.calls[0][0]).toBe(deck);
+    expect(handleDeckDelete.mock.calls[0][0]).toBe(deck.deck_id);
     done();
   });
 });
@@ -64,7 +64,7 @@ it('click selectDeck calls handler', (done) => {
 
   setTimeout(() => {
     expect(handleDeckSelect.mock.calls.length).toBe(1);
-    expect(handleDeckSelect.mock.calls[0][0]).toBe(deck);
+    expect(handleDeckSelect.mock.calls[0][0]).toBe(deck.deck_id);
     done();
   });
 });

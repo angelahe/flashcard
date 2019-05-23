@@ -7,21 +7,21 @@ import deletebtn from '../img/buttons/delete_FFFFFF.png';
 const CardListItemComp = (props) => {
   const {
     card,
-    onCardDelete,
     onCardSelect,
     onCardEdit,
+    onCardDelete,
   } = props;
 
   function handleItemClick() {
-    onCardSelect(card);
+    onCardSelect(card.card_id);
   }
 
   function handleEditClick() {
-    onCardEdit(card);
+    onCardEdit(card.card_id);
   }
 
   function handleDeleteClick() {
-    onCardDelete(card);
+    onCardDelete(card.card_id);
   }
 
   return (
@@ -29,8 +29,6 @@ const CardListItemComp = (props) => {
       className="ItemBox AppListItem CardListItemComp"
       role="button"
       tabIndex="0"
-      onClick={handleItemClick}
-      onKeyPress={handleItemClick}
     >
       <span
         className="CardListItemText DetailText"
@@ -52,17 +50,17 @@ const CardListItemComp = (props) => {
 };
 
 CardListItemComp.defaultProps = {
-  onCardDelete: () => { },
   onCardSelect: () => { },
   onCardEdit: () => { },
+  onCardDelete: () => { },
 };
 
 CardListItemComp.propTypes = {
   card: PropTypes.shape({
     card_id: PropTypes.string.isRequired,
   }).isRequired,
-  onCardDelete: () => { },
   onCardSelect: () => { },
   onCardEdit: () => { },
+  onCardDelete: () => { },
 };
 export default CardListItemComp;
