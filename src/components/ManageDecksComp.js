@@ -3,10 +3,12 @@ import ActionBarComp from './ActionBarComp';
 import '../styles/flashcard.css';
 import DeckListComp from './DeckListComp';
 import AddDeckComp from './AddDeckComp';
-import AddCardComp from './AddCardComp';
-import DeleteDeckComp from './DeleteDeckComp';
 import EditDeckComp from './EditDeckComp';
+import DeleteDeckComp from './DeleteDeckComp';
 import CardListComp from './CardListComp';
+import AddCardComp from './AddCardComp';
+import EditCardComp from './EditCardComp';
+import DeleteCardComp from './DeleteCardComp';
 
 class ManageDecksComp extends React.Component {
   constructor() {
@@ -29,20 +31,26 @@ class ManageDecksComp extends React.Component {
         headerText = 'Decks';
         showAdd = true;
         break;
-      case 'AddDeck':
+      case 'DeckAdd':
         headerText = 'Add Deck';
         break;
-      case 'AddCard':
-        headerText = 'Add Card';
-        break;
-      case 'DeleteDeck':
+      case 'DeckDelete':
         headerText = 'Delete Deck';
         break;
-      case 'EditDeck':
+      case 'DeckEdit':
         headerText = 'Edit Deck';
         break;
       case 'CardList':
         headerText = 'Deck Name';
+        break;
+      case 'CardAdd':
+        headerText = 'Add Card';
+        break;
+      case 'CardEdit':
+        headerText = 'Edit Card';
+        break;
+      case 'CardDelete':
+        headerText = 'Delete Card';
         break;
       default:
         viewName = 'DeckList';
@@ -62,11 +70,11 @@ class ManageDecksComp extends React.Component {
     console.log('add button clicked');
     switch (currentView) {
       case 'DeckList': {
-        this.setView('AddDeck');
+        this.setView('DeckAdd');
         break;
       }
       case 'CardList': {
-        this.setView('AddCard');
+        this.setView('CardAdd');
         break;
       }
       default:
@@ -78,11 +86,11 @@ class ManageDecksComp extends React.Component {
     const { currentView } = this.state;
     console.log('in handleBackClick');
     switch (currentView) {
-      case ('DeckList', 'AddDeck', 'DeleteDeck', 'EditDeck', 'CardList'): {
+      case ('DeckList', 'DeckAdd', 'DeckDelete', 'DeckEdit', 'CardList'): {
         this.setView('DeckList');
         break;
       }
-      case 'AddCard': {
+      case ('CardAdd', 'CardEdit', 'CardDelete'): {
         this.setView('CardList');
         break;
       }
@@ -92,28 +100,43 @@ class ManageDecksComp extends React.Component {
   }
 
   handleDeckAdded = (deckId) => {
-    this.setView('AddCard');
+    this.setView('CardAdd');
     this.setState({ currentDeck: deckId });
   };
 
   handleDeckSelect = (deckId) => {
-    this.setView('Cardlist');
+    this.setView('CardList');
     this.setState({ currentDeck: deckId });
   }
 
   handleDeckEdit = (deckId) => {
     console.log('in deck edit');
-    this.setView('EditDeck');
+    this.setView('DeckEdit');
     this.setState({ currentDeck: deckId });
   }
 
-  handleDeckDelete = () => {
+  handleDeckDelete = (deckId) => {
     console.log('handle deck delete');
-    this.setView('DeckList');
+    this.setView('DeckDelete');
   }
 
   handleCardAdded = (cardId) => {
     this.setState({ currentCard: cardId });
+    this.setView('CardList');
+  }
+
+  handleCardSelect = (cardId) => {
+    this.setState({ currentCard: card.card_id });
+    this.setView('CardEdit');
+  }
+
+  handleCardEdit = (cardId) => {
+    this.setState({ currentCard: card.card_id });
+    this.setView('CardEdit');
+  }
+
+  handleCardDelete = (cardId) => {
+    this.setView('CardList');
   }
 
   render() {
@@ -139,7 +162,7 @@ class ManageDecksComp extends React.Component {
           )
           : null
         }
-        { (currentView === 'AddDeck')
+        { (currentView === 'DeckAdd')
           ? (
             <div>
               <AddDeckComp onDeckAdded={this.handleDeckAdded} />
@@ -147,29 +170,18 @@ class ManageDecksComp extends React.Component {
           )
           : null
         }
-        { (currentView === 'AddCard')
-          ? (
-            <div>
-              <AddCardComp
-                deck={currentDeck}
-                onCardAdded={this.handleCardAdded}
-              />
-            </div>
-          )
-          : null
-        }
-        { (currentView === 'DeleteDeck')
-          ? (
-            <div>
-              <DeleteDeckComp />
-            </div>
-          )
-          : null
-        }
-        { (currentView === 'EditDeck')
+        { (currentView === 'DeckEdit')
           ? (
             <div>
               <EditDeckComp />
+            </div>
+          )
+          : null
+        }
+        { (currentView === 'DeckDelete')
+          ? (
+            <div>
+              <DeleteDeckComp />
             </div>
           )
           : null
@@ -183,6 +195,36 @@ class ManageDecksComp extends React.Component {
                 onCardEdit={this.handleCardEdit}
                 onCardDelete={this.handleCardDelete}
               />
+            </div>
+          )
+          : null
+        }
+        { (currentView === 'CardAdd')
+          ? (
+            <div>
+              <AddCardComp
+                deck={currentDeck}
+                onCardAdded={this.handleCardAdded}
+              />
+            </div>
+          )
+          : null
+        }
+        { (currentView === 'CardEdit')
+          ? (
+            <div>
+              <EditCardComp
+                card={currentCard}
+                onCardEdit={this.handleCardEdit}
+              />
+            </div>
+          )
+          : null
+        }
+        { (currentView === 'CardDelete')
+          ? (
+            <div>
+              <DeleteCardComp />
             </div>
           )
           : null

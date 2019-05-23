@@ -7,7 +7,7 @@ import CardListComp from '../components/CardListComp';
 import cardList from '../testdata/testcardlist';
 import Client from '../components/Client';
 
-const deck = { deck_id: 'ABCD-1234' };
+const deck = 'ABCD-1234';
 
 it('renders without crashing', () => {
   fetch.once(JSON.stringify([

@@ -81,9 +81,7 @@ CardListComp.defaultProps = {
 };
 
 CardListComp.propTypes = {
-  deck: PropTypes.shape({
-    deck_id: PropTypes.string.isRequired,
-  }).isRequired,
+  deck: PropTypes.string.isRequired,
   onCardSelect: PropTypes.func,
   onCardEdit: PropTypes.func,
   onCardDelete: PropTypes.func,

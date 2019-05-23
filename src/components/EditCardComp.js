@@ -28,7 +28,7 @@ class EditCardComp extends React.Component {
   handleL2Change = (event) => {
     this.setState({ currentL2: event.target.value });
   };
-  
+
   handleEditCardClick = () => {
     const { card, onCardEdit } = this.props;
     const {
@@ -124,9 +124,7 @@ EditCardComp.defaultProps = {
 };
 
 EditCardComp.propTypes = {
-  card: PropTypes.shape({
-    card_id: PropTypes.string.isRequired,
-  }).isRequired,
+  card: PropTypes.string.isRequired,
   onCardEdit: PropTypes.func,
 };
 
