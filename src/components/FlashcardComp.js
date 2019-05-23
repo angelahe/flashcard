@@ -10,38 +10,39 @@ class FlashcardComp extends React.Component {
   constructor() {
     super();
     this.state = {
-      deckList: [],
       currentView: 'ManageDecks',
     };
   }
 
-  handleManageDecksView = () => {
-    console.log('coming soon: flashcard handleManageView');
-  };
-
-  handleFlashcardDecksView = () => {
-    console.log('coming soon: flashcard decks view');
-  };
-
-  handleFlashcardListView = () => {
-    console.log('coming soon: flashcard list view');
-  };
-
-  handleFlashcardChartView = () => {
-    console.log('coming soon: flashcard chart view');
-  }
-
-  handleFlashcardSettingsView = () => {
-    console.log('coming soon: flashcard settings view');
-  }
-
-  handleFlashcardInfoView = () => {
-    console.log('coming soon: flashcard info view');
+  setView = (newView = 'ManageDecks') => {
+    switch (newView) {
+      case 'ManageDecks':
+      case 'FlashcardChart':
+      case 'FlashcardSettings':
+      case 'FlashcardInfo':
+      case 'FlashcardDecks':
+        this.setState({ currentView: newView });
+        break;
+      default:
+        this.setState({ currentView: 'ManageDecks' });
+    }
   }
 
   handleNavClick = (navClick) => {
-    this.setState({ currentView: navClick });
+    this.setView(navClick);
   }
+
+  handleAddClick = () => {
+    const { currentView } = this.state;
+    switch (currentView) {
+      case 'FlashcardDecks': {
+        this.setView('ManageDecks');
+        break;
+      }
+      default:
+        this.setView('ManageDecks');
+    }
+  };
 
   render() {
     const { currentView } = this.state;
@@ -53,7 +54,7 @@ class FlashcardComp extends React.Component {
             : null
           }
           { (currentView === 'FlashcardDecks')
-            ? <FlashcardDecksComp />
+            ? <FlashcardDecksComp onAdd={this.handleAddClick} />
             : null
           }
           { (currentView === 'FlashcardChart')

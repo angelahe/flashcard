@@ -8,6 +8,7 @@ import '../styles/flashcard.css';
 const ActionBarComp = (props) => {
   const {
     showAdd,
+    showBack,
     headerText,
     onAdd,
     onBack,
@@ -35,15 +36,21 @@ const ActionBarComp = (props) => {
         : null
       }
       <span className="HeaderText">{headerText}</span>
-      <button type="button" className="BackBtn NavBtn" onClick={handleBackClicked}>
-        <img className="NavImg" src={backBtn} alt="Back" />
-      </button>
+      { showBack
+        ? (
+          <button type="button" className="BackBtn NavBtn" onClick={handleBackClicked}>
+            <img className="NavImg" src={backBtn} alt="Back" />
+          </button>
+        )
+        : null
+      }
     </div>
   );
 };
 
 ActionBarComp.defaultProps = {
   showAdd: true,
+  showBack: true,
   headerText: 'default',
   onAdd: () => { },
   onBack: () => { },
@@ -51,6 +58,7 @@ ActionBarComp.defaultProps = {
 
 ActionBarComp.propTypes = {
   showAdd: PropTypes.bool,
+  showBack: PropTypes.bool,
   headerText: PropTypes.string,
   onAdd: PropTypes.func,
   onBack: PropTypes.func,

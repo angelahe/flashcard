@@ -27,3 +27,39 @@ it('contains the container div FlashcardComp on shallow render', () => {
   const component = shallow(<FlashcardComp />);
   expect(component.html()).toContain('FlashcardComp');
 });
+
+//  handleNavClick tests
+it('shows ManageDecksComp', () => {
+  const component = shallow(<FlashcardComp />);
+  component.instance().handleNavClick('ManageDecks');
+  expect(component.instance().state.currentView).toBe('ManageDecks');
+  expect(component.html()).toContain('ManageDecksComp');
+});
+
+it('shows FlashcardDecksComp', () => {
+  const component = shallow(<FlashcardComp />);
+  component.instance().handleNavClick('FlashcardDecks');
+  expect(component.instance().state.currentView).toBe('FlashcardDecks');
+  expect(component.html()).toContain('FlashcardDecksComp');
+});
+
+it('shows FlashcardChartComp', () => {
+  const component = shallow(<FlashcardComp />);
+  component.instance().handleNavClick('FlashcardChart');
+  expect(component.instance().state.currentView).toBe('FlashcardChart');
+  expect(component.html()).toContain('FlashcardChartComp');
+});
+
+it('shows FlsahcardSettingsComp', () => {
+  const component = shallow(<FlashcardComp />);
+  component.instance().handleNavClick('FlashcardSettings');
+  expect(component.instance().state.currentView).toBe('FlashcardSettings');
+  expect(component.html()).toContain('FlashcardSettingsComp');
+});
+
+it('shows FlashcardInfoComp', () => {
+  const component = shallow(<FlashcardComp />);
+  component.instance().handleNavClick('FlashcardInfo');
+  expect(component.instance().state.currentView).toBe('FlashcardInfo');
+  expect(component.html()).toContain('FlashcardInfoComp');
+});

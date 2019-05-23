@@ -4,6 +4,20 @@ exports[`snapshot of UI renders consistently 1`] = `
 <div
   className="FlashcardChartComp"
 >
+  <div
+    className="ActionBar ActionBarComp"
+  >
+    <img
+      alt="logo"
+      className="AppLogo NavImg NavBtn"
+      src="logo_FFFFFF.png"
+    />
+    <span
+      className="HeaderText"
+    >
+      Chart
+    </span>
+  </div>
   <p>
     FlashcardChartComp coming soon
   </p>

@@ -4,6 +4,31 @@ exports[`snapshot of UI renders consistently 1`] = `
 <div
   className="FlashcardDecksComp"
 >
+  <div
+    className="ActionBar ActionBarComp"
+  >
+    <img
+      alt="logo"
+      className="AppLogo NavImg NavBtn"
+      src="logo_FFFFFF.png"
+    />
+    <button
+      className="AddBtn NavBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Add"
+        className="NavImg"
+        src="add_FFFFFF.png"
+      />
+    </button>
+    <span
+      className="HeaderText"
+    >
+      Flashcards
+    </span>
+  </div>
   <p>
     FlashcardDecksComp coming soon
   </p>

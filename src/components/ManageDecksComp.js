@@ -170,6 +170,7 @@ class ManageDecksComp extends React.Component {
       <div className="ManageDecksComp">
         <ActionBarComp
           showAdd={showAdd}
+          showBack
           headerText={headerText}
           onAdd={this.handleAddClick}
           onBack={this.handleBackClick}
