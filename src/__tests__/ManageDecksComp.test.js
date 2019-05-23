@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
 import ManageDecksComp from '../components/ManageDecksComp';
-import { doesNotReject } from 'assert';
 
 it('renders without crashing', () => {
   fetch.once(JSON.stringify([{ deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939' }, { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc' }]));
@@ -111,6 +110,15 @@ it('shows CardDelete when view set', () => {
   expect(component.html()).toContain('DeleteCardComp');
 });
 
+it('shows DeckList when unknown view set', () => {
+  const card = 'ABCD-1234';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleCardAdded(card);
+  component.instance().setView('JunkView');
+  expect(component.instance().state.currentView).toBe('DeckList');
+  expect(component.html()).toContain('DeckListComp');
+});
+
 it('tests handleAddClick from DeckList', () => {
   const component = shallow(<ManageDecksComp />);
   component.instance().setView('DeckList');
@@ -169,114 +177,161 @@ it('tests handleBackClick from CardList', () => {
   expect(component.html()).toContain('DeckListComp');
 });
 
-it('tests handleBackClick from CardAdd', (done) => {
+it('tests handleBackClick from CardAdd', () => {
   const deck = 'DECK-1234';
   const component = shallow(<ManageDecksComp />);
   component.instance().handleDeckAdded(deck);
-  //  component.instance().setView('CardAdd');
-  //  expect(component.instance().state.currentView).toBe('CardAdd');
-  //  component.instance().handleBackClick();
-  setTimeout(() => {
-    done();
-  });
-
   component.instance().handleBackClick();
-
-//  component.instance().handleBackClick(() => {
-//    component.instance().setView('CardAdd');
-//  });
-
-  setTimeout(() => {
-    expect(component.instance().state.currentView).toBe('CardList');
-    expect(component.html()).toContain('CardListComp');
-    done();
-  });
+  expect(component.instance().state.currentView).toBe('CardList');
+  expect(component.html()).toContain('CardListComp');
 });
 
-it('tests handleBackClick from CardEdit', (done) => {
+it('tests handleBackClick from CardEdit', () => {
   const card = 'ABCD-1234';
   const deck = 'DECK-1234';
   const component = shallow(<ManageDecksComp />);
   component.instance().handleDeckAdded(deck);
   component.instance().handleCardAdded(card);
   component.instance().setView('CardEdit');
-  setTimeout(() => {
-    done();
-  });
   component.instance().handleBackClick();
-  setTimeout(() => {
-    expect(component.instance().state.currentView).toBe('CardList');
-    expect(component.html()).toContain('CardListComp');
-    done();
-  });
+  expect(component.instance().state.currentView).toBe('CardList');
+  expect(component.html()).toContain('CardListComp');
 });
 
-it('tests handleBackClick from CardDelete', (done) => {
+it('tests handleBackClick from CardDelete', () => {
   const card = 'ABCD-1234';
   const deck = 'DECK-1234';
   const component = shallow(<ManageDecksComp />);
   component.instance().handleDeckAdded(deck);
   component.instance().handleCardAdded(card);
-  setTimeout(() => {
-    done();
-  });
   component.instance().setView('CardDelete');
-  setTimeout(() => {
-    done();
-  });
   component.instance().handleBackClick();
-  setTimeout(() => {
-    expect(component.instance().state.currentView).toBe('CardList');
-    expect(component.html()).toContain('CardListComp');
-    done();
-  });
+  expect(component.instance().state.currentView).toBe('CardList');
+  expect(component.html()).toContain('CardListComp');
 });
-//should change headerText to Add Deck
-//should find AddCard component
-//};
 
-//it('tests handleAddClick from CardList', () => {
-//setup: click add deck, 
-//should change headerText to Add Card
-//should find AddCard component
-//
-//});
-
-//it('tests handleBackClick from  )
-/*
-it('shows the AddDeck UI when currentView is AddDeck', (done) => {
-  fetch.once(JSON.stringify([{ deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939' }, { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc' }]));
+it('tests handleDeckAdded handler called', () => {
+  const deck = 'DECK-1234';
   const component = shallow(<ManageDecksComp />);
-  component.findWhere(n => n.type() === 'button' && n.contains('Add'));
-  const button = component.find('button').first();
-  console.log('1st button is', component);
-  button.simulate('click');
-  // component.setState({ currentView: 'AddDeck' });
-  // component.update();
-
-  setTimeout(() => {
-    expect(component.instance().state.currentView).toBe('AddDeck');
-    done();
-  });
-
-  //  component.setState({ currentView: 'AddDeck' });
-  component.update();
-  expect(component.html()).toContain('Add Deck');
-  const container = component.find('button');
-  expect(container.length).toBe(1);
-  console.log('component is', component);
-  expect(component.html()).toContain('Add Deck');
-  expect(component.find('.HeaderText').text()).toBe('Add Deck');
+  component.instance().handleDeckAdded(deck);
+  expect(component.instance().state.currentView).toBe('CardAdd');
+  expect(component.instance().state.currentDeck).toBe(deck);
+  expect(component.html()).toContain('AddCardComp');
 });
-*/
-// const deckId = '12345-ABCD';
-//  Client.createDeck = jest.fn(() => Promise.resolve(deckId));
 
-//  const component = shallow(<AddDeckComp onDeckAdded={dummyDeckAdded} />);
-//  const button = component.find('button').first();
-//  button.simulate('click');
+it('tests handleDeckSelect handler called', () => {
+  const deck = 'DECK-1234';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckSelect(deck);
+  expect(component.instance().state.currentView).toBe('CardList');
+  expect(component.instance().state.currentDeck).toBe(deck);
+  expect(component.html()).toContain('CardListComp');
+});
 
-//  setTimeout(() => {
-//    expect(component.instance().state.currentDeck).toBe(deckId);
-//    done();
-//  });
+it('tests handleDeckEdit handler called', () => {
+  const deck = 'DECK-1234';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckEdit(deck);
+  expect(component.instance().state.currentView).toBe('DeckEdit');
+  expect(component.instance().state.currentDeck).toBe(deck);
+  expect(component.html()).toContain('EditDeckComp');
+});
+
+it('tests handleDeckDelete handler called', () => {
+  const deck = 'DECK-1234';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckDelete(deck);
+  expect(component.instance().state.currentView).toBe('DeckDelete');
+  expect(component.instance().state.currentDeck).toBe(deck);
+  expect(component.html()).toContain('DeleteDeckComp');
+});
+
+it('tests handleCardAdded handler called', () => {
+  const deck = 'DECK-1234';
+  const card = 'CARD-5678';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckSelect(deck);
+  component.instance().handleCardAdded(card);
+  expect(component.instance().state.currentView).toBe('CardList');
+  expect(component.instance().state.currentCard).toBe(card);
+  expect(component.html()).toContain('CardListComp');
+});
+
+it('tests handleCardSelect handler called', () => {
+  const deck = 'DECK-1234';
+  const card = 'CARD-5678';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckSelect(deck);
+  component.instance().handleCardSelect(card);
+  expect(component.instance().state.currentView).toBe('CardEdit');
+  expect(component.instance().state.currentCard).toBe(card);
+  expect(component.html()).toContain('EditCardComp');
+});
+
+it('tests handleCardEdit handler called', () => {
+  const deck = 'DECK-1234';
+  const card = 'CARD-5678';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckSelect(deck);
+  component.instance().handleCardEdit(card);
+  expect(component.instance().state.currentView).toBe('CardEdit');
+  expect(component.instance().state.currentCard).toBe(card);
+  expect(component.html()).toContain('EditCardComp');
+});
+
+it('tests handleCardDelete handler called', () => {
+  const deck = 'DECK-1234';
+  const card = 'CARD-5678';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckSelect(deck);
+  component.instance().handleCardDelete(card);
+  expect(component.instance().state.currentView).toBe('CardDelete');
+  expect(component.instance().state.currentCard).toBe(card);
+  expect(component.html()).toContain('DeleteCardComp');
+});
+
+it('tests handleDeckEdited handler called', () => {
+  const deck = 'DECK-1234';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckSelect(deck);
+  component.instance().handleDeckEdited(deck);
+  expect(component.instance().state.currentView).toBe('DeckList');
+  expect(component.instance().state.currentDeck).toBe(deck);
+  expect(component.html()).toContain('DeckListComp');
+});
+
+it('tests handleDeckDeleted handler called', () => {
+  const deck = 'DECK-1234';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckSelect(deck);
+  component.instance().handleDeckDeleted(deck);
+  expect(component.instance().state.currentView).toBe('DeckList');
+  expect(component.instance().state.currentDeck).not.toBe(deck);
+  expect(component.instance().state.currentDeck).toBe('');
+  expect(component.html()).toContain('DeckListComp');
+});
+
+it('tests handleCardEdited handler called', () => {
+  const deck = 'DECK-1234';
+  const card = 'CARD-5678';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckSelect(deck);
+  component.instance().handleCardSelect(card);
+  component.instance().handleCardEdited(card);
+  expect(component.instance().state.currentView).toBe('CardList');
+  expect(component.instance().state.currentCard).toBe(card);
+  expect(component.html()).toContain('CardListComp');
+});
+
+it('tests handleCardDeleted handler called', () => {
+  const deck = 'DECK-1234';
+  const card = 'CARD-5678';
+  const component = shallow(<ManageDecksComp />);
+  component.instance().handleDeckSelect(deck);
+  component.instance().handleCardSelect(card);
+  component.instance().handleCardDeleted();
+  expect(component.instance().state.currentView).toBe('CardList');
+  expect(component.instance().state.currentCard).not.toBe(card);
+  expect(component.instance().state.currentCard).toBe('');
+  expect(component.html()).toContain('CardListComp');
+});

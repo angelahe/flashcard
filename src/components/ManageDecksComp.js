@@ -21,7 +21,7 @@ class ManageDecksComp extends React.Component {
     };
   }
 
-  setView = (newView = 'CardList') => {
+  setView = (newView = 'DeckList') => {
     let showAdd = false;
     let headerText = '';
     let viewName = newView;
@@ -117,6 +117,7 @@ class ManageDecksComp extends React.Component {
   handleDeckDelete = (deckId) => {
     console.log('handle deck delete');
     this.setView('DeckDelete');
+    this.setState({ currentDeck: deckId });
   }
 
   handleCardAdded = (cardId) => {
@@ -135,8 +136,30 @@ class ManageDecksComp extends React.Component {
   }
 
   handleCardDelete = (cardId) => {
+    this.setState({ currentCard: cardId });
+    this.setView('CardDelete');
+  }
+
+  handleDeckEdited = (deckId) => {
+    this.setState({ currentDeck: deckId });
+    this.setView('DeckList');
+  };
+
+  handleDeckDeleted = () => {
+    this.setState({ currentDeck: '' });
+    this.setView('DeckList');
+  };
+
+  handleCardEdited = (cardId) => {
+    this.setState({ currentCard: cardId });
+    this.setView('CardList');
+  };
+
+  handleCardDeleted = () => {
+    this.setState({ currentCard: '' });
     this.setView('CardList');
   }
+
 
   render() {
     const {
