@@ -12,7 +12,7 @@ bp = Blueprint('deck', __name__, url_prefix='/api/deck')
 
 @bp.route('', methods=['POST'])
 def create():
-    """insert row to db"""
+    """insert row to deck table"""
     db = get_db()
     deck_id = str(uuid.uuid4())
     db.execute(
@@ -26,7 +26,7 @@ def create():
 
 @bp.route('/<string:deck_id>/card', methods=['POST'])
 def create_card(deck_id):
-    """insert row to db"""
+    """insert row to card table"""
     print(request)
     print("request data is", request.data)
 

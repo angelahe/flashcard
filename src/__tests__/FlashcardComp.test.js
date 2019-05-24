@@ -63,3 +63,26 @@ it('shows FlashcardInfoComp', () => {
   expect(component.instance().state.currentView).toBe('FlashcardInfo');
   expect(component.html()).toContain('FlashcardInfoComp');
 });
+
+it('shows ManageDecks on unknown view', () => {
+  const component = shallow(<FlashcardComp />);
+  component.instance().setView('JunkView');
+  expect(component.instance().state.currentView).toBe('ManageDecks');
+  expect(component.html()).toContain('ManageDecksComp');
+});
+
+it('shows ManageDecks on Add click from FlashcardDecksComp', () => {
+  const component = shallow(<FlashcardComp />);
+  component.instance().handleNavClick('FlashcardDecks');
+  component.instance().handleAddClick();
+  expect(component.instance().state.currentView).toBe('ManageDecks');
+  expect(component.html()).toContain('ManageDecksComp');
+});
+
+it('shows ManageDecks on Add click by default e.g. from charts', () => {
+  const component = shallow(<FlashcardComp />);
+  component.instance().handleNavClick('FlashcardCharts');
+  component.instance().handleAddClick();
+  expect(component.instance().state.currentView).toBe('ManageDecks');
+  expect(component.html()).toContain('ManageDecksComp');
+});

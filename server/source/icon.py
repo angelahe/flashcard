@@ -11,7 +11,7 @@ bp = Blueprint('icon', __name__, url_prefix='/icon')
 def get_icon_by_term():
     term = request.args.get('term')
     auth = OAuth1(current_app.config['KEY'], current_app.config['SECRET_KEY'])
-    endpoint = f"https://api.thenounproject.com/icons/{term}?limit=200"
+    endpoint = f"https://api.thenounproject.com/icons/{term}?limit=400"
     response = requests.get(endpoint, auth=auth)
     
     icons = response.json()['icons']

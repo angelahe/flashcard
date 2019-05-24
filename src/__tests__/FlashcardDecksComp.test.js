@@ -24,3 +24,10 @@ it('contains the container div FlashcardDecksComp on shallow render', () => {
   const component = shallow(<FlashcardDecksComp />);
   expect(component.html()).toContain('FlashcardDecksComp');
 });
+
+it('goes to ManageDecks on Add Click', () => {
+  const handleAddClick = jest.fn(() => {});
+  const component = shallow(<FlashcardDecksComp onAdd={handleAddClick} />);
+  component.instance().handleAddClick();
+  expect(handleAddClick.mock.calls.length).toBe(1);
+});

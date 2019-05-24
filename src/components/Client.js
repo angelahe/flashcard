@@ -10,11 +10,10 @@ function createDeck() {
 }
 
 function createCard(deckId, l1word, l2word, imageUrl, imageId) {
-  return fetch(`api/deck/${deckId}/card?L1_word=${l1word}&L2_word=${l2word}
-    &img_url=${imageUrl}&img_id=${imageId}`,
-  {
-    method: 'POST',
-  })
+  return fetch(`api/deck/${deckId}/card?L1_word=${l1word}&L2_word=${l2word}&img_url=${imageUrl}&img_id=${imageId}`,
+    {
+      method: 'POST',
+    })
     .then(response => response.json())
     .then(card => card.card_id)
     .catch(err => console.error(err.message));

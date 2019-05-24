@@ -27,6 +27,7 @@ class AddCardComp extends React.Component {
 
   handleL2Change = (event) => {
     this.setState({ currentL2: event.target.value });
+    console.log('check L2 value *', this.state.currentL2, '*');
   };
 
   handleAddCardClick = () => {
