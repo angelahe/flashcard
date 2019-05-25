@@ -36,7 +36,7 @@ const CardListItemComp = (props) => {
         tabIndex="0"
         onClick={handleItemClick}
         onKeyPress={handleItemClick}
-      >{card.card_id}
+      >{card.L1_word}
       </span>
       <button className="CardListItemEdit AppBtn" type="button" onClick={handleEditClick}>
         <img className="btnImg" src={editbtn} alt="Add" />

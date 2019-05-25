@@ -12,9 +12,7 @@ exports[`snapshot of UI renders consistently 1`] = `
     onKeyPress={[Function]}
     role="button"
     tabIndex="0"
-  >
-    ABCD-1234
-  </span>
+  />
   <button
     className="CardListItemEdit AppBtn"
     onClick={[Function]}
