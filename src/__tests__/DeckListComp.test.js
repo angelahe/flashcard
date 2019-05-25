@@ -7,26 +7,33 @@ import DeckListComp from '../components/DeckListComp';
 import Client from '../components/Client';
 import deckList from '../testdata/testdecklist';
 
+const decks = JSON.stringify([
+  { deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939', deck_name: 'Animals' },
+  { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc', deck_name: 'Birds' },
+]);
+
+const deck = { deck_id: 'ABCD-1234', deck_name: 'Animals' };
+
 it('renders without crashing', () => {
-  fetch.once(JSON.stringify([{ deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939' }, { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc' }]));
+  fetch.once(decks);
   shallow(<DeckListComp />);
 });
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  fetch.once(JSON.stringify([{ deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939' }, { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc' }]));
+  fetch.once(decks);
   ReactDOM.render(<DeckListComp />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
 test('snapshot of UI renders consistently', () => {
-  fetch.once(JSON.stringify([{ deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939' }, { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc' }]));
+  fetch.once(decks);
   const tree = renderer.create(<DeckListComp />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 it('contains the container div DeckListComp on shallow render', () => {
-  fetch.once(JSON.stringify([{ deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939' }, { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc' }]));
+  fetch.once(decks);
   const component = shallow(<DeckListComp />);
   expect(component.html()).toContain('DeckListComp');
 });
@@ -43,7 +50,6 @@ it('shows decks loaded', (done) => {
 });
 
 it('handles a child select event', () => {
-  const deck = { deck_id: 'ABCD-1234' };
   Client.getDecks = jest.fn(() => Promise.resolve(deckList.deckList));
 
   const handleDeckSelect = jest.fn(() => {});
@@ -54,7 +60,6 @@ it('handles a child select event', () => {
 });
 
 it('handles a child edit event', () => {
-  const deck = { deck_id: 'ABCD-1234' };
   Client.getDecks = jest.fn(() => Promise.resolve(deckList.deckList));
 
   const handleDeckEdit = jest.fn(() => {});
@@ -65,7 +70,6 @@ it('handles a child edit event', () => {
 });
 
 it('handles a child delete event', () => {
-  const deck = { deck_id: 'ABCD-1234' };
   Client.getDecks = jest.fn(() => Promise.resolve(deckList.deckList));
 
   const handleDeckDelete = jest.fn(() => {});

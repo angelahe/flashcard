@@ -28,7 +28,6 @@ class NavBarComp extends React.Component {
 
   handleListClicked = () => {
     const { onNavClick } = this.props;
-    console.log('list click');
     this.setState({ currentFocus: 'list' });
     onNavClick('ManageDecks');
   };

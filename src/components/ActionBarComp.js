@@ -15,12 +15,10 @@ const ActionBarComp = (props) => {
   } = props;
 
   function handleAddClicked() {
-    console.log('in handleAddClicked of ActionBar');
     onAdd();
   }
 
   function handleBackClicked() {
-    console.log('in handleBackClicked of ActionBar');
     onBack();
   }
 

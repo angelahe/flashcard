@@ -12,9 +12,9 @@ bp = Blueprint('card', __name__, url_prefix='/api/card')
 def index():
     db = get_db()
     cards = db.execute(
-        'SELECT card_id, L1_word, L2_word, img_url, img_id'
+        'SELECT card_id, deck_id, L1_word, L2_word, img_url, img_id, card_order'
         ' FROM card'
-        ' ORDER BY card_id'
+        ' ORDER BY deck_id, card_order'
     ).fetchall()
     body = json.dumps( [dict(ix) for ix in cards] )
     print('json should be', body)

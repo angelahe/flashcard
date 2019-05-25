@@ -81,6 +81,17 @@ it('should simulate a change to L2 input field', (done) => {
   });
 });
 
+it('should simulate a change to Order input field', (done) => {
+  const handleCardAdded = jest.fn(() => {});
+  const component = shallow(<AddCardComp deck="ABCD-1234" onCardAdded={handleCardAdded} />);
+  const L2Input = component.find('.Order').first();
+  L2Input.simulate('change', { target: { value: 2 } });
+  setTimeout(() => {
+    expect(component.instance().state.currentOrder).toBe(2);
+    done();
+  });
+});
+
 it('should show the image picker if image is clicked', (done) => {
   const component = shallow(<AddCardComp deck="ABCD-1234" />);
   const button = component.find('button').first();

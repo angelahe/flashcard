@@ -29,7 +29,7 @@ class AddImageComp extends React.Component {
     // this.setState({ imagesList: results });
 
     // call the nounproject api with the search term
-    console.log(`going to search for ${term} on nounproject`);
+    //  console.log(`going to search for ${term} on nounproject`);
     NounProject.getImages(term)
       .then(images => this.setState({ imagesList: images }));
   }
@@ -37,12 +37,12 @@ class AddImageComp extends React.Component {
   handleImageSend = () => {
     const { currentImageUrl, currentImageId } = this.state;
     const { onImageAdded } = this.props;
-    console.log('in handleImageSend');
+    // console.log('in handleImageSend');
     onImageAdded(currentImageUrl, currentImageId);
   }
 
   handleImageSelect = (imageUrl, imageId) => {
-    console.log(`passed in image ${imageUrl} and ${imageId}`);
+    // console.log(`passed in image ${imageUrl} and ${imageId}`);
     this.setState({ currentImageUrl: imageUrl, currentImageId: imageId });
   }
 

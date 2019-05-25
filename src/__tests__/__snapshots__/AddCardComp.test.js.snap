@@ -49,6 +49,21 @@ exports[`AddCardComp renders correctly 1`] = `
           value=""
         />
       </div>
+      <div
+        className="LineContainer"
+      >
+        <img
+          alt="Order"
+          className="btnImg"
+          src="order_FFFFFF.png"
+        />
+        <input
+          className="Order DetailText"
+          onChange={[Function]}
+          type="Number"
+          value=""
+        />
+      </div>
       <button
         className="DoneBtn AppBtn"
         onClick={[Function]}

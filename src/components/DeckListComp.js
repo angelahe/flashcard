@@ -35,19 +35,16 @@ class DeckListComp extends React.Component {
 
   handleDeckSelect = (deck) => {
     const { onDeckSelect } = this.props;
-    console.log('in handleItemClicked', deck);
     onDeckSelect(deck);
   }
 
   handleDeckEdit = (deck) => {
     const { onDeckEdit } = this.props;
-    console.log('in handle deck edit', deck);
     onDeckEdit(deck);
   }
 
   handleDeckDelete = (deck) => {
     const { onDeckDelete } = this.props;
-    console.log('in handle deck delete', deck);
     onDeckDelete(deck);
   }
 

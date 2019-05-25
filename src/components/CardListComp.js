@@ -36,19 +36,16 @@ class CardListComp extends React.Component {
 
   handleCardSelect = (card) => {
     const { onCardSelect } = this.props;
-    console.log('in handle card select', card);
     onCardSelect(card);
   }
 
   handleCardEdit = (card) => {
     const { onCardEdit } = this.props;
-    console.log('in handle card edit', card);
     onCardEdit(card);
   }
 
   handleCardDelete = (card) => {
     const { onCardDelete } = this.props;
-    console.log('in handle card delete', card);
     onCardDelete(card);
   }
 

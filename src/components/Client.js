@@ -1,16 +1,17 @@
 // interract with db back end
 
-function createDeck() {
-  return fetch('/api/deck', {
-    method: 'POST',
-  })
+function createDeck(name, key, order) {
+  return fetch(`/api/deck?deck_name=${name}&deck_key=${key}&deck_order=${order}`,
+    {
+      method: 'POST',
+    })
     .then(response => response.json())
     .then(deck => deck.id)
     .catch(err => console.error(err.message));
 }
 
-function createCard(deckId, l1word, l2word, imageUrl, imageId) {
-  return fetch(`api/deck/${deckId}/card?L1_word=${l1word}&L2_word=${l2word}&img_url=${imageUrl}&img_id=${imageId}`,
+function createCard(deckId, l1word, l2word, order, imageUrl, imageId) {
+  return fetch(`api/deck/${deckId}/card?L1_word=${l1word}&L2_word=${l2word}&card_order=${order}&img_url=${imageUrl}&img_id=${imageId}`,
     {
       method: 'POST',
     })
@@ -33,14 +34,6 @@ function getCardsInDeck(deckId) {
   })
     .then(response => response.json())
     .catch(err => console.error(err));
-// oops, needed to be a deck in the db, how to troubleshoot? create a deck, 
-// then create a card, then get that card?
-
-//  return fetch('api/deck/9470f75e-ee46-43a3-911a-06ae23ebdfce/cards', {
-//    method: 'GET',
-//  })
-//    .then(response => response.json())
-//    .catch(err => console.error(err));
 }
 
 const Client = {

@@ -1,8 +1,12 @@
 DROP TABLE IF EXISTS deck;
 DROP TABLE IF EXISTS card;
+DROP TABLE IF EXISTS cardtype;
 
 CREATE TABLE deck (
-    deck_id TEXT PRIMARY KEY
+    deck_id TEXT PRIMARY KEY,
+    deck_name TEXT NOT NULL,
+    deck_key TEXT,
+    deck_order TEXT
 );
 
 CREATE TABLE card (
@@ -12,5 +16,15 @@ CREATE TABLE card (
     L2_word TEXT NOT NULL,
     img_url TEXT,
     img_id INTEGER,
-    FOREIGN KEY (deck_id) REFERENCES deck(deck_id)
+    card_order INTEGER,
+    cardtype_id TEXT,
+    FOREIGN KEY (deck_id) REFERENCES deck(deck_id),
+    FOREIGN KEY (cardtype_id) REFERENCES cardtype(cardtype_id)
 );
+
+CREATE TABLE cardtype (
+    cardtype_id TEXT PRIMARY KEY,
+    cardtype_name TEXT NOT NULL,
+    cardtype_desc TEXT
+);
+

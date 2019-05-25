@@ -13,16 +13,25 @@ bp = Blueprint('deck', __name__, url_prefix='/api/deck')
 @bp.route('', methods=['POST'])
 def create():
     """insert row to deck table"""
+    print(request)
+    print("request data is", request.data)
+
+    deck_name = request.args.get('deck_name')
+    deck_key = request.args.get('deck_key')
+    deck_order = request.args.get('deck_order')
+
     db = get_db()
     deck_id = str(uuid.uuid4())
     db.execute(
-        'INSERT INTO deck (deck_id) VALUES (?)', (deck_id,)
+        'INSERT INTO deck (deck_id, deck_name, deck_key, deck_order)'
+        ' VALUES (?, ?, ?, ?)', 
+        (deck_id, deck_name, deck_key, deck_order)
     )
     db.commit()
-    thisdeck = {"id": deck_id}
+    thisdeck = {"id": deck_id, "deck_name": deck_name,
+                "deck_key": deck_key, "deck_order": deck_order}
     body = json.dumps(thisdeck)
     return make_response((body, 201))
-
 
 @bp.route('/<string:deck_id>/card', methods=['POST'])
 def create_card(deck_id):
@@ -35,26 +44,28 @@ def create_card(deck_id):
     L2_word = request.args.get('L2_word')
     img_url = request.args.get('img_url')
     img_id = request.args.get('img_id')
+    card_order = request.args.get('card_order')
+    cardtype_id = request.args.get('cardtype_id')
 
     db = get_db()
     db.execute(
-        'INSERT INTO card (card_id, deck_id, L1_word, L2_word, img_url, img_id)'
-        ' VALUES (?, ?, ?, ?, ?, ?)',
-        (card_id, deck_id, L1_word, L2_word, img_url, img_id)
+        'INSERT INTO card (card_id, deck_id, L1_word, L2_word, img_url, img_id, card_order, cardtype_id)'
+        ' VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        (card_id, deck_id, L1_word, L2_word, img_url, img_id, card_order, cardtype_id)
     )
     db.commit()
     thiscard = {"card_id": card_id, "deck_id": deck_id,
                 "L1_word": L1_word, "L2_word": L2_word,
-                "img_url": img_url, "img_id": img_id}
+                "img_url": img_url, "img_id": img_id,
+                "card_order": card_order, "cardtype_id": cardtype_id}
     body = json.dumps(thiscard)
     return make_response((body, 201))
-
 
 @bp.route('/all')
 def get_decks():
     db = get_db()
     decks = db.execute(
-        'SELECT deck_id'
+        'SELECT *'
         ' FROM deck'
     ).fetchall()
     body = json.dumps( [dict(ix) for ix in decks] )

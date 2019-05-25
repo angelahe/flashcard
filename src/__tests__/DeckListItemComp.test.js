@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 
 import DeckListItemComp from '../components/DeckListItemComp';
 
-const deck = { deck_id: 'ABCD-1234' };
+const deck = { deck_id: 'ABCD-1234', deck_name: 'Animals' };
 
 it('renders without crashing', () => {
   shallow(<DeckListItemComp deck={deck} />);
@@ -28,6 +28,7 @@ it('contains the container div DeckListItemComp on shallow render', () => {
   expect(component.html()).toContain('DeckListItemText');
   expect(component.html()).toContain('DeckListItemEdit');
   expect(component.html()).toContain('DeckListItemDelete');
+  expect(component.html()).toContain('Animals');
 });
 
 it('click editDeck calls handler', (done) => {

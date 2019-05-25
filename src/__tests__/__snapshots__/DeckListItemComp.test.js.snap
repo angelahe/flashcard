@@ -13,7 +13,7 @@ exports[`DeckListItemComp renders correctly 1`] = `
     role="button"
     tabIndex="0"
   >
-    ABCD-1234
+    Animals
   </span>
   <button
     className="DeckListItemEdit AppBtn"

@@ -13,18 +13,18 @@ const DeckListItemComp = (props) => {
   } = props;
 
   function handleItemClick() {
-    console.log('in handleItemClick');
+    // console.log('in handleItemClick');
     // do something, then
     onDeckSelect(deck.deck_id);
   }
 
   function handleEditClick() {
-    console.log('in handle edit click');
+    // console.log('in handle edit click');
     onDeckEdit(deck.deck_id);
   }
 
   function handleDeleteClick() {
-    console.log('in handle delete click');
+    // console.log('in handle delete click');
     onDeckDelete(deck.deck_id);
   }
 
@@ -40,7 +40,7 @@ const DeckListItemComp = (props) => {
         tabIndex="0"
         onClick={handleItemClick}
         onKeyPress={handleItemClick}
-      >{deck.deck_id}
+      >{deck.deck_name}
       </span>
       <button className="DeckListItemEdit AppBtn" type="button" onClick={handleEditClick}>
         <img className="btnImg" src={editbtn} alt="Edit" />
@@ -62,6 +62,7 @@ DeckListItemComp.defaultProps = {
 DeckListItemComp.propTypes = {
   deck: PropTypes.shape({
     deck_id: PropTypes.string.isRequired,
+    deck_name: PropTypes.string.isRequired,
   }).isRequired,
   onDeckSelect: PropTypes.func,
   onDeckEdit: PropTypes.func,

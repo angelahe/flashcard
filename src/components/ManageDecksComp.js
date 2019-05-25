@@ -109,13 +109,11 @@ class ManageDecksComp extends React.Component {
   }
 
   handleDeckEdit = (deckId) => {
-    console.log('in deck edit');
     this.setView('DeckEdit');
     this.setState({ currentDeck: deckId });
   }
 
   handleDeckDelete = (deckId) => {
-    console.log('handle deck delete');
     this.setView('DeckDelete');
     this.setState({ currentDeck: deckId });
   }

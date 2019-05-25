@@ -6,6 +6,7 @@ import Client from './Client';
 import done from '../img/buttons/done_FFFFFF.png';
 import english from '../img/buttons/english_FFFFFF.png';
 import spanish from '../img/buttons/spanish_FFFFFF.png';
+import order from '../img/buttons/order_FFFFFF.png';
 
 class AddCardComp extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class AddCardComp extends React.Component {
       currentCard: '',
       currentL1: '',
       currentL2: '',
+      currentOrder: '',
       currentImageUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png',
       currentImageId: 77680,
       addImage: false,
@@ -27,7 +29,10 @@ class AddCardComp extends React.Component {
 
   handleL2Change = (event) => {
     this.setState({ currentL2: event.target.value });
-    console.log('check L2 value *', this.state.currentL2, '*');
+  };
+
+  handleOrderChange = (event) => {
+    this.setState({ currentOrder: event.target.value });
   };
 
   handleAddCardClick = () => {
@@ -35,11 +40,12 @@ class AddCardComp extends React.Component {
     const {
       currentL1,
       currentL2,
+      currentOrder,
       currentImageUrl,
       currentImageId,
     } = this.state;
 
-    Client.createCard(deck, currentL1, currentL2, currentImageUrl, currentImageId)
+    Client.createCard(deck, currentL1, currentL2, currentOrder, currentImageUrl, currentImageId)
       .then((id) => {
         this.setState({ currentCard: id });
         onCardAdded(id);
@@ -65,6 +71,7 @@ class AddCardComp extends React.Component {
       currentCard,
       currentL1,
       currentL2,
+      currentOrder,
       currentImageId,
       currentImageUrl,
       addImage,
@@ -98,6 +105,10 @@ class AddCardComp extends React.Component {
                 <div className="LineContainer">
                   <img className="btnImg" src={spanish} alt="Spanish" />
                   <input className="L2Input DetailText" value={currentL2} onChange={this.handleL2Change} />
+                </div>
+                <div className="LineContainer">
+                  <img className="btnImg" src={order} alt="Order" />
+                  <input className="Order DetailText" type="Number" value={currentOrder} onChange={this.handleOrderChange} />
                 </div>
                 <button className="DoneBtn AppBtn" type="button" onClick={this.handleAddCardClick}>
                   <img className="btnImg" src={done} alt="Done" />
