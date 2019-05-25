@@ -4,7 +4,7 @@ blueprint for /api/deck routes
 import functools
 import uuid
 
-from flask import(Blueprint, g, request, json, make_response)
+from flask import(Blueprint, g, request, json, make_response, abort, jsonify)
 from source.db import get_db
 
 bp = Blueprint('deck', __name__, url_prefix='/api/deck')
@@ -32,6 +32,32 @@ def create():
                 "deck_key": deck_key, "deck_order": deck_order}
     body = json.dumps(thisdeck)
     return make_response((body, 201))
+
+def get_deck(id):
+    deck = get_db().execute(
+        'SELECT * FROM deck WHERE deck_id = ?',
+        (id,)
+    ).fetchone()
+    if deck is None:
+        abort(404, "Deck id {0} doesn't exist.".format(id))
+    return deck
+
+@bp.route('/<string:deck_id>/delete', methods=('POST',))
+def delete_deck(deck_id):
+    deck = get_deck(deck_id)
+    print(f'deck is $deck')
+    response = {}
+    if deck:
+        db = get_db()
+        db.execute('DELETE FROM deck WHERE deck_id = ?', (deck_id,))
+        db.commit()
+        response = {"message": "Successfully deleted",}
+        body = json.dumps(response)
+        return make_response(body,200)
+    else:
+        response = {"message": "Delete failed"}
+        body = json.dumps(response)
+        return make_response(body,404)
 
 @bp.route('/<string:deck_id>/card', methods=['POST'])
 def create_card(deck_id):

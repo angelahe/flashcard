@@ -4,8 +4,29 @@ exports[`snapshot of UI renders consistently 1`] = `
 <div
   className="DeleteDeckComp"
 >
-  <p>
-    DeleteDeckComp
-  </p>
+  <br />
+   
+  <br />
+  <div
+    className="LineContainer"
+  >
+    <span
+      className="DetailText"
+    >
+      Confirm Delete? 
+    </span>
+    <br />
+  </div>
+  <button
+    className="AppBtn YesDelete"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="Done"
+      className="btnImg"
+      src="done_FFFFFF.png"
+    />
+  </button>
 </div>
 `;

@@ -202,7 +202,10 @@ class ManageDecksComp extends React.Component {
         { (currentView === 'DeckDelete')
           ? (
             <div>
-              <DeleteDeckComp />
+              <DeleteDeckComp
+                deck={currentDeck}
+                onDeckDeleted={this.handleCardDeleted}
+              />
             </div>
           )
           : null
