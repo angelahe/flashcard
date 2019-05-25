@@ -11,6 +11,16 @@ test('Test Client creates a deck successfully', () => {
   expect(fetch.mock.calls[0][0]).toEqual('/api/deck?deck_name=testDeck&deck_key=testKey&deck_order=2');
 });
 
+test('Test Client deletes a deck successfully', () => {
+  const testDeckId = '1809fd82-686a-4205-b0b5-51db95c0fd22';
+  fetch.once(JSON.stringify({ message: 'Successfully deleted' }));
+  Client.deleteDeck(testDeckId).then((response) => {
+    expect(response).toEqual({ message: 'Successfully deleted' });
+  });
+  expect(fetch.mock.calls.length).toEqual(2);
+  expect(fetch.mock.calls[1][0]).toEqual(`/api/deck/${testDeckId}/delete`);
+});
+
 // will want to check the L1 and L2 after creation
 
 test('Test Client creates a card successfully', () => {
@@ -30,8 +40,8 @@ test('Test Client creates a card successfully', () => {
     .then((cardId) => {
       expect(cardId).toEqual(testCardId);
     });
-  expect(fetch.mock.calls.length).toEqual(2);
-  expect(fetch.mock.calls[1][0]).toEqual(
+  expect(fetch.mock.calls.length).toEqual(3);
+  expect(fetch.mock.calls[2][0]).toEqual(
     `api/deck/${testDeckId}/card?L1_word=bird&L2_word=el pájaro&card_order=10&img_url=https://d30y9cdsu7xlg0.cloudfront.net/png/1599085-200.png&img_id=1599085`
   );
 });
@@ -45,6 +55,16 @@ test('Test Client gives a list of all decks', () => {
   Client.getDecks().then((decks) => {
     expect(decks).toContainEqual({ deck_id: '97d9a5d3-4f85-499d-b4b5-7fbf610b036e' });
   });
-  expect(fetch.mock.calls.length).toEqual(3);
-  expect(fetch.mock.calls[2][0]).toEqual('api/deck/all');
+  expect(fetch.mock.calls.length).toEqual(4);
+  expect(fetch.mock.calls[3][0]).toEqual('api/deck/all');
+});
+
+test('Test Client gives list of all cards in deck', () => {
+  const deckId = 'DECK-1234';
+  fetch.once('[{"card_id": "ABCD-1234", "deck_id": "DECK-1234"},]');
+  Client.getCardsInDeck(deckId).then((cards) => {
+    expect(cards).toContainEqual({ card_id: 'ABCD-1234' });
+  });
+  expect(fetch.mock.calls.length).toEqual(5);
+  expect(fetch.mock.calls[4][0]).toEqual('api/deck/DECK-1234/cards');
 });

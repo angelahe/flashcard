@@ -33,8 +33,8 @@ function getDecks() {
   return fetch('api/deck/all', {
     method: 'GET',
   })
-    .then(response => response.json());
-//    .catch(err => console.error(err.message));
+    .then(response => response.json())
+    .catch(err => console.error(err.message));
 }
 
 function getCardsInDeck(deckId) {
@@ -42,7 +42,7 @@ function getCardsInDeck(deckId) {
     method: 'GET',
   })
     .then(response => response.json())
-    .catch(err => console.error(err));
+    .catch(err => console.error(err.message));
 }
 
 const Client = {
