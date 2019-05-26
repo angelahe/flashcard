@@ -83,18 +83,20 @@ class AddCardComp extends React.Component {
         { (addImage !== true)
           ? (
             <div className="AddImage">
-              <button
-                className={styleImage}
-                type="button"
-                onClick={this.handleImageClick}
-                onKeyPress={this.handleItemClick}
-              >
-                <img
-                  className="cardImg"
-                  src={currentImageUrl}
-                  alt={currentImageId}
-                />
-              </button>
+              <div className="LineContainer">
+                <button
+                  className={styleImage}
+                  type="button"
+                  onClick={this.handleImageClick}
+                  onKeyPress={this.handleItemClick}
+                >
+                  <img
+                    className="cardImg"
+                    src={currentImageUrl}
+                    alt={currentImageId}
+                  />
+                </button>
+              </div>
               <br />
               <div>
                 <div className="LineContainer">
@@ -110,9 +112,11 @@ class AddCardComp extends React.Component {
                   <img className="btnImg" src={order} alt="Order" />
                   <input className="Order DetailText" type="Number" value={currentOrder} onChange={this.handleOrderChange} />
                 </div>
-                <button className="DoneBtn AppBtn" type="button" onClick={this.handleAddCardClick}>
-                  <img className="btnImg" src={done} alt="Done" />
-                </button>
+                <div className="LineContainer">
+                  <button className="DoneBtn AppBtn" type="button" onClick={this.handleAddCardClick}>
+                    <img className="btnImg" src={done} alt="Done" />
+                  </button>
+                </div>
               </div>
               <br />
               <span className="DetailText">Image:</span>

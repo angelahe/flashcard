@@ -57,66 +57,68 @@ class NavBarComp extends React.Component {
 
     return (
       <div className="NavBarComp NavBar">
-        { currentFocus === 'decks'
-          ? (
-            <button type="button" className="NavBarDecksOn NavBtn">
-              <img className="NavImg" src={decksBtn} alt="Decks" />
-            </button>
-          )
-          : (
-            <button type="button" className="NavBarDecksOff NavBarNavBtn" onClick={this.handleDecksClicked}>
-              <img className="NavImg" src={decksOffBtn} alt="Decks" />
-            </button>
-          )
-        }
-        { currentFocus === 'list'
-          ? (
-            <button type="button" className="NavBarListOn NavBtn">
-              <img className="NavImg" src={listBtn} alt="List" />
-            </button>
-          )
-          : (
-            <button type="button" className="NavBarListOff NavBtn" onClick={this.handleListClicked}>
-              <img className="NavImg" src={listOffBtn} alt="List" />
-            </button>
-          )
-        }
-        { currentFocus === 'chart'
-          ? (
-            <button type="button" className="NavBarChartOn NavBtn">
-              <img className="NavImg" src={chartBtn} alt="Chart" />
-            </button>
-          )
-          : (
-            <button type="button" className="NavBarChartOff NavBtn" onClick={this.handleChartClicked}>
-              <img className="NavImg" src={chartOffBtn} alt="Chart" />
-            </button>
-          )
-        }
-        { currentFocus === 'settings'
-          ? (
-            <button type="button" className="NavBarSettingsOn NavBtn">
-              <img className="NavImg" src={settingsBtn} alt="Settings" />
-            </button>
-          )
-          : (
-            <button type="button" className="NavBarSettingsOff NavBtn" onClick={this.handleSettingsClicked}>
-              <img className="NavImg" src={settingsOffBtn} alt="Settings" />
-            </button>
-          )
-        }
-        { currentFocus === 'info'
-          ? (
-            <button type="button" className="NavBarInfoOn NavBtn">
-              <img className="NavImg" src={infoBtn} alt="Info" />
-            </button>
-          )
-          : (
-            <button type="button" className="NavBarInfoOff NavBtn" onClick={this.handleInfoClicked}>
-              <img className="NavImg" src={infoOffBtn} alt="Info" />
-            </button>
-          )
-        }
+        <div className="LineContainer">
+          { currentFocus === 'decks'
+            ? (
+              <button type="button" className="NavBarDecksOn NavBtn">
+                <img className="NavImg" src={decksBtn} alt="Decks" />
+              </button>
+            )
+            : (
+              <button type="button" className="NavBarDecksOff NavBarNavBtn" onClick={this.handleDecksClicked}>
+                <img className="NavImg" src={decksOffBtn} alt="Decks" />
+              </button>
+            )
+          }
+          { currentFocus === 'list'
+            ? (
+              <button type="button" className="NavBarListOn NavBtn">
+                <img className="NavImg" src={listBtn} alt="List" />
+              </button>
+            )
+            : (
+              <button type="button" className="NavBarListOff NavBtn" onClick={this.handleListClicked}>
+                <img className="NavImg" src={listOffBtn} alt="List" />
+              </button>
+            )
+          }
+          { currentFocus === 'chart'
+            ? (
+              <button type="button" className="NavBarChartOn NavBtn">
+                <img className="NavImg" src={chartBtn} alt="Chart" />
+              </button>
+            )
+            : (
+              <button type="button" className="NavBarChartOff NavBtn" onClick={this.handleChartClicked}>
+                <img className="NavImg" src={chartOffBtn} alt="Chart" />
+              </button>
+            )
+          }
+          { currentFocus === 'settings'
+            ? (
+              <button type="button" className="NavBarSettingsOn NavBtn">
+                <img className="NavImg" src={settingsBtn} alt="Settings" />
+              </button>
+            )
+            : (
+              <button type="button" className="NavBarSettingsOff NavBtn" onClick={this.handleSettingsClicked}>
+                <img className="NavImg" src={settingsOffBtn} alt="Settings" />
+              </button>
+            )
+          }
+          { currentFocus === 'info'
+            ? (
+              <button type="button" className="NavBarInfoOn NavBtn">
+                <img className="NavImg" src={infoBtn} alt="Info" />
+              </button>
+            )
+            : (
+              <button type="button" className="NavBarInfoOff NavBtn" onClick={this.handleInfoClicked}>
+                <img className="NavImg" src={infoOffBtn} alt="Info" />
+              </button>
+            )
+          }
+        </div>
       </div>
     );
   }

@@ -42,11 +42,15 @@
   height: 67px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  background-color: #375E97
+  background-color: #375E97;
 }
 .Header {
   background-color: #375E97;
   border-radius: 10px;
+}
+
+.Center {
+  align-content: center;
 }
 
 .AppBtn {
@@ -71,7 +75,6 @@
   height: auto;
   width: 100%;
   border-radius: 10px;
-
 }
 
 .ItemBox {
@@ -115,6 +118,21 @@
   margin:0;
   padding:0;
 }
+.DeckContainer {
+  display:grid;
+  grid-gap: 4px;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  grid-template-rows: 1fr;
+  align-content: center;
+}
+.AddImage {
+  justify-content: center;
+}
+.DeckImg {
+  height: 85px;
+  width: 60px;
+  margin:0;
+}
 .NavImg {
   height: 50px;
   width: 50px;
@@ -127,8 +145,8 @@
   background-color: #375E97;
 }
 .cardDefault {
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
   background-color: lightgrey;
 }
 .cardImg {

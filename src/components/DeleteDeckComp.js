@@ -21,18 +21,19 @@ class DeleteDeckComp extends React.Component {
   }
 
   render() {
-    const { deck } = this.props;
     const { errorMessage } = this.state;
     return (
       <div className="DeleteDeckComp">
         <br /> <br />
         <div className="LineContainer">
           <span className="DetailText">Confirm Delete? </span>
-          <br />
+          <br /> <br />
         </div>
-        <button className="AppBtn YesDelete" type="button" onClick={this.handleConfirmDelete}>
-          <img className="btnImg" src={done} alt="Done" />
-        </button>
+        <div className="LineContainer">
+          <button className="AppBtn YesDelete" type="button" onClick={this.handleConfirmDelete}>
+            <img className="btnImg" src={done} alt="Done" />
+          </button>
+        </div>
         { errorMessage
           ? <p>{errorMessage}</p>
           : null

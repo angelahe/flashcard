@@ -70,9 +70,11 @@ class AddDeckComp extends React.Component {
             <input className="DeckOrder DetailText" type="Number" value={orderValue} onChange={this.handleOrderChange} />
           </div>
           <br />
-          <button className="AppBtn AddDeckButton" type="button" onClick={this.handleAddDeckClick}>
-            <img className="btnImg" src={done} alt="Done" />
-          </button>
+          <div className="LineContainer">
+            <button className="AppBtn AddDeckButton" type="button" onClick={this.handleAddDeckClick}>
+              <img className="btnImg" src={done} alt="Done" />
+            </button>
+          </div>
         </div>
       </div>
     );

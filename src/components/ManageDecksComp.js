@@ -253,14 +253,6 @@ class ManageDecksComp extends React.Component {
           )
           : null
         }
-        { currentDeck
-          ? <p>current deck: {currentDeck}</p>
-          : null
-        }
-        { currentCard
-          ? <p>current card: {currentCard}</p>
-          : null
-          }
       </div>
     );
   }

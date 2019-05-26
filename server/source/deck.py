@@ -93,6 +93,7 @@ def get_decks():
     decks = db.execute(
         'SELECT *'
         ' FROM deck'
+        ' ORDER BY deck_order'
     ).fetchall()
     body = json.dumps( [dict(ix) for ix in decks] )
     #body = json.dumps(decks)
@@ -104,7 +105,8 @@ def get_cards_in_deck(deck_id):
     db = get_db()
     cards = db.execute(
         'SELECT * FROM card'
-        ' WHERE deck_id = ?', (deck_id,)
+        ' WHERE deck_id = ?'
+        ' ORDER BY card_order', (deck_id,)
     ).fetchall()
     body = json.dumps( [dict(ix) for ix in cards] )
     return make_response((body, 200))
