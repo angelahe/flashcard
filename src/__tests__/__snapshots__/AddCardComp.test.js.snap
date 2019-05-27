@@ -7,17 +7,21 @@ exports[`AddCardComp renders correctly 1`] = `
   <div
     className="AddImage"
   >
-    <button
-      className="cardDefault"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="LineContainer"
     >
-      <img
-        alt={77680}
-        className="cardImg"
-        src="https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png"
-      />
-    </button>
+      <button
+        className="cardDefault"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt={77680}
+          className="cardImg"
+          src="https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png"
+        />
+      </button>
+    </div>
     <br />
     <div>
       <div
@@ -64,17 +68,21 @@ exports[`AddCardComp renders correctly 1`] = `
           value=""
         />
       </div>
-      <button
-        className="DoneBtn AppBtn"
-        onClick={[Function]}
-        type="button"
+      <div
+        className="LineContainer"
       >
-        <img
-          alt="Done"
-          className="btnImg"
-          src="done_FFFFFF.png"
-        />
-      </button>
+        <button
+          className="DoneBtn AppBtn"
+          onClick={[Function]}
+          type="button"
+        >
+          <img
+            alt="Done"
+            className="btnImg"
+            src="done_FFFFFF.png"
+          />
+        </button>
+      </div>
     </div>
     <br />
     <span

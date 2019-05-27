@@ -56,17 +56,21 @@ exports[`AddDeckComp renders correctly 1`] = `
       />
     </div>
     <br />
-    <button
-      className="AppBtn AddDeckButton"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="LineContainer"
     >
-      <img
-        alt="Done"
-        className="btnImg"
-        src="done_FFFFFF.png"
-      />
-    </button>
+      <button
+        className="AppBtn AddDeckButton"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Done"
+          className="btnImg"
+          src="done_FFFFFF.png"
+        />
+      </button>
+    </div>
   </div>
 </div>
 `;

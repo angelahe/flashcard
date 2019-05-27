@@ -41,7 +41,8 @@ it('shows the current deck in the DeckList UI when there is one', () => {
   component.setState({ currentDeck: deckId });
   component.update();
 
-  expect(component.html()).toContain(`current deck: ${deckId}`);
+  expect(component.instance().state.currentDeck).toBe(deckId);
+  expect(component.html()).toContain('DeckListComp');
   expect(component.html()).toContain('Decks');
 });
 

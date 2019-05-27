@@ -5,7 +5,7 @@ import requests
 from flask import(Blueprint, json, make_response, current_app, g, request)
 from requests_oauthlib import OAuth1
 
-bp = Blueprint('icon', __name__, url_prefix='/icon')
+bp = Blueprint('icon', __name__, url_prefix='/api/icon')
 
 @bp.route('', methods=['GET'])
 def get_icon_by_term():

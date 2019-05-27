@@ -36,6 +36,18 @@ function createCard(deckId, l1word, l2word, order, imageUrl, imageId) {
     .catch(err => console.error(err.message));
 }
 
+function deleteCard(card) {
+  return fetch(`/api/card/${card}`,
+    {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
+    })
+    .then(response => response.json())
+    .catch(err => console.error(err.message));
+}
+
 function getDecks() {
   return fetch('api/deck/all', {
     method: 'GET',
@@ -57,6 +69,12 @@ function login(token) {
 }
 
 const Client = {
-  login, createDeck, deleteDeck, createCard, getDecks, getCardsInDeck,
+  login,
+  createDeck,
+  deleteDeck,
+  createCard,
+  deleteCard,
+  getDecks,
+  getCardsInDeck,
 };
 export default Client;

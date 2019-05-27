@@ -47,7 +47,7 @@ class App extends React.Component {
   render() {
     const { user } = this.state;
     return (
-      <div>
+      <div className="App">
         { user
           ? <FlashcardComp />
           : <LoginComp />

@@ -56,60 +56,64 @@ exports[`FlashcardComp renders correctly 1`] = `
   <div
     className="NavBarComp NavBar"
   >
-    <button
-      className="NavBarDecksOff NavBarNavBtn"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="LineContainer"
     >
-      <img
-        alt="Decks"
-        className="NavImg"
-        src="decksOff_FFFFFF.png"
-      />
-    </button>
-    <button
-      className="NavBarListOn NavBtn"
-      type="button"
-    >
-      <img
-        alt="List"
-        className="NavImg"
-        src="list_FFFFFF.png"
-      />
-    </button>
-    <button
-      className="NavBarChartOff NavBtn"
-      onClick={[Function]}
-      type="button"
-    >
-      <img
-        alt="Chart"
-        className="NavImg"
-        src="chartOff_FFFFFF.png"
-      />
-    </button>
-    <button
-      className="NavBarSettingsOff NavBtn"
-      onClick={[Function]}
-      type="button"
-    >
-      <img
-        alt="Settings"
-        className="NavImg"
-        src="settingsOff_FFFFFF.png"
-      />
-    </button>
-    <button
-      className="NavBarInfoOff NavBtn"
-      onClick={[Function]}
-      type="button"
-    >
-      <img
-        alt="Info"
-        className="NavImg"
-        src="infoOff_FFFFFF.png"
-      />
-    </button>
+      <button
+        className="NavBarDecksOff NavBtn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Decks"
+          className="NavImg"
+          src="decksOff_FFFFFF.png"
+        />
+      </button>
+      <button
+        className="NavBarListOn NavBtn"
+        type="button"
+      >
+        <img
+          alt="List"
+          className="NavImg"
+          src="list_FFFFFF.png"
+        />
+      </button>
+      <button
+        className="NavBarChartOff NavBtn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Chart"
+          className="NavImg"
+          src="chartOff_FFFFFF.png"
+        />
+      </button>
+      <button
+        className="NavBarSettingsOff NavBtn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Settings"
+          className="NavImg"
+          src="settingsOff_FFFFFF.png"
+        />
+      </button>
+      <button
+        className="NavBarInfoOff NavBtn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Info"
+          className="NavImg"
+          src="infoOff_FFFFFF.png"
+        />
+      </button>
+    </div>
   </div>
 </div>
 `;

@@ -16,17 +16,23 @@ exports[`snapshot of UI renders consistently 1`] = `
       Confirm Delete? 
     </span>
     <br />
+     
+    <br />
   </div>
-  <button
-    className="AppBtn YesDelete"
-    onClick={[Function]}
-    type="button"
+  <div
+    className="LineContainer"
   >
-    <img
-      alt="Done"
-      className="btnImg"
-      src="done_FFFFFF.png"
-    />
-  </button>
+    <button
+      className="AppBtn YesDelete"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Done"
+        className="btnImg"
+        src="done_FFFFFF.png"
+      />
+    </button>
+  </div>
 </div>
 `;

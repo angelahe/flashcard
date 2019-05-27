@@ -18,7 +18,7 @@ test('Test Client deletes a deck successfully', () => {
     expect(response).toEqual({ message: 'Successfully deleted' });
   });
   expect(fetch.mock.calls.length).toEqual(2);
-  expect(fetch.mock.calls[1][0]).toEqual(`/api/deck/${testDeckId}/delete`);
+  expect(fetch.mock.calls[1][0]).toEqual(`/api/deck/${testDeckId}`);
 });
 
 // will want to check the L1 and L2 after creation
@@ -67,4 +67,14 @@ test('Test Client gives list of all cards in deck', () => {
   });
   expect(fetch.mock.calls.length).toEqual(5);
   expect(fetch.mock.calls[4][0]).toEqual('api/deck/DECK-1234/cards');
+});
+
+test('Test Client deletes a card successfully', () => {
+  const testCardId = '1809fd82-686a-4205-b0b5-51db95c0fd22';
+  fetch.once(JSON.stringify({ message: 'Successfully deleted' }));
+  Client.deleteCard(testCardId).then((response) => {
+    expect(response).toEqual({ message: 'Successfully deleted' });
+  });
+  expect(fetch.mock.calls.length).toEqual(6);
+  expect(fetch.mock.calls[5][0]).toEqual(`/api/card/${testCardId}`);
 });
