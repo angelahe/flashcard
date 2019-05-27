@@ -1,9 +1,13 @@
-// interract with db back end
+let idToken = '';
 
+// interact with db back end
 function createDeck(name, key, order) {
   return fetch(`/api/deck?deck_name=${name}&deck_key=${key}&deck_order=${order}`,
     {
       method: 'POST',
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
     })
     .then(response => response.json())
     .then(deck => deck.id)
@@ -11,9 +15,12 @@ function createDeck(name, key, order) {
 }
 
 function deleteDeck(deck) {
-  return fetch(`/api/deck/${deck}/delete`,
+  return fetch(`/api/deck/${deck}`,
     {
-      method: 'POST',
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
     })
     .then(response => response.json())
     .catch(err => console.error(err.message));
@@ -45,7 +52,11 @@ function getCardsInDeck(deckId) {
     .catch(err => console.error(err.message));
 }
 
+function login(token) {
+  idToken = token;
+}
+
 const Client = {
-  createDeck, deleteDeck, createCard, getDecks, getCardsInDeck,
+  login, createDeck, deleteDeck, createCard, getDecks, getCardsInDeck,
 };
 export default Client;

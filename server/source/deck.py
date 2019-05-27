@@ -6,11 +6,12 @@ import uuid
 
 from flask import(Blueprint, g, request, json, make_response, abort, jsonify)
 from source.db import get_db
+from source.auth import check_authorization
 
 bp = Blueprint('deck', __name__, url_prefix='/api/deck')
 
-
 @bp.route('', methods=['POST'])
+@check_authorization
 def create():
     """insert row to deck table"""
     print(request)
@@ -42,7 +43,8 @@ def get_deck(id):
         abort(404, "Deck id {0} doesn't exist.".format(id))
     return deck
 
-@bp.route('/<string:deck_id>/delete', methods=('POST',))
+@bp.route('/<string:deck_id>', methods=['DELETE'])
+@check_authorization
 def delete_deck(deck_id):
     deck = get_deck(deck_id)
     print(f'deck is $deck')
