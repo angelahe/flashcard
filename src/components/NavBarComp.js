@@ -65,7 +65,7 @@ class NavBarComp extends React.Component {
               </button>
             )
             : (
-              <button type="button" className="NavBarDecksOff NavBarNavBtn" onClick={this.handleDecksClicked}>
+              <button type="button" className="NavBarDecksOff NavBtn" onClick={this.handleDecksClicked}>
                 <img className="NavImg" src={decksOffBtn} alt="Decks" />
               </button>
             )
