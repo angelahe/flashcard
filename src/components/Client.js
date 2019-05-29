@@ -26,14 +26,19 @@ function createDeck(name, key, order) {
 
 function editDeck(deckId, name, key, order) {
   console.log('deck id is ', deckId);
-  const data = { deck_name: name, deck_key: key, deck_order: order };
-  return fetch(`api/deck/${deckId}/update&deck_name=${name}&deck_key=${key}&deck_order=${order}`,
+  return fetch(`api/deck/${deckId}/update`,
     {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${idToken}`,
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        deck_name: name,
+        deck_key: key,
+        deck_order: order,
+      }),
     })
     .then(response => response.json())
     .then(deck => deck.id)

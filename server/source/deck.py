@@ -54,15 +54,22 @@ def update(deck_id):
     print('deck id is {0}'.format(deck_id))
     deck = get_deck(deck_id)
 
-    deck_name = request.args.get('deck_name')
-    deck_key = request.args.get('deck_key')
-    deck_order = request.args.get('deck_order')
+    content = request.get_json()
+    #print('-----add request ', request, content)
+    #print('about to add ', content['deck_name'], content['deck_key'], content['deck_order'])
+
+    deck_name = content['deck_name']
+    deck_key = content['deck_key']
+    deck_order = content['deck_order']
+
     message = None
     response = {}
 
     if not deck_name:
         message = 'Deck Name is required'
     
+    print('----message', message)
+
     if message is not None:
         #return error
         print('error updating')
