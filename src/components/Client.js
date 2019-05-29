@@ -2,12 +2,22 @@ let idToken = '';
 
 // interact with db back end
 function createDeck(name, key, order) {
-  return fetch(`/api/deck?deck_name=${name}&deck_key=${key}&deck_order=${order}`,
+  const data = { deck_name: name, deck_key: key, deck_order: order };
+  console.log('---data is ', data);
+
+  return fetch('/api/deck',
     {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${idToken}`,
+        Accept: "application/json, text/plain, */*",
+				"Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        deck_name: name,
+        deck_key: key,
+        deck_order: order,
+      }),
     })
     .then(response => response.json())
     .then(deck => deck.id)
@@ -16,12 +26,14 @@ function createDeck(name, key, order) {
 
 function editDeck(deckId, name, key, order) {
   console.log('deck id is ', deckId);
-  return fetch(`api/deck/${deckId}&deck_name=${name}&deck_key=${key}&deck_order=${order}`,
+  const data = { deck_name: name, deck_key: key, deck_order: order };
+  return fetch(`api/deck/${deckId}/update&deck_name=${name}&deck_key=${key}&deck_order=${order}`,
     {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${idToken}`,
       },
+      body: JSON.stringify(data),
     })
     .then(response => response.json())
     .then(deck => deck.id)
@@ -51,7 +63,7 @@ function createCard(deckId, l1word, l2word, order, imageUrl, imageId) {
 }
 
 function editCard(cardId, l1word, l2word, order, imageUrl, imageId) {
-  return fetch(`api/card/${cardId}&L1_word=${l1word}&L2_word=${l2word}&card_order=${order}&img_url=${imageUrl}&img_id=${imageId}`,
+  return fetch(`api/card/${cardId}/update&L1_word=${l1word}&L2_word=${l2word}&card_order=${order}&img_url=${imageUrl}&img_id=${imageId}`,
     {
       method: 'POST',
     })

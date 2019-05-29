@@ -30,7 +30,7 @@ def get_card(id):
         abort(404, "Card id {0} doesn't exist.".format(id))
     return card
 
-@bp.route('/<string:card_id>', methods=['POST'])
+@bp.route('/<string:card_id>/update', methods=['POST'])
 @check_authorization
 def update(card_id):
     card = get_card(card_id)

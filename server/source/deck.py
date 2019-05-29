@@ -15,11 +15,14 @@ bp = Blueprint('deck', __name__, url_prefix='/api/deck')
 def create():
     """insert row to deck table"""
     print(request)
-    print("request data is", request.data)
+   
+    content = request.get_json()
+    #print('-----add request ', request, content)
+    #print('about to add ', content['deck_name'], content['deck_key'], content['deck_order'])
 
-    deck_name = request.args.get('deck_name')
-    deck_key = request.args.get('deck_key')
-    deck_order = request.args.get('deck_order')
+    deck_name = content['deck_name']
+    deck_key = content['deck_key']
+    deck_order = content['deck_order']
 
     db = get_db()
     deck_id = str(uuid.uuid4())
@@ -43,9 +46,12 @@ def get_deck(id):
         abort(404, "Deck id {0} doesn't exist.".format(id))
     return deck
 
-@bp.route('/<string:deck_id>', methods=['POST'])
+@bp.route('/<string:deck_id>/update', methods=['POST'])
 @check_authorization
 def update(deck_id):
+    print(deck_id)
+    print('in update of deck')
+    print('deck id is {0}'.format(deck_id))
     deck = get_deck(deck_id)
 
     deck_name = request.args.get('deck_name')
