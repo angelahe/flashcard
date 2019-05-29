@@ -6,19 +6,33 @@ import Client from './Client';
 import done from '../img/buttons/done_FFFFFF.png';
 import english from '../img/buttons/english_FFFFFF.png';
 import spanish from '../img/buttons/spanish_FFFFFF.png';
+import order from '../img/buttons/order_FFFFFF.png';
 
 class EditCardComp extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       currentCard: '',
       currentL1: '',
       currentL2: '',
+      currentOrder: 0,
       currentImageUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png',
       currentImageId: 77680,
       addImage: false,
-      styleImage: 'cardDefault',
+      styleImage: 'cardContainer',
     };
+  }
+
+  componentDidMount = () => {
+    const { card } = this.props;
+
+    this.setState({
+      currentL1: card.L1_word,
+      currentL2: card.L2_word,
+      currentImageUrl: card.img_url,
+      currentImageId: card.img_id,
+      currentOrder: card.card_order,
+    });
   }
 
   handleL1Change = (event) => {
@@ -29,21 +43,27 @@ class EditCardComp extends React.Component {
     this.setState({ currentL2: event.target.value });
   };
 
+  handleOrderChange = (event) => {
+    this.setState({ currentOrder: event.target.value });
+  };
+
   handleEditCardClick = () => {
-    const { card, onCardEdit } = this.props;
+    const { card, onCardEdited } = this.props;
     const {
+      currentCard,
       currentL1,
       currentL2,
+      currentOrder,
       currentImageUrl,
       currentImageId,
     } = this.state;
 
-  /*    Client.createCard(deck, currentL1, currentL2, currentImageUrl, currentImageId)
+    Client.editCard(card.card_id, currentL1, currentL2, currentOrder,
+      currentImageUrl, currentImageId)
       .then((id) => {
         this.setState({ currentCard: id });
-        onCardAdded(id);
+        onCardEdited(currentCard);
       });
-  */
   };
 
   handleImageAdded = (imageUrl, imageId) => {
@@ -62,46 +82,53 @@ class EditCardComp extends React.Component {
 
   render() {
     const {
-      currentCard,
       currentL1,
       currentL2,
+      currentOrder,
       currentImageId,
       currentImageUrl,
       addImage,
       styleImage,
     } = this.state;
-    const { deck } = this.props;
     return (
       <div className="EditCardComp">
         { (addImage !== true)
           ? (
-            <div>
-              <button
-                className={styleImage}
-                type="button"
-                onClick={this.handleImageClick}
-                onKeyPress={this.handleItemClick}
-              >
-                <img
-                  className="cardImg"
-                  src={currentImageUrl}
-                  alt={currentImageId}
-                />
-              </button>
+            <div className="AddImage">
+              <div className="LineContainer">
+                <button
+                  className={styleImage}
+                  type="button"
+                  onClick={this.handleImageClick}
+                  onKeyPress={this.handleItemClick}
+                >
+                  <img
+                    className="cardImg"
+                    src={currentImageUrl}
+                    alt={currentImageId}
+                  />
+                </button>
+              </div>
               <br />
               <div>
                 <div className="LineContainer">
                   <img className="btnImg" src={english} alt="English" />
-                  <input className="DetailText" value={currentL1} onChange={this.handleL1Change} />
+                  <input className="L1Input DetailText" value={currentL1} onChange={this.handleL1Change} />
                   <br />
                 </div>
                 <div className="LineContainer">
                   <img className="btnImg" src={spanish} alt="Spanish" />
-                  <input className="DetailText" value={currentL2} onChange={this.handleL2Change} />
+                  <input className="L2Input DetailText" value={currentL2} onChange={this.handleL2Change} />
                 </div>
-                <button className="AppBtn" type="button" onClick={this.handleEditCardClick}>
-                  <img className="btnImg" src={done} alt="Done" />
-                </button>
+                <div className="LineContainer">
+                  <img className="btnImg" src={order} alt="Order" />
+                  <input className="Order DetailText" type="Number" value={currentOrder} onChange={this.handleOrderChange} />
+                </div>
+                <div className="LineContainer">
+                  <button className="DoneBtn AppBtn" type="button" onClick={this.handleAddCardClick}>
+                    <img className="btnImg" src={done} alt="Done" />
+                  </button>
+                </div>
               </div>
               <br />
               <span className="DetailText">Image:</span>
@@ -111,21 +138,27 @@ class EditCardComp extends React.Component {
           )
           : <AddImageComp onImageAdded={this.handleImageAdded} />
         }
-
-        {(currentCard) ? <p>current card: {currentCard}</p> : null}
-        {(deck) ? <p>C current deck is: {deck}</p> : null}
       </div>
     );
   }
 }
 
 EditCardComp.defaultProps = {
-  onCardEdit: () => { },
+  onCardEdited: () => { },
 };
 
 EditCardComp.propTypes = {
-  card: PropTypes.string.isRequired,
-  onCardEdit: PropTypes.func,
+  card: PropTypes.shape({
+    card_id: PropTypes.string.isRequired,
+    deck_id: PropTypes.string.isRequired,
+    L1_word: PropTypes.string,
+    L2_word: PropTypes.string,
+    img_id: PropTypes.number,
+    img_url: PropTypes.string,
+    card_order: PropTypes.number,
+    cardtype_id: PropTypes.string,
+  }).isRequired,
+  onCardEdited: PropTypes.func,
 };
 
 export default EditCardComp;

@@ -39,7 +39,7 @@ it('click editDeck calls handler', (done) => {
 
   setTimeout(() => {
     expect(handleDeckEdit.mock.calls.length).toBe(1);
-    expect(handleDeckEdit.mock.calls[0][0]).toBe(deck.deck_id);
+    expect(handleDeckEdit.mock.calls[0][0]).toBe(deck);
     done();
   });
 });

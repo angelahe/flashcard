@@ -4,18 +4,22 @@ exports[`snapshot of UI renders consistently 1`] = `
 <div
   className="EditCardComp"
 >
-  <div>
-    <button
-      className="cardDefault"
-      onClick={[Function]}
-      type="button"
+  <div
+    className="AddImage"
+  >
+    <div
+      className="LineContainer"
     >
-      <img
-        alt={77680}
-        className="cardImg"
-        src="https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png"
-      />
-    </button>
+      <button
+        className="cardContainer"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          className="cardImg"
+        />
+      </button>
+    </div>
     <br />
     <div>
       <div
@@ -27,9 +31,8 @@ exports[`snapshot of UI renders consistently 1`] = `
           src="english_FFFFFF.png"
         />
         <input
-          className="DetailText"
+          className="L1Input DetailText"
           onChange={[Function]}
-          value=""
         />
         <br />
       </div>
@@ -42,22 +45,38 @@ exports[`snapshot of UI renders consistently 1`] = `
           src="spanish_FFFFFF.png"
         />
         <input
-          className="DetailText"
+          className="L2Input DetailText"
           onChange={[Function]}
-          value=""
         />
       </div>
-      <button
-        className="AppBtn"
-        onClick={[Function]}
-        type="button"
+      <div
+        className="LineContainer"
       >
         <img
-          alt="Done"
+          alt="Order"
           className="btnImg"
-          src="done_FFFFFF.png"
+          src="order_FFFFFF.png"
         />
-      </button>
+        <input
+          className="Order DetailText"
+          onChange={[Function]}
+          type="Number"
+        />
+      </div>
+      <div
+        className="LineContainer"
+      >
+        <button
+          className="DoneBtn AppBtn"
+          type="button"
+        >
+          <img
+            alt="Done"
+            className="btnImg"
+            src="done_FFFFFF.png"
+          />
+        </button>
+      </div>
     </div>
     <br />
     <span
@@ -67,14 +86,10 @@ exports[`snapshot of UI renders consistently 1`] = `
     </span>
     <p>
       Url:
-      https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png
         id:
-      77680
     </p>
     <img
-      alt={77680}
       className="btnImg"
-      src="https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png"
     />
   </div>
 </div>

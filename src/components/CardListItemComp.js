@@ -13,11 +13,11 @@ const CardListItemComp = (props) => {
   } = props;
 
   function handleItemClick() {
-    onCardSelect(card.card_id);
+    onCardSelect(card);
   }
 
   function handleEditClick() {
-    onCardEdit(card.card_id);
+    onCardEdit(card);
   }
 
   function handleDeleteClick() {

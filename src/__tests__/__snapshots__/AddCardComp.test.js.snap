@@ -65,7 +65,7 @@ exports[`AddCardComp renders correctly 1`] = `
           className="Order DetailText"
           onChange={[Function]}
           type="Number"
-          value=""
+          value={0}
         />
       </div>
       <div

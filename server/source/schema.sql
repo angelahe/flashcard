@@ -1,12 +1,14 @@
 DROP TABLE IF EXISTS deck;
 DROP TABLE IF EXISTS card;
 DROP TABLE IF EXISTS cardtype;
+DROP TABLE IF EXISTS appuser;
 
 CREATE TABLE deck (
     deck_id TEXT PRIMARY KEY,
     deck_name TEXT NOT NULL,
     deck_key TEXT,
-    deck_order TEXT
+    deck_order INTEGER,
+    author_id TEXT
 );
 
 CREATE TABLE card (
@@ -18,8 +20,15 @@ CREATE TABLE card (
     img_id INTEGER,
     card_order INTEGER,
     cardtype_id TEXT,
+    author_id TEXT,
     FOREIGN KEY (deck_id) REFERENCES deck(deck_id),
     FOREIGN KEY (cardtype_id) REFERENCES cardtype(cardtype_id)
+);
+
+CREATE TABLE appuser (
+    user_id TEXT PRIMARY KEY,
+    user_email TEXT,
+    user_name TEXT
 );
 
 CREATE TABLE cardtype (
@@ -27,4 +36,3 @@ CREATE TABLE cardtype (
     cardtype_name TEXT NOT NULL,
     cardtype_desc TEXT
 );
-

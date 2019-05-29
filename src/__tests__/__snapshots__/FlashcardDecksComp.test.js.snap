@@ -29,8 +29,8 @@ exports[`snapshot of UI renders consistently 1`] = `
       Flashcards
     </span>
   </div>
-  <p>
-    FlashcardDecksComp coming soon
-  </p>
+  <div
+    className="DeckContainer"
+  />
 </div>
 `;

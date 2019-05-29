@@ -20,7 +20,7 @@ const DeckListItemComp = (props) => {
 
   function handleEditClick() {
     // console.log('in handle edit click');
-    onDeckEdit(deck.deck_id);
+    onDeckEdit(deck);
   }
 
   function handleDeleteClick() {

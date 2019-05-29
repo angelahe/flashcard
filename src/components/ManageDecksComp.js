@@ -16,6 +16,8 @@ class ManageDecksComp extends React.Component {
     this.state = {
       currentDeck: '',
       currentCard: '',
+      thisDeck: {},
+      thisCard: {},
       headerText: 'Decks',
       currentView: 'DeckList',
     };
@@ -108,9 +110,9 @@ class ManageDecksComp extends React.Component {
     this.setState({ currentDeck: deckId });
   }
 
-  handleDeckEdit = (deckId) => {
+  handleDeckEdit = (deck) => {
     this.setView('DeckEdit');
-    this.setState({ currentDeck: deckId });
+    this.setState({ thisDeck: deck });
   }
 
   handleDeckDelete = (deckId) => {
@@ -123,13 +125,13 @@ class ManageDecksComp extends React.Component {
     this.setView('CardList');
   }
 
-  handleCardSelect = (cardId) => {
-    this.setState({ currentCard: cardId });
+  handleCardSelect = (card) => {
+    this.setState({ thisCard: card });
     this.setView('CardEdit');
   }
 
-  handleCardEdit = (cardId) => {
-    this.setState({ currentCard: cardId });
+  handleCardEdit = (card) => {
+    this.setState({ thisCard: card });
     this.setView('CardEdit');
   }
 
@@ -161,7 +163,7 @@ class ManageDecksComp extends React.Component {
 
   render() {
     const {
-      currentView, currentDeck, currentCard, showAdd, headerText,
+      currentView, currentDeck, currentCard, showAdd, headerText, thisCard, thisDeck,
     } = this.state;
 
     return (
@@ -194,7 +196,7 @@ class ManageDecksComp extends React.Component {
         { (currentView === 'DeckEdit')
           ? (
             <div>
-              <EditDeckComp />
+              <EditDeckComp deck={thisDeck} onDeckEdited={this.handleDeckEdited} />
             </div>
           )
           : null
@@ -238,8 +240,8 @@ class ManageDecksComp extends React.Component {
           ? (
             <div>
               <EditCardComp
-                card={currentCard}
-                onCardEdit={this.handleCardEdit}
+                card={thisCard}
+                onCardEdited={this.handleCardEdited}
               />
             </div>
           )

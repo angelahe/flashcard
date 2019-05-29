@@ -44,9 +44,9 @@ class CardListComp extends React.Component {
     onCardEdit(card);
   }
 
-  handleCardDelete = (card) => {
+  handleCardDelete = (cardId) => {
     const { onCardDelete } = this.props;
-    onCardDelete(card);
+    onCardDelete(cardId);
   }
 
   render() {

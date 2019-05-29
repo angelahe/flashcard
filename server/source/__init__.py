@@ -52,5 +52,8 @@ def create_app(test_config=None):
 
     from . import cardtype
     app.register_blueprint(cardtype.bp)
+
+    from . import user
+    app.register_blueprint(user.bp)
      
     return app

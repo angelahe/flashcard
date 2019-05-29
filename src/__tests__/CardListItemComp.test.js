@@ -38,7 +38,7 @@ it('click editCard button calls handler', (done) => {
 
   setTimeout(() => {
     expect(handleCardEdit.mock.calls.length).toBe(1);
-    expect(handleCardEdit.mock.calls[0][0]).toBe(card.card_id);
+    expect(handleCardEdit.mock.calls[0][0]).toBe(card);
     done();
   });
 });
@@ -64,7 +64,7 @@ it('click select Card text calls handler', (done) => {
 
   setTimeout(() => {
     expect(handleCardSelect.mock.calls.length).toBe(1);
-    expect(handleCardSelect.mock.calls[0][0]).toBe(card.card_id);
+    expect(handleCardSelect.mock.calls[0][0]).toBe(card);
     done();
   });
 });

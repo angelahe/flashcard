@@ -14,8 +14,22 @@ function createDeck(name, key, order) {
     .catch(err => console.error(err.message));
 }
 
-function deleteDeck(deck) {
-  return fetch(`/api/deck/${deck}`,
+function editDeck(deckId, name, key, order) {
+  console.log('deck id is ', deckId);
+  return fetch(`api/deck/${deckId}&deck_name=${name}&deck_key=${key}&deck_order=${order}`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
+    })
+    .then(response => response.json())
+    .then(deck => deck.id)
+    .catch(err => console.error(err.message));
+}
+
+function deleteDeck(deckId) {
+  return fetch(`/api/deck/${deckId}`,
     {
       method: 'DELETE',
       headers: {
@@ -28,6 +42,16 @@ function deleteDeck(deck) {
 
 function createCard(deckId, l1word, l2word, order, imageUrl, imageId) {
   return fetch(`api/deck/${deckId}/card?L1_word=${l1word}&L2_word=${l2word}&card_order=${order}&img_url=${imageUrl}&img_id=${imageId}`,
+    {
+      method: 'POST',
+    })
+    .then(response => response.json())
+    .then(card => card.card_id)
+    .catch(err => console.error(err.message));
+}
+
+function editCard(cardId, l1word, l2word, order, imageUrl, imageId) {
+  return fetch(`api/card/${cardId}&L1_word=${l1word}&L2_word=${l2word}&card_order=${order}&img_url=${imageUrl}&img_id=${imageId}`,
     {
       method: 'POST',
     })
@@ -66,13 +90,16 @@ function getCardsInDeck(deckId) {
 
 function login(token) {
   idToken = token;
+  console.log('token is ', token);
 }
 
 const Client = {
   login,
   createDeck,
+  editDeck,
   deleteDeck,
   createCard,
+  editCard,
   deleteCard,
   getDecks,
   getCardsInDeck,

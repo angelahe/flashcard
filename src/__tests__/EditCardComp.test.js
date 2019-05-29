@@ -5,7 +5,8 @@ import renderer from 'react-test-renderer';
 
 import EditCardComp from '../components/EditCardComp';
 
-const card = 'ABCD-1234';
+const card = { card_id: 'ABCD-1234', deck_id: 'DECK-1234' };
+
 it('renders without crashing', () => {
   shallow(<EditCardComp card={card} />);
 });

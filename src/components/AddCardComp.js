@@ -15,7 +15,7 @@ class AddCardComp extends React.Component {
       currentCard: '',
       currentL1: '',
       currentL2: '',
-      currentOrder: '',
+      currentOrder: 0,
       currentImageUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/77680-200.png',
       currentImageId: 77680,
       addImage: false,

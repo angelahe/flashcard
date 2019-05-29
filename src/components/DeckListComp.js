@@ -33,9 +33,9 @@ class DeckListComp extends React.Component {
       .catch(err => console.error('There was a problem with getting decks', err.message));
   }
 
-  handleDeckSelect = (deck) => {
+  handleDeckSelect = (deckId) => {
     const { onDeckSelect } = this.props;
-    onDeckSelect(deck);
+    onDeckSelect(deckId);
   }
 
   handleDeckEdit = (deck) => {
@@ -43,9 +43,9 @@ class DeckListComp extends React.Component {
     onDeckEdit(deck);
   }
 
-  handleDeckDelete = (deck) => {
+  handleDeckDelete = (deckId) => {
     const { onDeckDelete } = this.props;
-    onDeckDelete(deck);
+    onDeckDelete(deckId);
   }
 
   render() {
@@ -65,9 +65,14 @@ class DeckListComp extends React.Component {
 
     return (
       <div>
-        <div className="DeckListComp AppList">
-          {deckListItems}
-        </div>
+        { deckList
+          ? (
+            <div className="DeckListComp AppList">
+              {deckListItems}
+            </div>
+          )
+          : null
+        }
       </div>
     );
   }

@@ -43,6 +43,38 @@ def get_deck(id):
         abort(404, "Deck id {0} doesn't exist.".format(id))
     return deck
 
+@bp.route('/<string:deck_id>', methods=['POST'])
+@check_authorization
+def update(deck_id):
+    deck = get_deck(deck_id)
+
+    deck_name = request.args.get('deck_name')
+    deck_key = request.args.get('deck_key')
+    deck_order = request.args.get('deck_order')
+    message = None
+    response = {}
+
+    if not deck_name:
+        message = 'Deck Name is required'
+    
+    if message is not None:
+        #return error
+        print('error updating')
+        response = {"message": message}
+        body = json.dumps(response)
+        return make_response(body, 400)
+    else:
+        db = get_db()
+        db.execute(
+            'UPDATE deck SET deck_name = ?, deck_key = ?, deck_order = ?'
+            ' WHERE deck_id = ?',
+            (deck_name, deck_key, deck_order, deck_id)
+        )
+        db.commit()
+        response = {"message": "Successfully updated"}
+        body = json.dumps(response)
+        return make_response(body, 200)
+
 @bp.route('/<string:deck_id>', methods=['DELETE'])
 @check_authorization
 def delete_deck(deck_id):

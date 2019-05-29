@@ -4,10 +4,13 @@ import { shallow } from 'enzyme';
 import App from '../App';
 import Client from '../components/Client';
 
-const { hello } = window;
-
 it('renders without crashing', () => {
   fetch.once(JSON.stringify([{ deck_id: '76ff91c7-8c30-4226-93f2-2c295fdb9939' }, { deck_id: '1a614b6b-408a-4365-94be-2b87be6b94dc' }]));
+  
+  // const hello = jest.fn(() => {});
+  
+  // hello.init = jest.fn(() => Promise.resolve(xxx));
+
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
