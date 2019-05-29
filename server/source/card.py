@@ -35,21 +35,26 @@ def get_card(id):
 def update(card_id):
     card = get_card(card_id)
 
-    L1_word = request.args.get('L1_word')
-    L2_word = request.args.get('L2_word')
-    img_url = request.args.get('img_url')
-    img_id = request.args.get('img_id')
-    card_order = request.args.get('card_order')
-    cardtype_id = request.args.get('cardtype_id')
+    content = request.get_json()
+    print('----update card ', request, content)
+
+    L1_word = content['L1_word']
+    L2_word = content['L2_word']
+    img_url = content['img_url']
+    img_id = content['img_id']
+    card_order = content['card_order']
+    print('----L1word is ', L1_word)
+
     message = None
     response = {}
 
-    if not L1_word :
+    if not L1_word:
         message = 'L1 is required'
     
-    if not L2_word :
+    if not L2_word:
         message = 'L2 is required'
     
+    print('message is ', message)
     if message is not None:
         #return error
         print('error updating')
@@ -60,9 +65,9 @@ def update(card_id):
         db = get_db()
         db.execute(
             'UPDATE card SET L1_word = ?, L2_word = ?, img_url = ?,'
-            ' img_id = ?, card_order = ?, cardtype_id = ?'
+            ' img_id = ?, card_order = ?'
             ' WHERE card_id = ?',
-            (L1_word, L2_word, img_url, img_id, card_order, cardtype_id)
+            (L1_word, L2_word, img_url, img_id, card_order, card_id)
         )
         db.commit()
         response = {"message": "Successfully updated"}

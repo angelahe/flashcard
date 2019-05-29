@@ -68,9 +68,21 @@ function createCard(deckId, l1word, l2word, order, imageUrl, imageId) {
 }
 
 function editCard(cardId, l1word, l2word, order, imageUrl, imageId) {
-  return fetch(`api/card/${cardId}/update&L1_word=${l1word}&L2_word=${l2word}&card_order=${order}&img_url=${imageUrl}&img_id=${imageId}`,
+  return fetch(`api/card/${cardId}/update`,
     {
       method: 'POST',
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        L1_word: l1word,
+        L2_word: l2word,
+        card_order: order,
+        img_url: imageUrl,
+        img_id: imageId,
+      }),
     })
     .then(response => response.json())
     .then(card => card.card_id)

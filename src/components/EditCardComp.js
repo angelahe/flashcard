@@ -125,7 +125,7 @@ class EditCardComp extends React.Component {
                   <input className="Order DetailText" type="Number" value={currentOrder} onChange={this.handleOrderChange} />
                 </div>
                 <div className="LineContainer">
-                  <button className="DoneBtn AppBtn" type="button" onClick={this.handleAddCardClick}>
+                  <button className="DoneBtn AppBtn" type="button" onClick={this.handleEditCardClick}>
                     <img className="btnImg" src={done} alt="Done" />
                   </button>
                 </div>
