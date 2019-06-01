@@ -38,14 +38,6 @@ it('contains the container div FlashcardDecksComp on shallow render', () => {
   expect(component.html()).toContain('FlashcardDecksComp');
 });
 
-it('goes to ManageDecks on Add Click', () => {
-  fetch.once(decks);
-  const handleAddClick = jest.fn(() => {});
-  const component = shallow(<FlashcardDecksComp onAdd={handleAddClick} />);
-  component.instance().handleAddClick();
-  expect(handleAddClick.mock.calls.length).toBe(1);
-});
-
 it('shows decks loaded', (done) => {
   const handleAddClick = jest.fn(() => {});
   Client.getDecks = jest.fn(() => Promise.resolve(deckList.deckList));

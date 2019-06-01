@@ -43,9 +43,9 @@ it('shows ManageDecksComp', () => {
 
 it('shows FlashcardDecksComp', () => {
   const component = shallow(<FlashcardComp />);
-  component.instance().handleNavClick('FlashcardDecks');
-  expect(component.instance().state.currentView).toBe('FlashcardDecks');
-  expect(component.html()).toContain('FlashcardDecksComp');
+  component.instance().handleNavClick('FlashcardPlay');
+  expect(component.instance().state.currentView).toBe('FlashcardPlay');
+  expect(component.html()).toContain('FlashcardPlayComp');
 });
 
 it('shows FlashcardChartComp', () => {

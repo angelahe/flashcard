@@ -47,7 +47,7 @@ it('contains NavBarComp and changes focus to NavBarDecks', (done) => {
     expect(component.html()).toContain('NavBarSettingsOff');
     expect(component.html()).toContain('NavBarInfoOff');
     expect(handleNavClick.mock.calls.length).toBe(1);
-    expect(handleNavClick.mock.calls[0][0]).toBe('FlashcardDecks');
+    expect(handleNavClick.mock.calls[0][0]).toBe('FlashcardPlay');
     done();
   });
 });

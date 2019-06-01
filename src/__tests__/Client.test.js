@@ -8,7 +8,7 @@ test('Test Client creates a deck successfully', () => {
     expect(id).toEqual(testDeckId);
   });
   expect(fetch.mock.calls.length).toEqual(1);
-  expect(fetch.mock.calls[0][0]).toEqual('/api/deck?deck_name=testDeck&deck_key=testKey&deck_order=2');
+  expect(fetch.mock.calls[0][0]).toEqual('/api/deck');
 });
 
 test('Test Client deletes a deck successfully', () => {

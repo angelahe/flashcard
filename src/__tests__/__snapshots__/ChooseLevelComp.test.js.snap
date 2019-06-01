@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot of UI renders consistently 1`] = `
+<div
+  className="ChooseLevelComp"
+>
+  <div
+    className="LineContainer"
+  >
+    <button
+      className="LevelImage ReviewBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="review"
+        className="DeckImg"
+        src="eye_FFFFFF.png"
+      />
+    </button>
+  </div>
+  <div
+    className="LineContainer"
+  >
+    <button
+      className="LevelImage RecognizeBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="recognize"
+        className="DeckImg"
+        src="read_FFFFFF.png"
+      />
+    </button>
+  </div>
+  <div
+    className="LineContainer"
+  >
+    <button
+      className="LevelImage ProduceBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="produce"
+        className="DeckImg"
+        src="write_FFFFFF.png"
+      />
+    </button>
+  </div>
+</div>
+`;

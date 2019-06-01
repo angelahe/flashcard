@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Client from '../Client';
 import '../../styles/flashcard.css';
-import ActionBarComp from '../ActionBarComp';
 import DeckComp from './DeckComp';
 
 class FlashcardDecksComp extends React.Component {
@@ -11,7 +10,6 @@ class FlashcardDecksComp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      headerText: 'Flashcards',
       deckList: [],
     };
   }
@@ -35,17 +33,14 @@ class FlashcardDecksComp extends React.Component {
       .catch(err => console.error('There was a problem with getting decks', err.message));
   }
 
-  handleAddClick = () => {
-    const { onAdd } = this.props;
-    onAdd();
-  }
-
   handleDeckSelect = (deck) => {
+    const { onDeckSelect } = this.props;
     console.log('select deck, need to render game select screen');
+    onDeckSelect(deck);
   }
 
   render() {
-    const { headerText, deckList } = this.state;
+    const { deckList } = this.state;
 
     const deckListItems = deckList.map(deck => (
       <DeckComp
@@ -57,12 +52,6 @@ class FlashcardDecksComp extends React.Component {
 
     return (
       <div className="FlashcardDecksComp">
-        <ActionBarComp
-          showAdd
-          showBack={false}
-          headerText={headerText}
-          onAdd={this.handleAddClick}
-        />
         <div className="DeckContainer">
           {deckListItems}
         </div>
@@ -71,9 +60,9 @@ class FlashcardDecksComp extends React.Component {
   }
 }
 FlashcardDecksComp.defaultProps = {
-  onAdd: () => { },
+  onDeckSelect: () => { },
 };
 FlashcardDecksComp.propTypes = {
-  onAdd: PropTypes.func,
+  onDeckSelect: PropTypes.func,
 };
 export default FlashcardDecksComp;

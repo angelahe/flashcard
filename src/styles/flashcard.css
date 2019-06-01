@@ -128,6 +128,12 @@
 .AddImage {
   justify-content: center;
 }
+.LevelImg {
+ background-color: #375E97;
+ height: 85px;
+ width: 60px;
+ margin: 0; 
+}
 .DeckImg {
   height: 85px;
   width: 60px;

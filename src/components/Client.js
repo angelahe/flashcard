@@ -10,8 +10,8 @@ function createDeck(name, key, order) {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${idToken}`,
-        Accept: "application/json, text/plain, */*",
-				"Content-Type": "application/json",
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         deck_name: name,
@@ -61,6 +61,11 @@ function createCard(deckId, l1word, l2word, order, imageUrl, imageId) {
   return fetch(`api/deck/${deckId}/card?L1_word=${l1word}&L2_word=${l2word}&card_order=${order}&img_url=${imageUrl}&img_id=${imageId}`,
     {
       method: 'POST',
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json', 
+      },
     })
     .then(response => response.json())
     .then(card => card.card_id)

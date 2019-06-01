@@ -14,6 +14,7 @@ class ManageDecksComp extends React.Component {
   constructor() {
     super();
     this.state = {
+      showAdd: true,
       currentDeck: '',
       currentCard: '',
       thisDeck: {},

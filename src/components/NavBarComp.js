@@ -23,7 +23,7 @@ class NavBarComp extends React.Component {
   handleDecksClicked = () => {
     const { onNavClick } = this.props;
     this.setState({ currentFocus: 'decks' });
-    onNavClick('FlashcardDecks');
+    onNavClick('FlashcardPlay');
   };
 
   handleListClicked = () => {

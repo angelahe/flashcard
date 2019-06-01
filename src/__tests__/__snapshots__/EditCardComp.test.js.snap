@@ -68,6 +68,7 @@ exports[`snapshot of UI renders consistently 1`] = `
       >
         <button
           className="DoneBtn AppBtn"
+          onClick={[Function]}
           type="button"
         >
           <img

@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBarComp from './NavBarComp';
 import ManageDecksComp from './ManageDecksComp';
-import FlashcardDecksComp from './flashcard/FlashcardDecksComp';
+import FlashcardPlayComp from './flashcard/FlashcardPlayComp';
 import FlashcardChartComp from './FlashcardChartComp';
 import FlashcardSettingsComp from './FlashcardSettingsComp';
 import FlashcardInfoComp from './FlashcardInfoComp';
@@ -20,7 +20,7 @@ class FlashcardComp extends React.Component {
       case 'FlashcardChart':
       case 'FlashcardSettings':
       case 'FlashcardInfo':
-      case 'FlashcardDecks':
+      case 'FlashcardPlay':
         this.setState({ currentView: newView });
         break;
       default:
@@ -35,7 +35,7 @@ class FlashcardComp extends React.Component {
   handleAddClick = () => {
     const { currentView } = this.state;
     switch (currentView) {
-      case 'FlashcardDecks': {
+      case 'FlashcardPlay': {
         this.setView('ManageDecks');
         break;
       }
@@ -53,8 +53,8 @@ class FlashcardComp extends React.Component {
             ? <ManageDecksComp />
             : null
           }
-          { (currentView === 'FlashcardDecks')
-            ? <FlashcardDecksComp onAdd={this.handleAddClick} />
+          { (currentView === 'FlashcardPlay')
+            ? <FlashcardPlayComp onAdd={this.handleAddClick} />
             : null
           }
           { (currentView === 'FlashcardChart')
