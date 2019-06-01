@@ -3,31 +3,31 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
-import ChooseLevelComp from '../components/flashcard/ChooseLevelComp';
+import SelectLevelComp from '../components/flashcard/SelectLevelComp';
 
 it('renders without crashing', () => {
-  shallow(<ChooseLevelComp />);
+  shallow(<SelectLevelComp />);
 });
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<ChooseLevelComp />, div);
+  ReactDOM.render(<SelectLevelComp />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
 test('snapshot of UI renders consistently', () => {
-  const tree = renderer.create(<ChooseLevelComp />).toJSON();
+  const tree = renderer.create(<SelectLevelComp />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 it('contains the container div ChooseLevelComp on shallow render', () => {
-  const component = shallow(<ChooseLevelComp />);
+  const component = shallow(<SelectLevelComp />);
   expect(component.html()).toContain('ChooseLevelComp');
 });
 
 it('calls onLevelPicked on Review click', (done) => {
   const handleReviewClick = jest.fn(() => {});
-  const component = shallow(<ChooseLevelComp
+  const component = shallow(<SelectLevelComp
     onLevelSelect={handleReviewClick}
   />);
   const button = component.find('.ReviewBtn').first();
@@ -42,7 +42,7 @@ it('calls onLevelPicked on Review click', (done) => {
 
 it('calls onLevelPicked on Recognize click', (done) => {
   const handleRecognizeClick = jest.fn(() => {});
-  const component = shallow(<ChooseLevelComp
+  const component = shallow(<SelectLevelComp
     onLevelSelect={handleRecognizeClick}
   />);
   const button = component.find('.RecognizeBtn').first();
@@ -57,7 +57,7 @@ it('calls onLevelPicked on Recognize click', (done) => {
 
 it('calls onLevelPicked on Produce click', (done) => {
   const handleProduceClick = jest.fn(() => {});
-  const component = shallow(<ChooseLevelComp
+  const component = shallow(<SelectLevelComp
     onLevelSelect={handleProduceClick}
   />);
   const button = component.find('.ProduceBtn').first();

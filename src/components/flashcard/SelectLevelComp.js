@@ -5,7 +5,7 @@ import write from '../../img/buttons/write_FFFFFF.png';
 import eye from '../../img/buttons/eye_FFFFFF.png';
 import read from '../../img/buttons/read_FFFFFF.png';
 
-const ChooseLevelComp = (props) => {
+const SelectLevelComp = (props) => {
   const {
     onLevelSelect,
   } = props;
@@ -43,12 +43,12 @@ const ChooseLevelComp = (props) => {
   );
 };
 
-ChooseLevelComp.defaultProps = {
+SelectLevelComp.defaultProps = {
   onLevelSelect: () => { },
 };
 
-ChooseLevelComp.propTypes = {
+SelectLevelComp.propTypes = {
   onLevelSelect: PropTypes.func,
 };
 
-export default ChooseLevelComp;
+export default SelectLevelComp;
