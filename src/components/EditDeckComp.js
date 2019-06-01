@@ -23,7 +23,7 @@ class EditDeckComp extends React.Component {
       keyValue: deck.deck_key,
       orderValue: deck.deck_order,
     });
-  }
+  };
 
   handleNameChange = (event) => {
     this.setState({ nameValue: event.target.value });
@@ -49,35 +49,50 @@ class EditDeckComp extends React.Component {
     Client.editDeck(deck.deck_id, nameValue, keyValue, orderValue)
       .then(id => this.setState({ currentDeck: id },
         () => onDeckEdited(currentDeck)));
-  }
+  };
 
   render() {
     const { nameValue, keyValue, orderValue } = this.state;
     return (
       <div className="EditDeckComp">
-        <div>
-          <br /> <br />
-          <div className="LineContainer">
-            <span className="DetailText">Name:</span>
-            <input className="DeckName DetailText" value={nameValue} onChange={this.handleNameChange} />
-            <br />
-          </div>
+        <br /> <br />
+        <div className="LineContainer">
+          <span className="DetailText">Name:</span>
+          <input
+            className="DeckName DetailText"
+            value={nameValue}
+            onChange={this.handleNameChange}
+          />
           <br />
-          <div className="LineContainer">
-            <span className="DetailText">Key:</span>
-            <input className="KeyValue DetailText" value={keyValue} onChange={this.handleKeyChange} />
-          </div>
-          <br />
-          <div className="LineContainer">
-            <span className="DetailText">Order:</span>
-            <input className="DeckOrder DetailText" type="Number" value={orderValue} onChange={this.handleOrderChange} />
-          </div>
-          <br />
-          <div className="LineContainer">
-            <button className="AppBtn AddDeckButton" type="button" onClick={this.handleEditDeckClick}>
-              <img className="btnImg" src={done} alt="Done" />
-            </button>
-          </div>
+        </div>
+        <br />
+        <div className="LineContainer">
+          <span className="DetailText">Key:</span>
+          <input
+            className="KeyValue DetailText"
+            value={keyValue}
+            onChange={this.handleKeyChange}
+          />
+        </div>
+        <br />
+        <div className="LineContainer">
+          <span className="DetailText">Order:</span>
+          <input
+            className="DeckOrder DetailText"
+            type="Number"
+            value={orderValue}
+            onChange={this.handleOrderChange}
+          />
+        </div>
+        <br />
+        <div className="LineContainer">
+          <button
+            className="AppBtn AddDeckButton"
+            type="button"
+            onClick={this.handleEditDeckClick}
+          >
+            <img className="btnImg" src={done} alt="Done" />
+          </button>
         </div>
       </div>
     );
@@ -85,7 +100,11 @@ class EditDeckComp extends React.Component {
 }
 
 EditDeckComp.defaultProps = {
-  onDeckEdited: () => { },
+  onDeckEdited: () => {},
+  deck: {
+    deck_key: '',
+    deck_order: 0,
+  },
 };
 
 EditDeckComp.propTypes = {
@@ -94,7 +113,7 @@ EditDeckComp.propTypes = {
     deck_name: PropTypes.string.isRequired,
     deck_key: PropTypes.string,
     deck_order: PropTypes.number,
-  }).isRequired,
+  }),
   onDeckEdited: PropTypes.func,
 };
 

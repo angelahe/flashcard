@@ -4,70 +4,68 @@ exports[`snapshot of UI renders consistently 1`] = `
 <div
   className="EditDeckComp"
 >
-  <div>
-    <br />
-     
-    <br />
-    <div
-      className="LineContainer"
+  <br />
+   
+  <br />
+  <div
+    className="LineContainer"
+  >
+    <span
+      className="DetailText"
     >
-      <span
-        className="DetailText"
-      >
-        Name:
-      </span>
-      <input
-        className="DeckName DetailText"
-        onChange={[Function]}
-        value="Animals"
+      Name:
+    </span>
+    <input
+      className="DeckName DetailText"
+      onChange={[Function]}
+      value="Animals"
+    />
+    <br />
+  </div>
+  <br />
+  <div
+    className="LineContainer"
+  >
+    <span
+      className="DetailText"
+    >
+      Key:
+    </span>
+    <input
+      className="KeyValue DetailText"
+      onChange={[Function]}
+    />
+  </div>
+  <br />
+  <div
+    className="LineContainer"
+  >
+    <span
+      className="DetailText"
+    >
+      Order:
+    </span>
+    <input
+      className="DeckOrder DetailText"
+      onChange={[Function]}
+      type="Number"
+    />
+  </div>
+  <br />
+  <div
+    className="LineContainer"
+  >
+    <button
+      className="AppBtn AddDeckButton"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Done"
+        className="btnImg"
+        src="done_FFFFFF.png"
       />
-      <br />
-    </div>
-    <br />
-    <div
-      className="LineContainer"
-    >
-      <span
-        className="DetailText"
-      >
-        Key:
-      </span>
-      <input
-        className="KeyValue DetailText"
-        onChange={[Function]}
-      />
-    </div>
-    <br />
-    <div
-      className="LineContainer"
-    >
-      <span
-        className="DetailText"
-      >
-        Order:
-      </span>
-      <input
-        className="DeckOrder DetailText"
-        onChange={[Function]}
-        type="Number"
-      />
-    </div>
-    <br />
-    <div
-      className="LineContainer"
-    >
-      <button
-        className="AppBtn AddDeckButton"
-        onClick={[Function]}
-        type="button"
-      >
-        <img
-          alt="Done"
-          className="btnImg"
-          src="done_FFFFFF.png"
-        />
-      </button>
-    </div>
+    </button>
   </div>
 </div>
 `;

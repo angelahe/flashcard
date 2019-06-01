@@ -50,7 +50,6 @@ class EditCardComp extends React.Component {
   handleEditCardClick = () => {
     const { card, onCardEdited } = this.props;
     const {
-      currentCard,
       currentL1,
       currentL2,
       currentOrder,
@@ -61,8 +60,7 @@ class EditCardComp extends React.Component {
     Client.editCard(card.card_id, currentL1, currentL2, currentOrder,
       currentImageUrl, currentImageId)
       .then((id) => {
-        this.setState({ currentCard: id });
-        onCardEdited(currentCard);
+        onCardEdited(id);
       });
   };
 
@@ -145,6 +143,14 @@ class EditCardComp extends React.Component {
 
 EditCardComp.defaultProps = {
   onCardEdited: () => { },
+  card: {
+    L1_word: '',
+    L2_word: '',
+    img_id: 0,
+    img_url: '',
+    card_order: 0,
+    cardtype_id: '',
+  },
 };
 
 EditCardComp.propTypes = {
@@ -157,7 +163,7 @@ EditCardComp.propTypes = {
     img_url: PropTypes.string,
     card_order: PropTypes.number,
     cardtype_id: PropTypes.string,
-  }).isRequired,
+  }),
   onCardEdited: PropTypes.func,
 };
 

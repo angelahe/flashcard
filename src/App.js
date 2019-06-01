@@ -57,10 +57,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  hello: PropTypes.shape({
-    init: PropTypes.func,
-    on: PropTypes.func,
-  }).isRequired,
+  hello: PropTypes.func.isRequired,
 };
 
 export default App;

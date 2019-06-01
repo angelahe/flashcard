@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/flashcard.css';
 import FlashcardDecksComp from './FlashcardDecksComp';
-import ChooseLevelComp from './ChooseLevelComp';
+import SelectLevelComp from './SelectLevelComp';
 import ActionBarComp from '../ActionBarComp';
 
 class FlashcardPlayComp extends React.Component {
@@ -88,7 +88,7 @@ class FlashcardPlayComp extends React.Component {
           : null
         }
         { (currentView === 'ChooseLevel')
-          ? <ChooseLevelComp onLevelSelect={handleLevelSelect} />
+          ? <SelectLevelComp onLevelSelect={handleLevelSelect} />
           : null
         }
       </div>

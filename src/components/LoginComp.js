@@ -18,7 +18,7 @@ class LoginComp extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="LoginComp">
         <button type="button" onClick={this.handleGoogleLogin}>Google</button>
       </div>
     );
