@@ -15,7 +15,6 @@ bp = Blueprint('deck', __name__, url_prefix='/api/deck')
 def create():
     """insert row to deck table"""
     print(request)
-   
     content = request.get_json()
     #print('-----add request ', request, content)
     #print('about to add ', content['deck_name'], content['deck_key'], content['deck_order'])

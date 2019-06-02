@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "venv/bin/python",
+    "python.pythonPath": "./venv/bin/python3",
     "python.testing.pyTestArgs": [
         "tests"
     ],
@@ -8,5 +8,5 @@
     "python.testing.pyTestEnabled": true,
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
-    "python.linting.pylintPath": "pylint"
+    "python.linting.pylintPath": "./venv/bin/pylint",
 }

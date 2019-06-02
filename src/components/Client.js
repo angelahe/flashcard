@@ -4,6 +4,7 @@ let idToken = '';
 function createDeck(name, key, order) {
   const data = { deck_name: name, deck_key: key, deck_order: order };
   console.log('---data is ', data);
+  console.log('auth will be ', idToken);
 
   return fetch('/api/deck',
     {
