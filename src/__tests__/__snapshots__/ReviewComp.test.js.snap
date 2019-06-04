@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot of UI renders consistently 1`] = `
+<div
+  className="ReviewComp"
+>
+  <p>
+    Review Comp
+  </p>
+  <p />
+</div>
+`;

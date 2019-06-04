@@ -34,6 +34,7 @@ exports[`snapshot of UI renders consistently 1`] = `
     <input
       className="KeyValue DetailText"
       onChange={[Function]}
+      value="aaa"
     />
   </div>
   <br />
@@ -49,6 +50,7 @@ exports[`snapshot of UI renders consistently 1`] = `
       className="DeckOrder DetailText"
       onChange={[Function]}
       type="Number"
+      value={1}
     />
   </div>
   <br />

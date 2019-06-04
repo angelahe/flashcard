@@ -34,10 +34,25 @@ it('contains the container div FlashcardPlayComp on shallow render', () => {
   expect(component.html()).toContain('FlashcardPlayComp');
 });
 
-it('goes to ManageDecks on Add Click', () => {
+it('calls the OnAdd handler on Add Click', () => {
   fetch.once(decks);
   const handleAddClick = jest.fn(() => {});
   const component = shallow(<FlashcardPlayComp onAdd={handleAddClick} />);
   component.instance().handleAddClick();
   expect(handleAddClick.mock.calls.length).toBe(1);
+});
+
+it('goes to SelectLevel view when select a deck', (done) => {
+  fetch.once(decks);
+  const handleAddClick = jest.fn(() => {});
+  const component = shallow(<FlashcardPlayComp onAdd={handleAddClick} />);
+  // make sure we are in the flashcard decks view
+  expect(component.html()).toContain('FlashcardDecks');
+  // make sure handleDeckSelect can be run
+  component.instance().handleDeckSelect(decks[0]);
+
+  setTimeout(() => {
+    expect(component.instance().state.currentDeck).toBe(decks[0]);
+    done();
+  });
 });

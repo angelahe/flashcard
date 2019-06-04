@@ -10,7 +10,7 @@ const DeckComp = (props) => {
   } = props;
 
   function handleDeckSelect() {
-    onDeckSelect(deck.deck_id);
+    onDeckSelect(deck);
   }
 
   return (

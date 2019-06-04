@@ -5,7 +5,12 @@ import renderer from 'react-test-renderer';
 
 import EditDeckComp from '../components/EditDeckComp';
 
-const deck = { deck_id: 'ABCD-1234', deck_name: 'Animals' };
+const deck = {
+  deck_id: 'ABCD-1234',
+  deck_name: 'Animals',
+  deck_key: 'aaa',
+  deck_order: 1,
+};
 
 it('renders without crashing', () => {
   shallow(<EditDeckComp deck={deck} />);

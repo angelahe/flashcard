@@ -4,6 +4,7 @@ import '../../styles/flashcard.css';
 import FlashcardDecksComp from './FlashcardDecksComp';
 import SelectLevelComp from './SelectLevelComp';
 import ActionBarComp from '../ActionBarComp';
+import ReviewComp from './ReviewComp';
 
 class FlashcardPlayComp extends React.Component {
   constructor() {
@@ -12,7 +13,7 @@ class FlashcardPlayComp extends React.Component {
       showAdd: true,
       showBack: false,
       headerText: 'Play Decks',
-      currentDeck: '',
+      currentDeck: {},
       currentView: 'FlashcardDecks',
     };
   }
@@ -31,6 +32,10 @@ class FlashcardPlayComp extends React.Component {
       case 'FlashcardDecks':
         headerText = 'Play Decks';
         showAdd = true;
+        break;
+      case 'SelectLevel':
+        headerText = 'Choose Level';
+        showAdd = false;
         break;
       case 'Review':
         headerText = 'Review';
@@ -58,21 +63,29 @@ class FlashcardPlayComp extends React.Component {
   }
 
   handleDeckSelect = (deck) => {
+    console.log('select deck 2, need to render game select screen');
+    console.log('deck is ', deck);
     this.setState({ currentDeck: deck });
+    this.setView('SelectLevel');
   }
 
   handleLevelSelect = (level) => {
     console.log('level selected: ', level);
+    this.setView(level);
+  }
+
+  handleReviewDone = () => {
+    console.log('review done for this level');
+    this.setView('SelectLevel');
   }
 
   render() {
     const {
       currentView,
+      currentDeck,
       showAdd,
       showBack,
       headerText,
-      handleDeckSelect,
-      handleLevelSelect,
     } = this.state;
 
     return (
@@ -84,11 +97,15 @@ class FlashcardPlayComp extends React.Component {
           onAdd={this.handleAddClick}
         />
         { (currentView === 'FlashcardDecks')
-          ? <FlashcardDecksComp onDeckSelect={handleDeckSelect} />
+          ? <FlashcardDecksComp onDeckSelect={this.handleDeckSelect} />
           : null
         }
-        { (currentView === 'ChooseLevel')
-          ? <SelectLevelComp onLevelSelect={handleLevelSelect} />
+        { (currentView === 'SelectLevel')
+          ? <SelectLevelComp onLevelSelect={this.handleLevelSelect} />
+          : null
+        }
+        { (currentView === 'Review')
+          ? <ReviewComp deck={currentDeck} onReviewDone={this.handleReviewDone} />
           : null
         }
       </div>

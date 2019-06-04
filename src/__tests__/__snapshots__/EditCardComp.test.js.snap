@@ -16,7 +16,9 @@ exports[`snapshot of UI renders consistently 1`] = `
         type="button"
       >
         <img
+          alt={123}
           className="cardImg"
+          src="xxx"
         />
       </button>
     </div>
@@ -33,6 +35,7 @@ exports[`snapshot of UI renders consistently 1`] = `
         <input
           className="L1Input DetailText"
           onChange={[Function]}
+          value="cat"
         />
         <br />
       </div>
@@ -47,6 +50,7 @@ exports[`snapshot of UI renders consistently 1`] = `
         <input
           className="L2Input DetailText"
           onChange={[Function]}
+          value="el gato"
         />
       </div>
       <div
@@ -61,6 +65,7 @@ exports[`snapshot of UI renders consistently 1`] = `
           className="Order DetailText"
           onChange={[Function]}
           type="Number"
+          value={1}
         />
       </div>
       <div
@@ -87,10 +92,14 @@ exports[`snapshot of UI renders consistently 1`] = `
     </span>
     <p>
       Url:
+      xxx
         id:
+      123
     </p>
     <img
+      alt={123}
       className="btnImg"
+      src="xxx"
     />
   </div>
 </div>

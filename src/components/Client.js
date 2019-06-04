@@ -65,7 +65,7 @@ function createCard(deckId, l1word, l2word, order, imageUrl, imageId) {
       headers: {
         Authorization: `Bearer ${idToken}`,
         Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json', 
+        'Content-Type': 'application/json',
       },
     })
     .then(response => response.json())
@@ -139,4 +139,5 @@ const Client = {
   getDecks,
   getCardsInDeck,
 };
+
 export default Client;

@@ -35,7 +35,8 @@ class FlashcardDecksComp extends React.Component {
 
   handleDeckSelect = (deck) => {
     const { onDeckSelect } = this.props;
-    console.log('select deck, need to render game select screen');
+    console.log('select deck, need to render game select screen going there now');
+    console.log('deck sent is ', deck);
     onDeckSelect(deck);
   }
 

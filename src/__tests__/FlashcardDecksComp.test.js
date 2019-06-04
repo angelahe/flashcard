@@ -39,13 +39,26 @@ it('contains the container div FlashcardDecksComp on shallow render', () => {
 });
 
 it('shows decks loaded', (done) => {
-  const handleAddClick = jest.fn(() => {});
+  const handleDeckSelect = jest.fn(() => {});
   Client.getDecks = jest.fn(() => Promise.resolve(deckList.deckList));
-  const component = shallow(<FlashcardDecksComp onAdd={handleAddClick} />);
+  const component = shallow(<FlashcardDecksComp onDeckSelect={handleDeckSelect} />);
 
   setTimeout(() => {
     expect(Client.getDecks.mock.calls.length).toBe(1);
     expect(component.instance().state.deckList).toBe(deckList.deckList);
+    done();
+  });
+});
+
+it('sends the selected deck on Select Deck event', (done) => {
+  const handleDeckSelect = jest.fn(() => {});
+  Client.getDecks = jest.fn(() => Promise.resolve(deckList.deckList));
+  const component = shallow(<FlashcardDecksComp onDeckSelect={handleDeckSelect} />);
+  component.instance().handleDeckSelect(deckList.deckList[0]);
+
+  setTimeout(() => {
+    expect(handleDeckSelect.mock.calls.length).toBe(1);
+    expect(handleDeckSelect.mock.calls[0][0]).toBe(deckList.deckList[0]);
     done();
   });
 });
