@@ -24,19 +24,20 @@ const SelectLevelComp = (props) => {
 
   return (
     <div className="ChooseLevelComp">
+      <br /><br /><br />
       <div className="LineContainer">
-        <button className="LevelImage ReviewBtn" type="button" onClick={handleReview}>
-          <img className="DeckImg" src={eye} alt="review" />
+        <button className="ReviewBtn" type="button" onClick={handleReview}>
+          <img className="LevelImg" src={eye} alt="review" />
         </button>
       </div>
       <div className="LineContainer">
-        <button className="LevelImage RecognizeBtn" type="button" onClick={handleRecognize}>
-          <img className="DeckImg" src={read} alt="recognize" />
+        <button className="RecognizeBtn" type="button" onClick={handleRecognize}>
+          <img className="LevelImg" src={read} alt="recognize" />
         </button>
       </div>
       <div className="LineContainer">
-        <button className="LevelImage ProduceBtn" type="button" onClick={handleProduce}>
-          <img className="DeckImg" src={write} alt="produce" />
+        <button className="ProduceBtn" type="button" onClick={handleProduce}>
+          <img className="LevelImg" src={write} alt="produce" />
         </button>
       </div>
     </div>
