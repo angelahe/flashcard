@@ -7,6 +7,8 @@ Flashcard is an app that uses the following technologies:
 ## Authorization
 migrating from jwt authorization to google people api
 see https://developers.google.com/people/api/rest/v1/people/get
+and for the python quickstart:
+https://developers.google.com/people/quickstart/python
 
 
 ## Setup
