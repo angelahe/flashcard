@@ -1,16 +1,11 @@
-let idToken = '';
-
 // interact with db back end
 function createDeck(name, key, order) {
   const data = { deck_name: name, deck_key: key, deck_order: order };
-  console.log('---data is ', data);
-  console.log('auth will be ', idToken);
 
   return fetch('/api/deck',
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${idToken}`,
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
@@ -31,7 +26,6 @@ function editDeck(deckId, name, key, order) {
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${idToken}`,
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
@@ -50,9 +44,6 @@ function deleteDeck(deckId) {
   return fetch(`/api/deck/${deckId}`,
     {
       method: 'DELETE',
-      headers: {
-        Authorization: `Bearer ${idToken}`,
-      },
     })
     .then(response => response.json())
     .catch(err => console.error(err.message));
@@ -63,7 +54,6 @@ function createCard(deckId, l1word, l2word, order, imageUrl, imageId) {
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${idToken}`,
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
@@ -78,7 +68,6 @@ function editCard(cardId, l1word, l2word, order, imageUrl, imageId) {
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${idToken}`,
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
@@ -99,9 +88,6 @@ function deleteCard(card) {
   return fetch(`/api/card/${card}`,
     {
       method: 'DELETE',
-      headers: {
-        Authorization: `Bearer ${idToken}`,
-      },
     })
     .then(response => response.json())
     .catch(err => console.error(err.message));
@@ -123,13 +109,7 @@ function getCardsInDeck(deckId) {
     .catch(err => console.error(err.message));
 }
 
-function login(token) {
-  idToken = token;
-  console.log('token is ', token);
-}
-
 const Client = {
-  login,
   createDeck,
   editDeck,
   deleteDeck,

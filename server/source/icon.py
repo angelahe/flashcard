@@ -2,7 +2,7 @@
 blueprint for /api/icon routes
 """
 import requests
-from flask import(Blueprint, json, make_response, current_app, g, request)
+from flask import(Blueprint, json, make_response, current_app, request)
 from requests_oauthlib import OAuth1
 
 bp = Blueprint('icon', __name__, url_prefix='/api/icon')

@@ -6,7 +6,6 @@ import uuid
 
 from flask import(Blueprint, g, request, json, make_response, abort, jsonify)
 from source.db import get_db
-from source.auth import check_authorization
 
 bp = Blueprint('card', __name__, url_prefix='/api/card')
 @bp.route('/all')
@@ -31,7 +30,6 @@ def get_card(id):
     return card
 
 @bp.route('/<string:card_id>/update', methods=['POST'])
-@check_authorization
 def update(card_id):
     card = get_card(card_id)
 
@@ -75,7 +73,6 @@ def update(card_id):
         return make_response(body, 200)
 
 @bp.route('/<string:card_id>', methods=['DELETE'])
-@check_authorization
 def delete_card(card_id):
     card = get_card(card_id)
     print(f'card is $card')

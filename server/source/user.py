@@ -1,12 +1,8 @@
 """
 blueprint for /api/user routes
 """
-import functools
-import uuid
-
-from flask import(Blueprint, g, request, json, make_response, abort, jsonify)
+from flask import(Blueprint, json, make_response)
 from source.db import get_db
-from source.auth import check_authorization
 
 bp = Blueprint('user', __name__, url_prefix='/api/user')
 @bp.route('/all')

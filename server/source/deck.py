@@ -1,17 +1,14 @@
 """
 blueprint for /api/deck routes
 """
-import functools
 import uuid
 
-from flask import(Blueprint, g, request, json, make_response, abort, jsonify)
+from flask import(Blueprint, request, json, make_response, abort, jsonify)
 from source.db import get_db
-from source.auth import check_authorization
 
 bp = Blueprint('deck', __name__, url_prefix='/api/deck')
 
 @bp.route('', methods=['POST'])
-@check_authorization
 def create():
     """insert row to deck table"""
     print(request)
@@ -46,7 +43,6 @@ def get_deck(id):
     return deck
 
 @bp.route('/<string:deck_id>/update', methods=['POST'])
-@check_authorization
 def update(deck_id):
     print(deck_id)
     print('in update of deck')
@@ -88,7 +84,6 @@ def update(deck_id):
         return make_response(body, 200)
 
 @bp.route('/<string:deck_id>', methods=['DELETE'])
-@check_authorization
 def delete_deck(deck_id):
     deck = get_deck(deck_id)
     print(f'deck is $deck')
