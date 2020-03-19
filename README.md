@@ -4,6 +4,14 @@ Flashcard is an app that uses the following technologies:
 - sqlite3 for the database back end
 - uses thenounproject.com API to fetch images a user can choose from
 
+## Authorization
+migrating from jwt authorization to google people api
+see https://developers.google.com/people/api/rest/v1/people/get
+and for the python quickstart:
+https://developers.google.com/people/quickstart/python
+https://auth0.com/docs/quickstart/backend/python/01-authorization
+
+
 ## Setup
 - download the repository
 - install the back end of the project with pip install -e
