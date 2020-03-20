@@ -23,25 +23,29 @@ const ActionBarComp = (props) => {
   }
 
   return (
-    <div className="ActionBar ActionBarComp">
-      <img className="AppLogo NavImg NavBtn" src={logo} alt="logo" />
-      { showAdd
-        ? (
-          <button type="button" className="AddBtn NavBtn" onClick={handleAddClicked}>
-            <img className="NavImg" src={addBtn} alt="Add" />
-          </button>
-        )
-        : null
-      }
-      <span className="HeaderText">{headerText}</span>
-      { showBack
-        ? (
-          <button type="button" className="BackBtn NavBtn" onClick={handleBackClicked}>
-            <img className="NavImg" src={backBtn} alt="Back" />
-          </button>
-        )
-        : null
-      }
+    <div className="ActionBarComp ActionBar">
+      <div className="LineContainer">
+        <button type="button" className="AppLogo NavBtn">
+          <img className="NavImg" src={logo} alt="logo" />
+        </button>
+        { showAdd
+          ? (
+            <button type="button" className="AddBtn NavBtn" onClick={handleAddClicked}>
+              <img className="NavImg" src={addBtn} alt="Add" />
+            </button>
+          )
+          : null
+        }
+        <span className="HeaderText">{headerText}</span>
+        { showBack
+          ? (
+            <button type="button" className="BackBtn NavBtn" onClick={handleBackClicked}>
+              <img className="NavImg" src={backBtn} alt="Back" />
+            </button>
+          )
+          : null
+        }
+      </div>
     </div>
   );
 };

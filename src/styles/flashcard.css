@@ -68,7 +68,12 @@
   width: 50px;
   padding: 0px;
   margin: 5px;
-  background-color: #375E97 
+  background-color: #375E97 ;
+  justify-content: flex-start;
+}
+
+.push {
+  margin-left: auto;
 }
 
 .ActionBox {
@@ -201,9 +206,9 @@
   color: white;
   font-size: 1.2em;
   width: auto;
-  margin-bottom: 20px;
-  padding: 30px;
-  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  align-self: center;
 }
 
 .DetailText {
